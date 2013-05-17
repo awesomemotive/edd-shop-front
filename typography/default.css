@@ -1,0 +1,164 @@
+body,
+#site-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+}
+.entry-header {
+  margin-bottom: 32px;
+  margin-bottom: 2rem;
+}
+.entry-header .entry-title,
+.entry-header .page-title {
+  margin-bottom: 0;
+}
+.download-title {
+  margin-bottom: 32px;
+  margin-bottom: 2rem;
+}
+h1.entry-title,
+.page-title,
+.download-title {
+  font-size: 1.5em;
+}
+.entry-header + .entry-summary {
+  margin-top: 1em;
+}
+#single-download .edd_price {
+  font-size: 1.5em;
+}
+#site-title {
+  font-size: 3em;
+  margin-bottom: 0;
+  line-height: 1;
+}
+.download-title,
+.page-title,
+.entry-title,
+.edd_price,
+#edd_checkout_form_wrap legend,
+h1,
+h2,
+h3,
+#site-title {
+  letter-spacing: -0.03em;
+}
+#edd_checkout_form_wrap legend,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  font-weight: normal;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+#site-title,
+h1,
+h2,
+h3,
+.edd_price,
+form p label {
+  font-weight: 500;
+}
+#edd_checkout_form_wrap legend,
+.edd-payment-mode-label,
+#main ul.menu > li > a {
+  font-weight: 600;
+}
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+}
+p,
+.entry-content,
+pre,
+code,
+.widget-area {
+  line-height: 1.62;
+}
+h2.entry-title {
+  font-size: 1.5em;
+}
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.25em;
+}
+h3,
+#edd_checkout_form_wrap legend {
+  font-size: 1.25em;
+}
+h4 {
+  font-size: 1.25em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.75em;
+}
+#main ul.menu > li > a {
+  font-size: 0.85em;
+  text-transform: uppercase;
+}
+#site-description {
+  font-size: 1.5em;
+  margin: 0.5em 0 0 0;
+}
+em {
+  font-weight: bold;
+}
+pre,
+code {
+  font-family: Menlo, Monaco, monospace;
+}
+pre {
+  margin-bottom: 1.5em;
+}
+blockquote {
+  padding-left: 1em;
+  border-left: 1px solid #fcfcfc;
+  margin: 0 0 1.5em 1em;
+  font-style: italic;
+}
+blockquote cite {
+  font-size: 0.5em;
+  margin-top: 0.5em;
+}
+p {
+  margin-bottom: 1.5em;
+}
+#site-title {
+  font-size: 2em;
+}
+@media only screen and (min-width: 720px) {
+  #main ul.children a,
+  #main ul.sub-menu a {
+    font-size: 1em;
+  }
+  h1.entry-title,
+  .page-title,
+  .download-title {
+    font-size: 2.5em;
+  }
+  #intro h1 {
+    font-size: 64px;
+    font-size: 4rem;
+    margin-bottom: 0;
+  }
+  #single-download .edd_price {
+    font-size: 40px;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  .large {
+    font-size: 1.5em;
+  }
+}

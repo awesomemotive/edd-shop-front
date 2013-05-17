@@ -1,0 +1,16 @@
+#s {
+  width: auto;
+  max-width: 80%;
+}
+img {
+  width: auto;
+}
+.download .download-image .overlay {
+  visibility: hidden;
+}
+.download:hover .download-image .overlay {
+  visibility: visible;
+}
+.downloads .type-download:hover .download-image {
+  border-color: #3e93c2;
+}

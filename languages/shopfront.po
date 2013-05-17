@@ -1,0 +1,557 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Shop Front\n"
+"POT-Creation-Date: 2013-05-14 18:01+1200\n"
+"PO-Revision-Date: 2013-05-14 18:01+1200\n"
+"Last-Translator: \n"
+"Language-Team: Sumobi <andrew@sumobi.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:13
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: ../404.php:17
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
+msgstr ""
+
+#: ../archive-download.php:64 ../taxonomy-download_category.php:61
+#: ../taxonomy-download_tag.php:59 ../includes/edd-functions.php:66
+#, php-format
+msgid "No %s to display"
+msgstr ""
+
+#: ../archive-download.php:68 ../taxonomy-download_category.php:65
+#: ../taxonomy-download_tag.php:63 ../includes/edd-functions.php:70
+#, php-format
+msgid "Ready to add your first %s? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: ../archive-download.php:74 ../archive.php:40 ../category.php:49
+#: ../index.php:66 ../search.php:25 ../taxonomy-download_category.php:71
+#: ../taxonomy-download_tag.php:69
+msgid "Nothing Found"
+msgstr ""
+
+#: ../archive-download.php:78 ../taxonomy-download_category.php:75
+#: ../taxonomy-download_tag.php:73
+msgid "Sorry, there's nothing here just yet."
+msgstr ""
+
+#: ../archive.php:29 ../index.php:55
+msgid "No posts to display"
+msgstr ""
+
+#: ../archive.php:33 ../index.php:59
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: ../archive.php:44 ../index.php:70
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: ../category.php:53
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr ""
+
+#: ../comments.php:11
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: ../comments.php:36 ../comments.php:55
+msgid "Comment navigation"
+msgstr ""
+
+#: ../comments.php:37 ../comments.php:56
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../comments.php:38 ../comments.php:57
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../content-page.php:17 ../content-single.php:27 ../content.php:47
+msgid "Pages:"
+msgstr ""
+
+#: ../content.php:26
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../functions.php:116
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../search.php:29
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../searchform.php:10
+msgid "Search"
+msgstr ""
+
+#: ../taxonomy-download_category.php:15 ../taxonomy-download_tag.php:15
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: ../edd_templates/shortcode-content-price.php:12
+msgid "Coming soon"
+msgstr ""
+
+#: ../edd_templates/shortcode-content-price.php:21
+msgid "Free"
+msgstr ""
+
+#: ../edd_templates/shortcode-content-price.php:32
+msgid "From"
+msgstr ""
+
+#: ../includes/comments.php:21 ../page-templates/contact.php:119
+msgid "Name"
+msgstr ""
+
+#: ../includes/comments.php:22
+msgid "Please enter your Name"
+msgstr ""
+
+#: ../includes/comments.php:23 ../page-templates/contact.php:130
+msgid "Email"
+msgstr ""
+
+#: ../includes/comments.php:24
+msgid "Please enter your Email"
+msgstr ""
+
+#: ../includes/comments.php:25
+msgid "Website"
+msgstr ""
+
+#: ../includes/comments.php:31
+msgid "Comment"
+msgstr ""
+
+#: ../includes/comments.php:32
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: ../includes/comments.php:33
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+
+#: ../includes/comments.php:34
+msgid "Your email address will <strong>not</strong> be published."
+msgstr ""
+
+#: ../includes/comments.php:37
+msgid "Leave a Reply"
+msgstr ""
+
+#: ../includes/comments.php:38
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../includes/comments.php:39
+msgid "Cancel"
+msgstr ""
+
+#: ../includes/comments.php:40
+msgid "Post Comment"
+msgstr ""
+
+#: ../includes/comments.php:119
+msgid "Pingback:"
+msgstr ""
+
+#: ../includes/comments.php:119
+msgid "Edit"
+msgstr ""
+
+#: ../includes/comments.php:140 ../includes/comments.php:143
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: ../includes/comments.php:149
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../includes/comments.php:166
+msgid "Reply"
+msgstr ""
+
+#: ../includes/comments.php:182
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../includes/edd-functions.php:41
+#, php-format
+msgid "Latest %s"
+msgstr ""
+
+#: ../includes/edd-functions.php:100
+#, php-format
+msgid "Featured %s"
+msgstr ""
+
+#: ../includes/edd-functions.php:149
+#, php-format
+msgid "View Our %s"
+msgstr ""
+
+#: ../includes/edd-functions.php:245
+#, php-format
+msgid "You have successfully added %s to your basket"
+msgstr ""
+
+#: ../includes/edd-functions.php:246 ../includes/edd-functions.php:419
+msgid "Checkout"
+msgstr ""
+
+#: ../includes/edd-functions.php:271
+msgid "You have already purchased this item, but you may purchase it again."
+msgstr ""
+
+#: ../includes/edd-functions.php:325
+msgid "Download"
+msgstr ""
+
+#: ../includes/edd-functions.php:366
+#, php-format
+msgid ""
+"No checkout page has been configured. Visit <a href=\"%s\">Settings</a> to "
+"set one."
+msgstr ""
+
+#: ../includes/edd-functions.php:374
+msgid "Purchase"
+msgstr ""
+
+#: ../includes/edd-functions.php:419
+msgid "Go to Checkout"
+msgstr ""
+
+#: ../includes/edd-functions.php:449 ../includes/edd-functions.php:450
+msgid "View"
+msgstr ""
+
+#: ../includes/edd-functions.php:477
+msgid "<p class=\"alert notice\">Your basket is empty</p>"
+msgstr ""
+
+#: ../includes/edd-shortcodes.php:40 ../includes/edd-shortcodes.php:65
+#: ../includes/edd-shortcodes.php:82 ../partials/download-grid.php:15
+#: ../partials/download-grid.php:41 ../partials/download-grid.php:55
+msgid "View "
+msgstr ""
+
+#: ../includes/EDD_SL_Theme_Updater.php:53
+msgid ""
+"Updating this theme will lose any customizations you have made. 'Cancel' to "
+"stop, 'OK' to update."
+msgstr ""
+
+#: ../includes/navigation.php:125
+msgid "Primary Menu"
+msgstr ""
+
+#: ../includes/navigation.php:126
+msgid "Secondary Menu"
+msgstr ""
+
+#: ../includes/navigation.php:137
+msgid "Menu"
+msgstr ""
+
+#: ../includes/navigation.php:195
+msgid "Download navigation"
+msgstr ""
+
+#: ../includes/navigation.php:199
+msgid "<i class=\"icon icon-arrow-left\"></i>"
+msgstr ""
+
+#: ../includes/navigation.php:200
+msgid "<i class=\"icon icon-arrow-right\"></i>"
+msgstr ""
+
+#: ../includes/navigation.php:234 ../page-templates/blog.php:60
+msgid "Post navigation"
+msgstr ""
+
+#: ../includes/navigation.php:238 ../page-templates/blog.php:64
+msgid ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Newer</span>"
+msgstr ""
+
+#: ../includes/navigation.php:239 ../page-templates/blog.php:65
+msgid ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Older</span>"
+msgstr ""
+
+#: ../includes/sidebars.php:15
+msgid "Primary"
+msgstr ""
+
+#: ../includes/sidebars.php:16
+msgid "The main (primary) widget area."
+msgstr ""
+
+#: ../includes/sidebars.php:25
+msgid "Single Download"
+msgstr ""
+
+#: ../includes/sidebars.php:26
+msgid "Shown on each single download page"
+msgstr ""
+
+#: ../includes/sidebars.php:35
+msgid "Footer 1"
+msgstr ""
+
+#: ../includes/sidebars.php:44
+msgid "Footer 2"
+msgstr ""
+
+#: ../includes/sidebars.php:53
+msgid "Footer 3"
+msgstr ""
+
+#: ../includes/sidebars.php:62
+msgid "Footer 4"
+msgstr ""
+
+#: ../includes/theme-functions.php:168
+msgid "Read more"
+msgstr ""
+
+#: ../includes/theme-functions.php:350
+#, php-format
+msgid ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\">%2$s %3$s %4$s</time>"
+msgstr ""
+
+#: ../includes/theme-functions.php:359
+#, php-format
+msgid ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\"><span class=\"full-date\">"
+"%2$s</span></time>"
+msgstr ""
+
+#: ../includes/theme-options.php:143
+msgid "Copyright &copy;"
+msgstr ""
+
+#: ../includes/updater.php:41
+msgid "Theme License Options"
+msgstr ""
+
+#: ../includes/updater.php:42
+msgid "Enter your license key to receive Automatic Theme Updates."
+msgstr ""
+
+#: ../includes/updater.php:51
+msgid "License Key"
+msgstr ""
+
+#: ../includes/updater.php:55
+msgid "Enter Your License Key"
+msgstr ""
+
+#: ../includes/updater.php:61 ../includes/updater.php:74
+msgid "Activate License"
+msgstr ""
+
+#: ../includes/updater.php:67
+msgid "Active"
+msgstr ""
+
+#: ../includes/updater.php:69
+msgid "Deactivate License"
+msgstr ""
+
+#: ../includes/wp-customize.php:133
+msgid "Homepage"
+msgstr ""
+
+#: ../includes/wp-customize.php:142
+msgid "Shop"
+msgstr ""
+
+#: ../includes/wp-customize.php:151
+msgid "General"
+msgstr ""
+
+#: ../includes/wp-customize.php:158
+msgid "Styling"
+msgstr ""
+
+#: ../includes/wp-customize.php:167
+msgid "Footer"
+msgstr ""
+
+#: ../includes/wp-customize.php:176
+msgid "Contact Page Template"
+msgstr ""
+
+#: ../includes/wp-customize.php:183
+msgid "Blog Page Template"
+msgstr ""
+
+#: ../includes/wp-customize.php:206
+msgid "Copyright"
+msgstr ""
+
+#: ../includes/wp-customize.php:225
+msgid "Featured Downloads To Show"
+msgstr ""
+
+#: ../includes/wp-customize.php:227
+msgid "-1 shows all downloads. Leave blank to disable."
+msgstr ""
+
+#: ../includes/wp-customize.php:241
+msgid "Latest Downloads To Show"
+msgstr ""
+
+#: ../includes/wp-customize.php:243
+msgid "Leave blank to show all. Enter 0 to disable."
+msgstr ""
+
+#: ../includes/wp-customize.php:256 ../includes/wp-customize.php:387
+msgid "Download Columns"
+msgstr ""
+
+#: ../includes/wp-customize.php:273
+msgid "View all"
+msgstr ""
+
+#: ../includes/wp-customize.php:278
+msgid "Button Text"
+msgstr ""
+
+#: ../includes/wp-customize.php:280
+msgid "Leave blank to disable."
+msgstr ""
+
+#: ../includes/wp-customize.php:294
+msgid "Shop Title"
+msgstr ""
+
+#: ../includes/wp-customize.php:296
+msgid "Leave blank to disable"
+msgstr ""
+
+#: ../includes/wp-customize.php:310
+msgid "Downloads Per Page"
+msgstr ""
+
+#: ../includes/wp-customize.php:312
+msgid "Leave blank to show all"
+msgstr ""
+
+#: ../includes/wp-customize.php:329 ../includes/wp-customize.php:343
+msgid "Blog Template Posts Per Page"
+msgstr ""
+
+#: ../includes/wp-customize.php:331
+msgid ""
+"Leave blank to use the \"Blog pages show at most\" number under Settings "
+"&rarr; Reading. Enter -1 to show all blog posts."
+msgstr ""
+
+#: ../includes/wp-customize.php:369
+msgid "Theme Style"
+msgstr ""
+
+#: ../includes/wp-customize.php:407
+msgid "Contact Form Email Address"
+msgstr ""
+
+#: ../includes/wp-customize.php:409
+msgid "Leave blank to use admin email"
+msgstr ""
+
+#: ../includes/wp-customize.php:418 ../page-templates/contact.php:32
+msgid "Thanks for getting in touch!"
+msgstr ""
+
+#: ../includes/wp-customize.php:424
+msgid "Contact Form Success Message"
+msgstr ""
+
+#: ../includes/wp-customize.php:438
+msgid "Logo"
+msgstr ""
+
+#: ../page-templates/archives.php:49
+msgid "No posts found"
+msgstr ""
+
+#: ../page-templates/contact.php:37
+msgid "Please enter your name."
+msgstr ""
+
+#: ../page-templates/contact.php:38
+msgid "Please enter your email address."
+msgstr ""
+
+#: ../page-templates/contact.php:39
+msgid "You entered an invalid email address."
+msgstr ""
+
+#: ../page-templates/contact.php:40
+msgid "Please enter a message."
+msgstr ""
+
+#: ../page-templates/contact.php:111
+msgid "Oops, there seems to be a problem."
+msgstr ""
+
+#: ../page-templates/contact.php:121
+msgid "Please enter your name"
+msgstr ""
+
+#: ../page-templates/contact.php:132
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: ../page-templates/contact.php:132
+msgid "Please enter your email address"
+msgstr ""
+
+#: ../page-templates/contact.php:143
+msgid "Message"
+msgstr ""
+
+#: ../page-templates/contact.php:145
+msgid "Please enter a message"
+msgstr ""
+
+#: ../page-templates/contact.php:155
+msgid "Send"
+msgstr ""
