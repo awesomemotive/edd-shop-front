@@ -4,7 +4,7 @@ Theme URI: http://sumobi.com/shop/shop-front/
 Author: Andrew Munro, Sumobi
 Author URI: http://sumobi.com
 Description: A Simple, Fluid & Responsive Shop Theme For Easy Digital Downloads 
-Version: 1.0
+Version: 1.0.2
 Tags: blue, two-columns, right-sidebar, flexible-width, custom-menu, editor-style, featured-images, full-width-template, theme-options, threaded-comments, translation-ready
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -330,24 +330,41 @@ table td {
 /* ===============================
 Base styles
 =============================== */
+#secondary-menu a {
+  line-height: 1.5;
+  padding: 0.75em;
+  display: inline-block;
+  color: #868c92;
+}
+#secondary-menu a:hover {
+  color: #3e93c2;
+  text-decoration: none;
+}
+#secondary-menu #cart i {
+  display: none;
+  font-size: 1.5rem;
+  padding: 8px;
+  padding: 0.5rem;
+  line-height: 1;
+}
 article.post.sticky {
   border-top: 4px double #efefef;
   border-bottom: 4px double #efefef;
   padding-top: 2em;
 }
+article.page,
+article.post {
+  margin-bottom: 2em;
+  position: relative;
+}
 .search article,
 article.post {
   border-bottom: 1px solid #fcfcfc;
-  margin-bottom: 2em;
   padding-bottom: 2em;
 }
 .search article:last-of-type,
 article.post:last-of-type {
   border-bottom: none;
-}
-article.post,
-article.page {
-  position: relative;
 }
 .download-title a,
 .entry-title a {
@@ -394,13 +411,6 @@ article.page {
 }
 #nav-toggle .text {
   font-size: 0.875em;
-}
-#masthead #cart i {
-  display: inline-block;
-  font-size: 1.5rem;
-  padding: 8px;
-  padding: 0.5rem;
-  line-height: 1;
 }
 .direction-nav li a:hover {
   color: #3e93c2;
@@ -455,16 +465,6 @@ section.home {
 section.home a.button {
   position: relative;
 }
-#secondary-menu a {
-  line-height: 1.5;
-  padding: 1em;
-  display: inline-block;
-  color: #868c92;
-}
-#secondary-menu a:hover {
-  color: #3e93c2;
-  text-decoration: none;
-}
 #masthead {
   padding: 1em;
 }
@@ -491,12 +491,8 @@ section.home a.button {
 #content {
   padding: 0 2em;
 }
-#intro .wrapper,
-#main ul.menu,
-.direction-nav-wrapper,
-#container > .wrapper,
-#masthead .wrapper,
-#footer .wrapper {
+.wrapper,
+#main ul.menu {
   margin: 0 auto;
   max-width: 1083px;
 }
@@ -504,7 +500,9 @@ section.home a.button {
 #container > .wrapper {
   position: relative;
 }
-#single-download .edd_price {
+.single-download div.edd_price {
+  margin-bottom: 32px;
+  margin-bottom: 2rem;
   color: #4b4b4b;
 }
 .animated {
@@ -662,7 +660,7 @@ input.link:hover {
 .downloads .type-download .download-image {
   overflow: hidden;
   position: relative;
-  background: #fff;
+  background: #ffffff;
   border: 4px solid #efefef;
   margin: 0.5em;
 }
@@ -987,6 +985,16 @@ button.btn::-moz-focus-inner,
 input[type=submit].btn::-moz-focus-inner {
   padding: 0;
   border: 0;
+}
+#breadcrumbs {
+  font-size: 0.875em;
+  color: #aeaeae;
+}
+#breadcrumbs a {
+  color: #3e93c2;
+}
+#breadcrumbs a:hover {
+  color: #4b4b4b;
 }
 /* ===============================
 Search form Widget
@@ -1397,7 +1405,7 @@ General Widget Styles
   font-size: 0.875rem;
   word-wrap: break-word;
   line-height: 1.5;
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
 }
 #secondary .widget.widget_nav_menu .sub-menu {
   display: none;
@@ -1585,14 +1593,17 @@ Base Media Queries
   }
 }
 @media only screen and (max-width: 719px) {
+  #secondary-menu {
+    margin: 0;
+  }
   span#search {
     display: none;
   }
   #masthead {
     text-align: center;
   }
-  #secondary-menu {
-    margin: 0;
+  #intro {
+    margin-bottom: 1em;
   }
   .download-buy .edd_price,
   .download-buy .button {
@@ -1665,7 +1676,8 @@ Base Media Queries
     color: #4b4b4b;
     text-decoration: none;
     background-color: #ffffff;
-    padding: 0.875em 1rem;
+    padding: 14px 16px;
+    padding: 0.875rem 1rem;
     font-size: 0.875em;
   }
   #main ul.menu ul li {
@@ -1673,6 +1685,7 @@ Base Media Queries
     margin: 0;
   }
   #main ul.menu ul li:hover > a {
+    background-color: transparent;
     color: #3e93c2;
     text-decoration: none;
   }
@@ -1713,6 +1726,40 @@ Base Media Queries
     text-align: left;
     cursor: pointer;
     padding: 1.25rem 1rem;
+    padding: 20px 16px;
+  }
+  #secondary-menu {
+    position: absolute;
+    display: inline-table;
+    right: 0;
+    top: 50%;
+    margin-top: -1.3125em;
+  }
+  #secondary-menu a {
+    float: left;
+    padding: 0.75em 0;
+    display: block;
+    margin-left: 1.5em;
+    font-size: 0.875em;
+  }
+  #secondary-menu #cart {
+    padding: 0;
+  }
+  #secondary-menu #cart span {
+    display: inline-block;
+    float: left;
+    padding: 0.75em 0;
+    vertical-align: middle;
+    text-align: right;
+  }
+  #secondary-menu #cart span.basket {
+    display: none;
+  }
+  #secondary-menu #cart:hover {
+    text-decoration: none;
+  }
+  #secondary-menu #cart i {
+    display: inline-block;
   }
   #nav-single,
   #nav-below {
@@ -1803,13 +1850,6 @@ Base Media Queries
     display: block;
     clear: both;
   }
-  #secondary-menu {
-    position: absolute;
-    display: inline-table;
-    right: 0;
-    top: 50%;
-    margin-top: -20px;
-  }
   #masthead > .wrapper {
     position: relative;
     padding: 2em 2em 2em 2em;
@@ -1826,31 +1866,6 @@ Base Media Queries
   section.home {
     clear: both;
     text-align: center;
-  }
-  #masthead #cart {
-    padding: 0;
-    font-size: 1em;
-  }
-  #masthead #cart:hover {
-    text-decoration: none;
-  }
-  #masthead #cart span {
-    float: left;
-    padding: 0.5em;
-    margin-right: -10px;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: right;
-  }
-  #secondary-menu {
-    font-size: 1em;
-  }
-  #secondary-menu a {
-    float: left;
-    padding: 0.75em 0;
-    display: block;
-    margin-left: 1em;
-    font-size: 0.875em;
   }
   #primary {
     width: 62%;
@@ -1875,10 +1890,6 @@ Base Media Queries
   #main ul.menu {
     margin: 0 auto;
     padding: 0 1em;
-  }
-  .single-download div.edd_price {
-    margin-bottom: 32px;
-    margin-bottom: 2rem;
   }
   .shop .page-title,
   .tax-download_category .page-title {
@@ -1944,7 +1955,6 @@ Base Media Queries
     display: block;
   }
 }
-.home #intro h1 .button i,
 .icon,
 .icon-comment,
 .download-image,
@@ -1961,7 +1971,6 @@ a {
   transition: all 0.1s linear;
 }
 .link,
-#main ul.menu > li > a,
 #search-form button.submit i {
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;

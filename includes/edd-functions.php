@@ -10,11 +10,8 @@
 */
 
 function shopfront_edd_is_active() {
-
-	if ( in_array( 'easy-digital-downloads/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) 
+	if ( defined( 'EDD_VERSION' ) )
 		return true;
-	else 
-		return false;
 }
 
 
@@ -96,6 +93,7 @@ if( $home_latest_downloads ) : ?>
  * @since 1.0 
 */
 
+if ( ! function_exists( 'shopfront_edd_fd_featured_downloads_html' ) ) :
 function shopfront_edd_fd_featured_downloads_html( $html, $featured_downloads ) {
 	ob_start();
 	
@@ -123,7 +121,7 @@ function shopfront_edd_fd_featured_downloads_html( $html, $featured_downloads ) 
 	$html = ob_get_clean(); 
 	echo $html;
 }
-
+endif;
 add_filter( 'edd_fd_featured_downloads_html', 'shopfront_edd_fd_featured_downloads_html', 10, 2 );
 
 
@@ -178,7 +176,10 @@ function shopfront_show_cart_quantity_icon() {
 ?>
 	<?php if ( shopfront_edd_is_active() ) : ?>
 	<a id="cart" href="<?php echo get_permalink( $edd_options['purchase_page'] ); ?>">
-		 <span class="header-cart edd-cart-quantity">
+		 
+		<span class="basket"><?php _e( 'Basket:','shop-front' ); ?></span>
+			
+		 <span class="edd-cart-quantity">
 		 	<?php echo edd_get_cart_quantity(); ?>
 		 </span>
 		 <i class="icon icon-basket"></i>
@@ -286,48 +287,6 @@ function shopfront_download_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'shopfront_download_body_classes' );
-
-
-/**
- * Download button
- *
- * @since 1.0
- * Shows either 'buy', 'download' or the standard button text defined in settings
- * used on single-download.php and layout-home partial pages
- */
-if ( ! function_exists( 'shopfront_download_button' ) ):
-	function shopfront_download_button() { ?>
-
-	<?php
-		global $post;
-
-		$download_information = get_post_meta( $post->ID, 'edd_extra_download_options', true );
-
-		$download_url = isset( $download_information['download_url'] ) ? $download_information['download_url'] : '';
-
-		$download_url_target = isset( $download_information['download_url_target'] ) ? 'target="_blank"' : '';
-
-		// overrides any variable/ multi priced options
-		if( $download_url )
-			echo '<a title="Download" href="' . $download_url . '" class="button large primary" '. $download_url_target .'>' . __( 'Download', 'shop-front' ) . '</a>';
-
-		// it's a free download ($0.00) so we don't want the button to say 'buy' or 'purchase'
-		elseif( '0' == edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) {
-			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => 'Add To Basket' ) );
-		}
-		// variable priced downloads
-		elseif( edd_has_variable_prices( get_the_ID() ) ) {
-			echo edd_get_purchase_link( array( 'class' => 'large primary' ) );
-		}
-		// normal downloads, don't show price on button
-		else {
-			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false ) );
-		}
-
-?>
-
-		<?php }
-endif;
 
 
 /**
@@ -456,6 +415,59 @@ function shopfront_edd_error_class() {
 }
 add_filter( 'edd_error_class', 'shopfront_edd_error_class' );
 
+/**
+ * Output price onto single download page using edd_get_template_part
+ *
+ * @since       1.0
+*/
+function shopfront_single_download_price() {
+	edd_get_template_part( 'shortcode', 'content-price' );	
+}
+add_action( 'shopfront_single_download_aside', 'shopfront_single_download_price' );
+
+
+/**
+ * Download button
+ *
+ * @since 1.0
+ * Shows either 'buy', 'download' or the standard button text defined in settings
+ * used on single-download.php
+ */
+if ( ! function_exists( 'shopfront_download_button' ) ):
+	function shopfront_download_button() { ?>
+
+	<?php
+		global $post;
+
+		$download_information = get_post_meta( $post->ID, 'edd_extra_download_options', true );
+
+		$download_url = isset( $download_information['download_url'] ) ? $download_information['download_url'] : '';
+
+		$download_url_target = isset( $download_information['download_url_target'] ) ? 'target="_blank"' : '';
+
+		// overrides any variable/ multi priced options
+		if( $download_url )
+			echo '<a title="Download" href="' . $download_url . '" class="button large primary" '. $download_url_target .'>' . __( 'Download', 'shop-front' ) . '</a>';
+
+		// it's a free download ($0.00) so we don't want the button to say 'buy' or 'purchase'
+		elseif( '0' == edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) {
+			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => 'Add To Basket' ) );
+		}
+		// variable priced downloads
+		elseif( edd_has_variable_prices( get_the_ID() ) ) {
+			echo edd_get_purchase_link( array( 'class' => 'large primary' ) );
+		}
+		// normal downloads, don't show price on button
+		else {
+			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false ) );
+		}
+
+?>
+
+		<?php }
+endif;
+add_action( 'shopfront_single_download_aside', 'shopfront_download_button' );
+
 
 /**		
  * Output download categories and tags
@@ -490,3 +502,9 @@ function shopfront_download_meta() { ?>
           
 <?php }
 endif;
+add_action( 'shopfront_single_download_aside', 'shopfront_download_meta' );
+
+
+
+			
+

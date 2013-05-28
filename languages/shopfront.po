@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Shop Front\n"
-"POT-Creation-Date: 2013-05-14 18:01+1200\n"
-"PO-Revision-Date: 2013-05-14 18:01+1200\n"
+"POT-Creation-Date: 2013-05-23 14:34+1200\n"
+"PO-Revision-Date: 2013-05-23 14:34+1200\n"
 "Last-Translator: \n"
 "Language-Team: Sumobi <andrew@sumobi.com>\n"
 "MIME-Version: 1.0\n"
@@ -23,13 +23,13 @@ msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
 msgstr ""
 
 #: ../archive-download.php:64 ../taxonomy-download_category.php:61
-#: ../taxonomy-download_tag.php:59 ../includes/edd-functions.php:66
+#: ../taxonomy-download_tag.php:59 ../includes/edd-functions.php:73
 #, php-format
 msgid "No %s to display"
 msgstr ""
 
 #: ../archive-download.php:68 ../taxonomy-download_category.php:65
-#: ../taxonomy-download_tag.php:63 ../includes/edd-functions.php:70
+#: ../taxonomy-download_tag.php:63 ../includes/edd-functions.php:77
 #, php-format
 msgid "Ready to add your first %s? <a href=\"%s\">Get started here</a>."
 msgstr ""
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: ../functions.php:116
+#: ../functions.php:111
 #, php-format
 msgid "Page %s"
 msgstr ""
@@ -206,59 +206,65 @@ msgstr ""
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: ../includes/edd-functions.php:41
+#: ../includes/edd-functions.php:48
 #, php-format
 msgid "Latest %s"
 msgstr ""
 
-#: ../includes/edd-functions.php:100
+#: ../includes/edd-functions.php:108
 #, php-format
 msgid "Featured %s"
 msgstr ""
 
-#: ../includes/edd-functions.php:149
+#: ../includes/edd-functions.php:156
 #, php-format
 msgid "View Our %s"
 msgstr ""
 
-#: ../includes/edd-functions.php:245
+#: ../includes/edd-functions.php:237
 #, php-format
 msgid "You have successfully added %s to your basket"
 msgstr ""
 
-#: ../includes/edd-functions.php:246 ../includes/edd-functions.php:419
+#: ../includes/edd-functions.php:238 ../includes/edd-functions.php:407
 msgid "Checkout"
 msgstr ""
 
-#: ../includes/edd-functions.php:271
+#: ../includes/edd-functions.php:263
 msgid "You have already purchased this item, but you may purchase it again."
 msgstr ""
 
-#: ../includes/edd-functions.php:325
+#: ../includes/edd-functions.php:313
 msgid "Download"
 msgstr ""
 
-#: ../includes/edd-functions.php:366
+#: ../includes/edd-functions.php:354
 #, php-format
 msgid ""
 "No checkout page has been configured. Visit <a href=\"%s\">Settings</a> to "
 "set one."
 msgstr ""
 
-#: ../includes/edd-functions.php:374
+#: ../includes/edd-functions.php:362
 msgid "Purchase"
 msgstr ""
 
-#: ../includes/edd-functions.php:419
+#: ../includes/edd-functions.php:407
 msgid "Go to Checkout"
 msgstr ""
 
-#: ../includes/edd-functions.php:449 ../includes/edd-functions.php:450
-msgid "View"
+#: ../includes/edd-functions.php:438
+msgid "<p class=\"alert notice\">Your basket is empty</p>"
 msgstr ""
 
-#: ../includes/edd-functions.php:477
-msgid "<p class=\"alert notice\">Your basket is empty</p>"
+#: ../includes/edd-functions.php:481
+#, php-format
+msgid "Categories: %1$s"
+msgstr ""
+
+#: ../includes/edd-functions.php:484
+#, php-format
+msgid "Tags: %2$s"
 msgstr ""
 
 #: ../includes/edd-shortcodes.php:40 ../includes/edd-shortcodes.php:65
@@ -343,18 +349,46 @@ msgstr ""
 msgid "Footer 4"
 msgstr ""
 
-#: ../includes/theme-functions.php:168
+#: ../includes/theme-functions.php:18 ../includes/theme-functions.php:21
+msgid ", "
+msgstr ""
+
+#: ../includes/theme-functions.php:32
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../includes/theme-functions.php:38
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: ../includes/theme-functions.php:40
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: ../includes/theme-functions.php:42
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: ../includes/theme-functions.php:225
 msgid "Read more"
 msgstr ""
 
-#: ../includes/theme-functions.php:350
+#: ../includes/theme-functions.php:407
 #, php-format
 msgid ""
 "\n"
 "\t\t\t<time class=\"entry-date\" datetime=\"%1$s\">%2$s %3$s %4$s</time>"
 msgstr ""
 
-#: ../includes/theme-functions.php:359
+#: ../includes/theme-functions.php:416
 #, php-format
 msgid ""
 "\n"
@@ -394,118 +428,142 @@ msgstr ""
 msgid "Deactivate License"
 msgstr ""
 
-#: ../includes/wp-customize.php:133
+#: ../includes/wp-customize.php:162
 msgid "Homepage"
 msgstr ""
 
-#: ../includes/wp-customize.php:142
+#: ../includes/wp-customize.php:171
 msgid "Shop"
 msgstr ""
 
-#: ../includes/wp-customize.php:151
+#: ../includes/wp-customize.php:180
 msgid "General"
 msgstr ""
 
-#: ../includes/wp-customize.php:158
+#: ../includes/wp-customize.php:187
 msgid "Styling"
 msgstr ""
 
-#: ../includes/wp-customize.php:167
+#: ../includes/wp-customize.php:196
 msgid "Footer"
 msgstr ""
 
-#: ../includes/wp-customize.php:176
+#: ../includes/wp-customize.php:205
 msgid "Contact Page Template"
 msgstr ""
 
-#: ../includes/wp-customize.php:183
+#: ../includes/wp-customize.php:212
 msgid "Blog Page Template"
 msgstr ""
 
-#: ../includes/wp-customize.php:206
-msgid "Copyright"
-msgstr ""
-
-#: ../includes/wp-customize.php:225
-msgid "Featured Downloads To Show"
-msgstr ""
-
-#: ../includes/wp-customize.php:227
-msgid "-1 shows all downloads. Leave blank to disable."
+#: ../includes/wp-customize.php:219
+msgid "Typography"
 msgstr ""
 
 #: ../includes/wp-customize.php:241
-msgid "Latest Downloads To Show"
+msgid "Copyright"
 msgstr ""
 
-#: ../includes/wp-customize.php:243
-msgid "Leave blank to show all. Enter 0 to disable."
+#: ../includes/wp-customize.php:264
+msgid "Featured Downloads To Show"
 msgstr ""
 
-#: ../includes/wp-customize.php:256 ../includes/wp-customize.php:387
-msgid "Download Columns"
-msgstr ""
-
-#: ../includes/wp-customize.php:273
-msgid "View all"
-msgstr ""
-
-#: ../includes/wp-customize.php:278
-msgid "Button Text"
+#: ../includes/wp-customize.php:266
+msgid "-1 shows all downloads. Leave blank to disable."
 msgstr ""
 
 #: ../includes/wp-customize.php:280
-msgid "Leave blank to disable."
+msgid "Latest Downloads To Show"
 msgstr ""
 
-#: ../includes/wp-customize.php:294
-msgid "Shop Title"
+#: ../includes/wp-customize.php:282
+msgid "Leave blank to show all. Enter 0 to disable."
 msgstr ""
 
-#: ../includes/wp-customize.php:296
-msgid "Leave blank to disable"
-msgstr ""
-
-#: ../includes/wp-customize.php:310
-msgid "Downloads Per Page"
+#: ../includes/wp-customize.php:295 ../includes/wp-customize.php:367
+msgid "Download Columns"
 msgstr ""
 
 #: ../includes/wp-customize.php:312
+msgid "View all"
+msgstr ""
+
+#: ../includes/wp-customize.php:317
+msgid "Button Text"
+msgstr ""
+
+#: ../includes/wp-customize.php:319
+msgid "Leave blank to disable."
+msgstr ""
+
+#: ../includes/wp-customize.php:335
+msgid "Shop Title"
+msgstr ""
+
+#: ../includes/wp-customize.php:337
+msgid "Leave blank to disable"
+msgstr ""
+
+#: ../includes/wp-customize.php:350
+msgid "Downloads Per Page"
+msgstr ""
+
+#: ../includes/wp-customize.php:352
 msgid "Leave blank to show all"
 msgstr ""
 
-#: ../includes/wp-customize.php:329 ../includes/wp-customize.php:343
+#: ../includes/wp-customize.php:392 ../includes/wp-customize.php:406
 msgid "Blog Template Posts Per Page"
 msgstr ""
 
-#: ../includes/wp-customize.php:331
+#: ../includes/wp-customize.php:394
 msgid ""
 "Leave blank to use the \"Blog pages show at most\" number under Settings "
 "&rarr; Reading. Enter -1 to show all blog posts."
 msgstr ""
 
-#: ../includes/wp-customize.php:369
+#: ../includes/wp-customize.php:432
 msgid "Theme Style"
 msgstr ""
 
-#: ../includes/wp-customize.php:407
+#: ../includes/wp-customize.php:451
 msgid "Contact Form Email Address"
 msgstr ""
 
-#: ../includes/wp-customize.php:409
+#: ../includes/wp-customize.php:453
 msgid "Leave blank to use admin email"
 msgstr ""
 
-#: ../includes/wp-customize.php:418 ../page-templates/contact.php:32
+#: ../includes/wp-customize.php:462 ../page-templates/contact.php:32
 msgid "Thanks for getting in touch!"
 msgstr ""
 
-#: ../includes/wp-customize.php:424
+#: ../includes/wp-customize.php:468
 msgid "Contact Form Success Message"
 msgstr ""
 
-#: ../includes/wp-customize.php:438
+#: ../includes/wp-customize.php:482
 msgid "Logo"
+msgstr ""
+
+#: ../includes/wp-customize.php:503
+msgid "Typography Stylesheet"
+msgstr ""
+
+#: ../includes/wp-customize.php:602
+msgid "1"
+msgstr ""
+
+#: ../includes/wp-customize.php:603
+msgid "2"
+msgstr ""
+
+#: ../includes/wp-customize.php:604
+msgid "3"
+msgstr ""
+
+#: ../includes/wp-customize.php:605
+msgid "4"
 msgstr ""
 
 #: ../page-templates/archives.php:49

@@ -12,14 +12,9 @@
 
 	<aside id="single-download">
 		<?php
-			// price
-			edd_get_template_part( 'shortcode', 'content-price' );
 
-			// download button
-			shopfront_download_button(); 
-
-			// download meta
-			shopfront_download_meta();
+			// hook for download button, download meta
+			do_action( 'shopfront_single_download_aside' );
 
 		?>	
 	</aside>

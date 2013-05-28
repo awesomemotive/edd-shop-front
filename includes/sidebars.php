@@ -33,6 +33,7 @@ if ( ! function_exists( 'shopfront_register_sidebars' ) ):
 
 		register_sidebar( array(
 				'name' => __( 'Footer 1', 'shop-front' ),
+				'description' =>  __( 'The first footer widget area.', 'shop-front' ),
 				'id' => 'sidebar-footer-1',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget' => "</aside>",
@@ -42,6 +43,7 @@ if ( ! function_exists( 'shopfront_register_sidebars' ) ):
 
 		register_sidebar( array(
 				'name' => __( 'Footer 2', 'shop-front' ),
+				'description' =>  __( 'The second footer widget area.', 'shop-front' ),
 				'id' => 'sidebar-footer-2',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget' => "</aside>",
@@ -51,6 +53,7 @@ if ( ! function_exists( 'shopfront_register_sidebars' ) ):
 
 		register_sidebar( array(
 				'name' => __( 'Footer 3', 'shop-front' ),
+				'description' =>  __( 'The third footer widget area.', 'shop-front' ),
 				'id' => 'sidebar-footer-3',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget' => "</aside>",
@@ -60,6 +63,7 @@ if ( ! function_exists( 'shopfront_register_sidebars' ) ):
 
 		register_sidebar( array(
 				'name' => __( 'Footer 4', 'shop-front' ),
+				'description' =>  __( 'The fourth footer widget area.', 'shop-front' ),
 				'id' => 'sidebar-footer-4',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget' => "</aside>",

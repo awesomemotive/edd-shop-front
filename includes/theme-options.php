@@ -200,15 +200,24 @@ function shopfront_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
 
 	$style = get_theme_mod( 'theme_style', 'style.css' );
 
-	// change $stylesheet_dir_uri depending on whether 'styles' folder exists in child theme or not
-	if( file_exists( get_stylesheet_directory() . '/styles/' ) ) {
-		$stylesheet_dir_uri = get_stylesheet_directory_uri() . '/styles/';
-	}
-	elseif( file_exists( get_template_directory() . '/styles/' ) ) {
-		$stylesheet_dir_uri = get_template_directory_uri() . '/styles/';
-	}
+	// if stylesheet cannot be found then load the default style.css
+	if( !file_exists( get_stylesheet_directory() . '/styles/' . $style ) ) {
+		$style = 'style.css';
 
-	return $stylesheet_dir_uri . $style;
+		return trailingslashit( $stylesheet_dir_uri ) . $style;
+	}
+	
+	else {
+		// change $stylesheet_dir_uri depending on whether 'styles' folder exists in child theme or not
+		if( file_exists( get_stylesheet_directory() . '/styles/' ) ) {
+			$stylesheet_dir_uri = get_stylesheet_directory_uri() . '/styles/';
+		}
+		elseif( file_exists( get_template_directory() . '/styles/' ) ) {
+			$stylesheet_dir_uri = get_template_directory_uri() . '/styles/';
+		}
+
+		return $stylesheet_dir_uri . $style;
+	}	
 
 }
 
@@ -271,7 +280,7 @@ function shopfront_theme_options_theme_styles() {
 
 	}
 
-	return $styles;
+	return apply_filters( 'shopfront_style_array', $styles );
 
 }
 

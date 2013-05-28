@@ -6,6 +6,7 @@
 
 /**		
  * Add 'Customize' link to admin menu under 'Appearance'
+ * @since 1.0  
 */
 
 function shopfront_add_customize() {
@@ -15,6 +16,7 @@ add_action ('admin_menu', 'shopfront_add_customize');
 
 /**		
  * Add some basic styling for extra field descriptions
+ * @since 1.0 
 */
 function shopfront_style_customize() { ?>
 	<style>
@@ -31,15 +33,35 @@ function shopfront_style_customize() { ?>
 <?php }
 add_action('customize_controls_print_styles', 'shopfront_style_customize');
 
+/**        
+ * Create typography array for theme customizer
+ * @since 1.0.1 
+*/
+function shopfront_get_typography_css_files( $directory_path, $filetype, $directory_uri ) {
 
+        $typography = array();
+
+        $files = array();
+
+        if ( is_dir( $directory_path ) ) {
+            $files = glob( $directory_path . "*.$filetype");
+            
+            foreach ( $files as $file ) { 
+                $file = str_replace( $directory_path, "", $file);
+                $file_label = ucwords(str_replace( array('.css','-'), ' ', $file) );
+                $typography[ $file ] = $file_label;
+            }
+        }
+        
+        return $typography;
+    }    
+
+/**
+ * $wp_customize
+ *
+ * @since 1.0
+*/
 function shopfront_customize_register( $wp_customize ) {
-
-	/**		
-	 * Remove background image section
-	*/
-
-	$wp_customize->remove_section( 'background_image' );
-	$wp_customize->remove_section( 'static_front_page' );
 
 	/**		
 	 * Remove controls
@@ -185,6 +207,12 @@ function shopfront_customize_register( $wp_customize ) {
 		'description' => 'Blog',
 	));
 
+	// typography. This appears when there is more than 1 stylesheet in the 'typography' folder
+	$wp_customize->add_section( 'shopfront_section_typography', array(
+		'title'		=> __( 'Typography', 'shop-front' ),
+		'priority'	=> 200,
+		'description' => 'Typography',
+	));
 
 	/**		
 	 * Settings and controls
@@ -206,12 +234,8 @@ function shopfront_customize_register( $wp_customize ) {
 	    'label' => __( 'Copyright' , 'shop-front' ),
 	    'section' => 'shopfront_section_footer',
 	    'settings' => 'copyright',
-	    //'extra' => __( '%year% Current Year, %sitetitle% = Site Title' , 'shop-front' ),
 	    ) ) 
 	);
-
-	
-
 
 
 	
@@ -346,9 +370,6 @@ function shopfront_customize_register( $wp_customize ) {
 	
 	} // end shopfront_edd_is_active()
 
-	
-
-	
 
 	/**		
 	 * blog posts to show
@@ -397,7 +418,7 @@ function shopfront_customize_register( $wp_customize ) {
 
 		$wp_customize->add_setting( 'theme_style', array(
 			'default' => 'style.css',
-		//	'sanitize_callback' => 'shopfront_sanitize_theme_style',
+			'sanitize_callback' => 'shopfront_sanitize_theme_style',
 		));
 
 		$wp_customize->add_control( 'theme_style', array(
@@ -408,7 +429,6 @@ function shopfront_customize_register( $wp_customize ) {
 		));
 	}
 
-	
 	
 
 	/**		
@@ -455,7 +475,31 @@ function shopfront_customize_register( $wp_customize ) {
 		'section' => 'title_tagline',
 	)));
 
+	/**		
+	 * typography
+	*/
 
+	// only show if there is more than 1 stylesheet
+	$typography_styles = count( glob( get_stylesheet_directory() . '/typography/*.css' ) );
+
+	if( $typography_styles > 1 ) {
+
+		$wp_customize->add_setting( 'typography', array(
+			'default' => 'default.css',
+			'sanitize_callback' => 'shopfront_typography_sanitize_typography',
+		));
+
+		$typography = shopfront_get_typography_css_files( get_stylesheet_directory() . '/typography/', 'css', get_stylesheet_directory_uri() . '/typography/' );
+
+		$wp_customize->add_control( 'typography', array(
+			'label' => __( 'Typography Stylesheet' , 'shopfront' ),
+			'section' => 'shopfront_section_typography',
+			'type'    => 'select',
+			'priority' => 50,
+			'choices'    => $typography
+		));
+
+	}
 
 	// postMessage
 	$wp_customize->get_setting( 'blogname' )->transport='postMessage';
@@ -473,7 +517,8 @@ function shopfront_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'shopfront_customize_register' );
 
 /**		
- * Sanitization callbacks
+ * Sanitization text field
+ * @since 1.0 
 */
 function shopfront_sanitize_text_field( $input  ) {
 	return sanitize_text_field( $input );
@@ -481,18 +526,41 @@ function shopfront_sanitize_text_field( $input  ) {
 
 
 
-function shopfront_sanitize_round_to_whole_number( $input  ) {
-	
-	if( '' == $input ) {
-		return '-1';
-	} else {
-		return wp_filter_nohtml_kses( round( $input ) );
-	}
-		
-	
+
+/**		
+ * Sanitize typography
+ * @since 1.0 
+*/
+function shopfront_typography_sanitize_typography( $input ) {
+    
+   	$valid = shopfront_get_typography_css_files( get_stylesheet_directory() . '/typography/', 'css', get_stylesheet_directory_uri() . '/typography/' );
+
+    if ( array_key_exists( $input, $valid ) ) 
+        return $input;
+    else 
+        return '';
+
 }
 
+/**
+ * Sanitize whole number
+ *
+ * @since 1.0
+*/
+function shopfront_sanitize_round_to_whole_number( $input  ) {
+	
+	if( '' == $input ) 
+		return '-1';
+	else 
+		return wp_filter_nohtml_kses( round( $input ) );
 
+}
+
+/**
+ * Sanitize Blog posts
+ *
+ * @since 1.0
+*/
 function shopfront_sanitize_blog_posts_per_page( $input  ) {
 
 	$wp_posts_per_page = get_option('posts_per_page');
@@ -504,48 +572,59 @@ function shopfront_sanitize_blog_posts_per_page( $input  ) {
 		return wp_filter_nohtml_kses( round( $input ) );
 }
 
+/**
+ * Sanitize Email Address
+ *
+ * @since 1.0
+*/
 function shopfront_sanitize_email( $input ) {
 	return wp_filter_nohtml_kses( sanitize_email( $input ) ); 
 }
 
 
 
-
+/**
+ * Sanitize download columns
+ *
+ * @since 1.0
+*/
 function shopfront_sanitize_download_columns( $input ) {
     
     $valid = array(
-        '1' => '1',
-        '2' => '2',
-        '3' => '3',
-        '4' => '4',
+        '1' => __( '1', 'shop-front'),
+        '2' => __( '2', 'shop-front'),
+        '3' => __( '3', 'shop-front'),
+        '4' => __( '4', 'shop-front'),
     );
  
-    if ( array_key_exists( $input, $valid ) ) {
+    if ( array_key_exists( $input, $valid ) ) 
         return $input;
-    } else {
+     else 
         return '';
-    }
+
 }
 
 
-
+/**
+ * Santize theme styles
+ *
+ * @since 1.0
+*/
 function shopfront_sanitize_theme_style( $input ) {
     
    	$valid = shopfront_theme_options_theme_styles();
  
-    if ( array_key_exists( $input, $valid ) ) {
+    if ( array_key_exists( $input, $valid ) ) 
         return $input;
-    } else {
+    else 
         return '';
-    }
+
 }
-
-
-
 
 
 /**
  * PostMessage JS
+ * @since 1.0
  */
 
 function shopfront_customize_preview() {
@@ -559,11 +638,8 @@ function shopfront_customize_preview() {
 	wp.customize('logo',function( value ) {
 		value.bind(function(logo) {
 			jQuery('#site-title a').html('<img src="' + logo + '" />');
-			// $('.posttitle').css('color', to ? '#' + to : '' );
 		});
 	});
-
-
 
 	// blog name
 	wp.customize('blogname',function( value ) {
@@ -578,8 +654,6 @@ function shopfront_customize_preview() {
 			jQuery('#site-description').html(to);
 		});
 	});
-
-
 
 	// copyright
 	wp.customize('copyright',function( value ) {

@@ -1,13 +1,9 @@
 <?php
-
 /**		
  * Constants
  * @since 1.0 
 */
 
-define( 'SUMOBI_THEME_VERSION', '1.0' );
-define( 'SUMOBI_STORE_URL', 'http://sumobi.com' );
-define( 'SUMOBI_THEME_NAME', 'Shop Front' );
 define( 'INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
 
 /**		

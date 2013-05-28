@@ -65,10 +65,6 @@ function shopfront_render_the_title() { ?>
 			<h1 class="page-title"><?php the_title(); ?></h1>
 		</header>
 
-	<?php elseif( is_single() ) : ?>
-
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-
 	<?php elseif( is_singular('download') ) : ?>
 	
 		<h1 class="download-title"><?php the_title(); ?></h1>

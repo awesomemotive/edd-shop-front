@@ -44,7 +44,6 @@ wp_head();
 	<div id="container">
 		<?php do_action( 'shopfront_container_start' ); ?>
 
-
 		<div class="wrapper">
 			<?php do_action( 'shopfront_container_wrapper_start' ); ?>
 
@@ -53,5 +52,3 @@ wp_head();
 	<div id="content">
 
 	<?php do_action( 'shopfront_content_start' ); ?>
-
-	
