@@ -1990,6 +1990,7 @@ Base Media Queries
   .downloads.col-1 .type-download .download-image + a {
     padding: 2em;
     width: 62%;
+    float: left;
   }
   #intro .wrapper {
     margin: 0 auto;
