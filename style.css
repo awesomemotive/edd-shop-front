@@ -4,7 +4,7 @@ Theme URI: http://sumobi.com/shop/shop-front/
 Author: Andrew Munro, Sumobi
 Author URI: http://sumobi.com
 Description: A Simple, Fluid & Responsive Shop Theme For Easy Digital Downloads 
-Version: 1.0.2
+Version: 1.0.3
 Tags: blue, two-columns, right-sidebar, flexible-width, custom-menu, editor-style, featured-images, full-width-template, theme-options, threaded-comments, translation-ready
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -331,8 +331,9 @@ table td {
 Base styles
 =============================== */
 #secondary-menu a {
-  line-height: 1.5;
-  padding: 0.75em;
+  line-height: 1;
+  padding: 12px;
+  padding: 0.75rem;
   display: inline-block;
   color: #868c92;
 }
@@ -340,12 +341,27 @@ Base styles
   color: #3e93c2;
   text-decoration: none;
 }
+#secondary-menu #cart.has-icon.align-right span {
+  padding: 0.125rem 0;
+  display: inline-block;
+}
+#secondary-menu #cart.has-icon.align-right i {
+  margin-left: 5px;
+}
+#secondary-menu #cart.has-icon.align-left span {
+  padding: 0.125rem 0;
+  display: inline-block;
+}
+#secondary-menu #cart.has-icon.align-left i {
+  margin-right: 5px;
+}
 #secondary-menu #cart i {
-  display: none;
   font-size: 1.5rem;
-  padding: 8px;
-  padding: 0.5rem;
-  line-height: 1;
+  vertical-align: middle;
+  margin-left: 4px;
+  margin-left: 0.25rem;
+  padding: 4px 0;
+  padding: 0.25rem 0;
 }
 article.post.sticky {
   border-top: 4px double #efefef;
@@ -801,55 +817,115 @@ h6 {
 Font face
 =============================== */
 @font-face {
-  font-family: 'shop-front';
-  src: url('fonts/shop-front.eot');
-  src: url('fonts/shop-front.eot?#iefix') format('embedded-opentype'), url('fonts/shop-front.svg#shop-front') format('svg'), url('fonts/shop-front.woff') format('woff'), url('fonts/shop-front.ttf') format('truetype');
+  font-family: 'shopfront';
+  src: url('fonts/shopfront.eot');
+  src: url('fonts/shopfront.eot?#iefix') format('embedded-opentype'), url('fonts/shopfront.woff') format('woff'), url('fonts/shopfront.ttf') format('truetype'), url('fonts/shopfront.svg#shopfront') format('svg');
   font-weight: normal;
   font-style: normal;
-}
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: 'shop-front';
-  font-style: normal;
-  speak: none;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
 }
 /* ===============================
 Icons
 =============================== */
-.icon-menu:before {
-  content: "\e016";
+.icon-feature,
+.icon-star,
+.icon-star-half,
+.icon-arrow-up,
+.icon-arrow-right,
+.icon-arrow-down,
+.icon-arrow-left,
+.icon-facebook,
+.icon-twitter,
+.icon-dribbble,
+.icon-github,
+.icon-vimeo,
+.icon-cart,
+.icon-cart-add,
+.icon-product,
+.icon-basket,
+.icon-basket-add,
+.icon-view,
+.icon-search,
+.icon-menu,
+.icon-feed,
+.icon-cancel,
+.icon-comment {
+  font-family: 'shopfront';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
 }
-.icon-arrow-right:before {
-  content: "\e002";
+.icon-feature:before {
+  content: "\e00b";
+}
+.icon-star:before {
+  content: "\e00f";
+}
+.icon-star-half:before {
+  content: "\e018";
 }
 .icon-arrow-up:before {
-  content: "\e004";
+  content: "\e019";
+}
+.icon-arrow-right:before {
+  content: "\e01a";
+}
+.icon-arrow-down:before {
+  content: "\e01b";
 }
 .icon-arrow-left:before {
-  content: "\e000";
+  content: "\e01c";
 }
-.icon-view:before {
-  content: "\e007";
+.icon-facebook:before {
+  content: "\e01e";
 }
-.icon-cancel:before {
-  content: "\e025";
+.icon-twitter:before {
+  content: "\e01f";
 }
-.icon-basket:before {
-  content: "\e003";
+.icon-dribbble:before {
+  content: "\e020";
 }
-.icon-basket-add:before {
-  content: "\e006";
+.icon-github:before {
+  content: "\e021";
 }
-.icon-comment:before {
-  content: "\e029";
+.icon-vimeo:before {
+  content: "\e022";
 }
-.icon-search:before {
-  content: "\e02a";
+.icon-cart:before {
+  content: "\e026";
+}
+.icon-cart-add:before {
+  content: "\e036";
 }
 .icon-product:before {
+  content: "\e03c";
+}
+.icon-basket:before {
+  content: "\e000";
+}
+.icon-basket-add:before {
   content: "\e001";
+}
+.icon-view:before {
+  content: "\e002";
+}
+.icon-search:before {
+  content: "\e003";
+}
+.icon-menu:before {
+  content: "\e004";
+}
+.icon-feed:before {
+  content: "\e006";
+}
+.icon-cancel:before {
+  content: "\e007";
+}
+.icon-comment:before {
+  content: "\e008";
 }
 /*
  * Image replacement
@@ -1014,7 +1090,7 @@ Search form Widget
   background: none;
   border: none;
   top: 50%;
-  margin-top: -15px;
+  margin-top: -12px;
   right: 12px;
   padding: 0;
   font-size: 24px;
@@ -1266,8 +1342,6 @@ nav#downloads i,
   color: #efefef;
   font-size: 24px;
   line-height: 1;
-  height: 24px;
-  width: 24px;
   display: inline-block;
   float: left;
 }
@@ -1330,6 +1404,9 @@ Page Template styles
 /* ===============================
 Comments
 =============================== */
+#comments {
+  clear: both;
+}
 li.bypostauthor .comment .avatar-wrap img {
   border: 4px solid #fcfcfc;
 }
@@ -1737,29 +1814,29 @@ Base Media Queries
   }
   #secondary-menu a {
     float: left;
-    padding: 0.75em 0;
+    padding: 12px 0;
+    padding: 0.75rem 0;
     display: block;
     margin-left: 1.5em;
-    font-size: 0.875em;
+    font-size: 0.875rem;
   }
-  #secondary-menu #cart {
+  #secondary-menu #cart.has-icon {
     padding: 0;
+  }
+  #secondary-menu #cart.has-icon.align-right span,
+  #secondary-menu #cart.has-icon.align-left span {
+    vertical-align: middle;
+    padding: 12px 0;
+    padding: 0.75rem 0;
+  }
+  #secondary-menu #cart.has-icon i {
+    display: inline-block;
   }
   #secondary-menu #cart span {
     display: inline-block;
-    float: left;
-    padding: 0.75em 0;
-    vertical-align: middle;
-    text-align: right;
-  }
-  #secondary-menu #cart span.basket {
-    display: none;
   }
   #secondary-menu #cart:hover {
     text-decoration: none;
-  }
-  #secondary-menu #cart i {
-    display: inline-block;
   }
   #nav-single,
   #nav-below {

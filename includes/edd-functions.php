@@ -26,6 +26,20 @@ function shopfront_edd_get_button_colors( $colors ) {
 }
 add_filter( 'edd_button_colors', 'shopfront_edd_get_button_colors' );
 
+
+/**
+ * Featured downloads on the homepage. Only loaded if EDD featured plugin is installed
+ *
+ * @since  1.0.3
+*/
+function shopfront_home_featured_downloads() {
+
+	if( function_exists('edd_fd_show_featured_downloads') )
+			edd_fd_show_featured_downloads();
+
+}
+add_action( 'shopfront_index', 'shopfront_home_featured_downloads' );
+
 /**		
  * Latest downloads on homepage
  * @since 1.0
@@ -86,6 +100,7 @@ if( $home_latest_downloads ) : ?>
 <?php endif; ?>
 
 <?php }
+add_action( 'shopfront_index', 'shopfront_home_latest' );
 
 
 /**		
@@ -126,7 +141,7 @@ add_filter( 'edd_fd_featured_downloads_html', 'shopfront_edd_fd_featured_downloa
 
 
 /**		
- * Filter the 'EDD Featured Downloads' plugin's wp_query args and pass in the number of downloads from the theme customiser
+ * Filter the 'EDD Featured Downloads' plugin's wp_query args and pass in the number of downloads from the theme customizer
  * @since 1.0 
 */
 
@@ -163,7 +178,18 @@ function shopfront_home_button() { ?>
 
 
 <?php }
+add_action( 'shopfront_index', 'shopfront_home_button' );
 
+/**
+ * Get the icon from theme mods
+ *
+ * @since       1.0.3
+*/
+function shopfront_get_cart_icon() {
+	$icon = get_theme_mod( 'cart_icon', 'cart' );
+
+	return $icon;
+}
 
 
 /**
@@ -173,16 +199,31 @@ function shopfront_home_button() { ?>
  */
 function shopfront_show_cart_quantity_icon() {
 	global $edd_options;
+
+	$show_icon = get_theme_mod( 'cart_show_icon', '1' );
+	$icon_alignment = get_theme_mod( 'cart_icon_alignment', 'left' );
+	$text = 'cart' == shopfront_get_cart_icon() ? __( 'Cart', 'shop-front' ) : __( 'Basket', 'shop-front' );
+
 ?>
 	<?php if ( shopfront_edd_is_active() ) : ?>
-	<a id="cart" href="<?php echo get_permalink( $edd_options['purchase_page'] ); ?>">
+	
+	<a id="cart" class="<?php echo 'align-'.$icon_alignment; ?> <?php if( $show_icon ) echo 'has-icon'; ?>" href="<?php echo get_permalink( $edd_options['purchase_page'] ); ?>">
 		 
-		<span class="basket"><?php _e( 'Basket:','shop-front' ); ?></span>
-			
-		 <span class="edd-cart-quantity">
-		 	<?php echo edd_get_cart_quantity(); ?>
-		 </span>
-		 <i class="icon icon-basket"></i>
+		<?php if( $show_icon ) : // there's an icon ?>
+
+			<?php if( 'left' == $icon_alignment ) : ?>
+
+				<i class="icon icon-<?php echo shopfront_get_cart_icon(); ?>"></i><span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span>
+
+			<?php elseif( 'right' == $icon_alignment ): ?>
+
+				<span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span><i class="icon icon-<?php echo shopfront_get_cart_icon(); ?>"></i>
+
+			<?php endif; ?>
+
+		<?php else: // no icon ?>
+			<?php echo $text; ?> (<span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span>)
+		<?php endif; ?>
 
 	</a>
 	<?php endif; ?>
@@ -234,8 +275,8 @@ function shopfront_modify_edd_show_added_to_cart_messages() {
 
 	$alert = '
 			<p class="alert success">'
-		. sprintf( __( 'You have successfully added %s to your basket', 'edd' ), '<strong>' . get_the_title( $download_id ) . '</strong>' )
-		. ' <a href="' . edd_get_checkout_uri() . '" class="edd_alert_checkout_link alignright">' . __( 'Checkout', 'edd' ) . '</a>'
+		. sprintf( __( 'You have successfully added %1$s to your %2$s', 'shop-front' ), '<strong>' . get_the_title( $download_id ) . '</strong>', shopfront_get_cart_icon() )
+		. ' <a href="' . edd_get_checkout_uri() . '" class="edd_alert_checkout_link alignright">' . __( 'Checkout', 'shop-front' ) . '</a>'
 		. '</p>';
 
 	return $alert;
@@ -309,7 +350,7 @@ function shopfront_get_purchase_link( $args = array() ) {
 	global $edd_options, $post;
 
 	if ( ! isset( $edd_options['purchase_page'] ) || $edd_options['purchase_page'] == 0 ) {
-		edd_set_error( 'set_checkout', sprintf( __( 'No checkout page has been configured. Visit <a href="%s">Settings</a> to set one.', 'edd' ), admin_url( 'edit.php?post_type=download&page=edd-settings' ) ) );
+		edd_set_error( 'set_checkout', sprintf( __( 'No checkout page has been configured. Visit <a href="%s">Settings</a> to set one.', 'shop-front' ), admin_url( 'edit.php?post_type=download&page=edd-settings' ) ) );
 		edd_print_errors();
 		return false;
 	}
@@ -317,7 +358,7 @@ function shopfront_get_purchase_link( $args = array() ) {
 	$defaults = apply_filters( 'edd_purchase_link_defaults', array(
 		'download_id' => $post->ID,
 		'price'       => (bool) true,
-		'text'        => ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'edd' ),
+		'text'        => ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'shop-front' ),
 		'style'       => isset( $edd_options[ 'button_style' ] ) 	   ? $edd_options[ 'button_style' ]     : 'button',
 		'color'       => isset( $edd_options[ 'checkout_color' ] ) 	   ? $edd_options[ 'checkout_color' ] 	: 'blue',
 		'class'       => ''
@@ -350,23 +391,25 @@ function shopfront_get_purchase_link( $args = array() ) {
 
 			printf(
 				'<button type="submit" class="button edd-add-to-cart %1$s" name="edd_purchase_download" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s>
-					<i class="icon-basket-add"></i><span class="visuallyhidden">%2$s</span>
+					<i class="icon-%7$s-add"></i><span class="visuallyhidden">%2$s</span>
 				</button>',
 				'',
 				esc_attr( $args['text'] ),
 				esc_attr( $args['download_id'] ),
 				esc_attr( $data_variable ),
 				esc_attr( $type ),
-				$button_display
+				$button_display,
+				shopfront_get_cart_icon()
 			);
 
 
 				printf(
-					'<a title="' . __( 'Go to Checkout', 'edd' ) . '" href="%1$s" class="%2$s %3$s" %4$s><i class="icon-basket"></i><span class="visuallyhidden">' . __( 'Checkout', 'edd' ) . '</span></a>',
+					'<a title="' . __( 'Go to Checkout', 'shop-front' ) . '" href="%1$s" class="%2$s %3$s" %4$s><i class="icon-%5$s"></i><span class="visuallyhidden">' . __( 'Checkout', 'shop-front' ) . '</span></a>',
 					esc_url( edd_get_checkout_uri() ),
 					esc_attr( 'edd_go_to_checkout' ),
 					implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) ),
-					$checkout_display
+					$checkout_display,
+					shopfront_get_cart_icon()
 				);
 			?>
 
@@ -393,7 +436,7 @@ function shopfront_get_purchase_link( $args = array() ) {
  * @since 1.0
  */
 function shopfront_edd_empty_cart_message() {
-	return __( '<p class="alert notice">Your basket is empty</p>', 'shop-front' );
+	return sprintf( __( '<p class="alert notice">Your %1$s is empty</p>', 'shop-front' ), shopfront_get_cart_icon() );
 }
 add_action( 'edd_empty_cart_message', 'shopfront_edd_empty_cart_message' );
 
@@ -451,7 +494,7 @@ if ( ! function_exists( 'shopfront_download_button' ) ):
 
 		// it's a free download ($0.00) so we don't want the button to say 'buy' or 'purchase'
 		elseif( '0' == edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) {
-			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => 'Add To Basket' ) );
+			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => 'Add to ' . shopfront_get_cart_icon() ) );
 		}
 		// variable priced downloads
 		elseif( edd_has_variable_prices( get_the_ID() ) ) {
@@ -503,8 +546,3 @@ function shopfront_download_meta() { ?>
 <?php }
 endif;
 add_action( 'shopfront_single_download_aside', 'shopfront_download_meta' );
-
-
-
-			
-

@@ -19,15 +19,13 @@ if( function_exists('edd_show_added_to_cart_messages') ) edd_show_added_to_cart_
 if( post_type_exists( 'download' ) ) : ?>
 
 	<?php 
-	if( function_exists('edd_fd_show_featured_downloads') )
-		edd_fd_show_featured_downloads();
 
-		if( function_exists('shopfront_home_latest') )
-			shopfront_home_latest(); // latest downloads
-		
-		if( function_exists('shopfront_home_button') )
-			shopfront_home_button(); // button on homepage
-
+		/**
+		 * Hook for:
+		 * homepage button, latest downloads
+		 * @since       1.0
+		*/
+		do_action( 'shopfront_index' );
 	?>
 
 <?php else : // load normal posts ?>

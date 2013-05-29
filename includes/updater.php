@@ -1,6 +1,6 @@
 <?php
 
-define( 'SUMOBI_THEME_VERSION', '1.0.2' );
+define( 'SUMOBI_THEME_VERSION', '1.0.3' );
 define( 'SUMOBI_STORE_URL', 'http://sumobi.com' );
 define( 'SUMOBI_THEME_NAME', 'Shop Front' );
 

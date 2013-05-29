@@ -5,6 +5,20 @@ Shop Front was designed to be simple, responsive and lightweight. It has only th
 
 == Changelog ==
 
+
+= 1.0.4: June X, 2013 =
+
+* New: Added new shopfront_index hook for the index page
+* Tweak: Items on homepage are now added via new hook for greater flexibility
+
+= 1.0.3: May 29, 2013 =
+
+* New: You can now choose between a cart or basket icon, or just text. You also have control over icon's alignment. Text is updated in other areas of the theme also.
+* New: Added cart icon. You will need to copy the fonts folder and override the one in your child theme (which you should be using) to see the new icon/s.
+* Fix: Incorrect text domains.
+* Tweak: Updated translation strings.
+* Tweak: Editor stylesheet.
+
 = 1.0.2: May 28, 2013 =
 
 * New: Added support in theme customizer for background_image and static_front_page. Background support needs add_theme_support( 'custom-background' ); in child theme.

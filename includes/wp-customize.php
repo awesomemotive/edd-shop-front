@@ -367,7 +367,53 @@ function shopfront_customize_register( $wp_customize ) {
 				'4'	=> '4'
 			),
 		));
-	
+
+		/**		
+		 * Cart/basket icons
+		 * @todo sanitize select, radio and checkbox fields
+		*/
+		$wp_customize->add_setting( 'cart_icon', array(
+			'default' => 'cart',
+		//	'sanitize_callback' => 'shopfront_sanitize_select',
+		));
+
+		$wp_customize->add_control( 'cart_icon', array(
+			'label' => __( 'Display Cart or Basket?' , 'shop-front' ),
+			'section' => 'shopfront_section_shop',
+			'type'    => 'select',
+			'choices' => array(
+				'cart' => __( 'Cart' , 'shop-front' ),
+				'basket' => __( 'Basket' , 'shop-front' ),
+			),
+		));
+		
+		$wp_customize->add_setting( 'cart_show_icon', array(
+			'default' => 1,
+		//	'sanitize_callback' => 'shopfront_sanitize_checkbox',
+		));
+
+		$wp_customize->add_control( 'cart_show_icon', array(
+			'label' => __( 'Show icon in navigation?' , 'shop-front' ),
+			'section' => 'shopfront_section_shop',
+			'type'    => 'checkbox',
+		));
+
+		// icon alignment
+		$wp_customize->add_setting( 'cart_icon_alignment', array(
+			'default' => 'left',
+			//	'sanitize_callback' => 'shopfront_sanitize_radio',
+		));
+
+		$wp_customize->add_control( 'cart_icon_alignment', array(
+			'label' => __( 'Icon Alignment' , 'shop-front' ),
+			'section' => 'shopfront_section_shop',
+			'type'    => 'radio',
+			'choices' => array(
+				'left' => __( 'Left' , 'shop-front' ),
+				'right' => __( 'Right' , 'shop-front' ),
+			),
+		));
+
 	} // end shopfront_edd_is_active()
 
 
