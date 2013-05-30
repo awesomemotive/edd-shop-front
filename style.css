@@ -494,6 +494,8 @@ section.home a.button {
 .clear-3,
 .clear-4 {
   display: none;
+  clear: both;
+  margin-bottom: 1em;
 }
 .caption {
   font-size: 0.75em;
@@ -515,6 +517,12 @@ section.home a.button {
 .direction-nav-wrapper,
 #container > .wrapper {
   position: relative;
+}
+#intro .wrapper {
+  padding: 1.5em 2em;
+}
+#intro h1 {
+  color: #4b4b4b;
 }
 .single-download div.edd_price {
   margin-bottom: 32px;
@@ -566,6 +574,15 @@ input.link:hover {
 .edd_cart_actions {
   text-align: right;
 }
+.edd-cancel {
+  margin-top: 1em;
+}
+#edd_purchase_receipt_products ul {
+  margin-bottom: 0;
+}
+#edd_purchase_receipt_products ul li {
+  margin-bottom: 0.5em;
+}
 .edd_discount_remove {
   float: right;
   color: #868c92;
@@ -576,17 +593,25 @@ input.link:hover {
 }
 .edd-description {
   display: block;
-  font-size: 0.85em;
+  font-size: 0.875em;
   margin-bottom: 0.25em;
 }
-#edd-payment-mode-wrap label {
+#edd_checkout_form_wrap label {
   font-weight: normal;
-}
-#edd_checkout_form_wrap #edd-payment-mode-wrap label {
   margin: 0 1em 0 0;
 }
 #edd_checkout_form_wrap input[type="radio"] {
   margin-right: 0.5em;
+}
+#edd_purchase_form input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+#edd_agree_to_terms {
+  float: left;
+  margin-top: 0.3em;
+}
+#edd_terms_agreement {
+  margin-bottom: 1em;
 }
 #edd-discount-loader {
   display: inline-block;
@@ -598,6 +623,10 @@ input.link:hover {
 }
 .edd-cart-ajax-alert img {
   margin-top: 1em;
+}
+.edd-cart-added-alert {
+  margin-top: 1em;
+  display: inline-block;
 }
 .entry-content .edd-payment-icons img {
   margin: 0 0.5em 0.5em 0;
@@ -614,19 +643,21 @@ input.link:hover {
 #download-meta span {
   display: block;
 }
-#edd_purchase_form input[type="password"] + label,
-#edd_purchase_form input[type="email"] + label,
-#edd_purchase_form input[type="text"] + label {
-  display: none;
+.download-image {
+  margin: 0 0 2em 0;
 }
-#edd_purchase_form input[type="checkbox"] {
-  margin-right: 0.5em;
+.download-image img {
+  display: block;
 }
 .edd_price_options {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 .edd_price_options li {
-  margin-bottom: 0;
+  margin-bottom: 0.5em;
+}
+.edd_price_options input[type="radio"],
+.edd_price_options input[type="checkbox"] {
+  margin-right: 0.25em;
 }
 .entry-content .downloads > a {
   color: #868c92;
@@ -637,26 +668,15 @@ input.link:hover {
 .edd_download_purchase_form + .button {
   margin-top: 1em;
 }
-#edd_agree_to_terms {
-  float: left;
-  margin-top: 0.3em;
-}
-.clear-2,
-.clear-3,
-.clear-4 {
-  display: none;
-  clear: both;
-  margin-bottom: 1em;
-}
 .downloads {
   margin: 0 -0.5em 2em -0.5em;
   clear: both;
 }
+.downloads.col-1 .type-download .download-info {
+  padding: 2em;
+}
 .downloads .edd_price {
   color: #3e93c2;
-}
-.downloads .type-download {
-  margin-left: 0;
 }
 .downloads .type-download.in-cart .download-image .overlay {
   bottom: 0;
@@ -669,6 +689,7 @@ input.link:hover {
 }
 .downloads .type-download .download-info {
   padding: 1em;
+  overflow: hidden;
 }
 .downloads .type-download .download-info .edd_download_buy_button {
   margin-top: 1em;
@@ -702,25 +723,13 @@ input.link:hover {
   margin: 0;
   float: left;
 }
-.downloads .type-download .download-image .overlay .edd-cart-ajax-alert {
-  margin-top: 0;
-}
-.downloads .type-download .download-image .overlay .edd-cart-ajax-alert .edd-cart-ajax {
-  padding: 0.5em;
-  position: absolute;
-  bottom: 0.5em;
-  right: 0.5em;
-}
 .downloads .type-download .download-image .overlay .icon-action i {
-  font-size: 24px;
-  text-shadow: none;
+  font-size: 1.5em;
   display: block;
-  height: 24px;
-  width: 24px;
 }
 .downloads .type-download .download-image .overlay a,
 .downloads .type-download .download-image .overlay button {
-  padding: 0.5em 0.85em;
+  padding: 0.5em 0.875em;
 }
 .downloads .type-download .download-image .overlay a i {
   line-height: 1;
@@ -764,12 +773,6 @@ input.link:hover {
 }
 .downloads .type-download > a:hover {
   text-decoration: none;
-}
-#intro .wrapper {
-  padding: 1.5em 2em;
-}
-#intro h1 {
-  color: #4b4b4b;
 }
 .alert {
   color: #4b4b4b;
@@ -1602,22 +1605,6 @@ Base Media Queries
   #nav-below .text {
     display: inline-block;
   }
-  .downloads.col-1 {
-    margin: 0 0 2em 0;
-  }
-  .downloads.col-1 .type-download {
-    margin-bottom: 1em;
-  }
-  .downloads.col-1 .type-download .download-image {
-    width: 50%;
-    float: left;
-    margin: 0;
-  }
-  .downloads.col-1 .type-download .download-image + .download-info {
-    float: left;
-    width: 48%;
-    padding: 2em;
-  }
 }
 @media only screen and (max-width: 719px) {
   .sub-menu {
@@ -1646,9 +1633,6 @@ Base Media Queries
   
 }
 @media only screen and (min-width: 720px) {
-  .gallery {
-    margin: 0 -0.75em;
-  }
   .gallery-item {
     float: left;
   }
@@ -1680,14 +1664,6 @@ Base Media Queries
     text-align: center;
   }
   #intro {
-    margin-bottom: 1em;
-  }
-  .download-buy .edd_price,
-  .download-buy .button {
-    margin-bottom: 0.5em;
-  }
-  .demo,
-  .download-image {
     margin-bottom: 1em;
   }
 }
@@ -1968,32 +1944,16 @@ Base Media Queries
     margin: 0 auto;
     padding: 0 1em;
   }
-  .shop .page-title,
-  .tax-download_category .page-title {
-    float: left;
-  }
-  #change-log .title {
-    display: none;
-  }
-  #download-action {
-    margin-bottom: 1em;
-  }
-  .download-image {
-    margin: 0 0 2em 0;
-  }
-  .download-image img {
-    display: block;
+  #intro .wrapper {
+    margin: 0 auto;
   }
   .downloads.col-1 .type-download .download-image {
     width: 38%;
+    float: left;
   }
   .downloads.col-1 .type-download .download-image + a {
     padding: 2em;
-    width: 62%;
-    float: left;
-  }
-  #intro .wrapper {
-    margin: 0 auto;
+    overflow: hidden;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -2007,9 +1967,6 @@ Base Media Queries
   }
   .four .widget-area {
     width: 25%;
-  }
-  .edd_added_to_cart_alert a {
-    float: right;
   }
   .downloads.col-2 .type-download {
     width: 50%;

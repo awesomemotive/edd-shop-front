@@ -10,6 +10,8 @@ Shop Front was designed to be simple, responsive and lightweight. It has only th
 
 * New: Added new shopfront_index hook for the index page
 * Tweak: Items on homepage are now added via new hook for greater flexibility
+* Tweak: Optimized CSS/removed unused code
+* Fix: 1 column layouts not displaying correctly
 
 = 1.0.3: May 29, 2013 =
 

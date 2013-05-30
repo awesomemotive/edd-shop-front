@@ -285,12 +285,14 @@ add_filter( 'edd_show_added_to_cart_messages', 'shopfront_modify_edd_show_added_
 
 
 /**
- * Move edd_show_added_to_cart_messages() to after store navigation
+ * Move edd_show_added_to_cart_messages() 
  *
  * @since 1.0
  */
 remove_action( 'edd_after_download_content', 'edd_show_added_to_cart_messages' );
-add_action( 'shopfront_primary_start', 'edd_show_added_to_cart_messages' );
+
+// move add to cart message to the start of the content div. This message appears when ajax is disabled
+add_action( 'shopfront_content_start', 'edd_show_added_to_cart_messages' );
 
 
 /**
@@ -307,9 +309,18 @@ function shopfront_modify_edd_show_has_purchased_item_message() {
 }
 add_filter( 'edd_show_has_purchased_item_message', 'shopfront_modify_edd_show_has_purchased_item_message' );
 
-// remove action and add it to our own hook
+
+/**
+ * Message that appears when a download has already been purchased
+ *
+ * @since       1.0
+*/
+
+// remove from default location
 remove_action( 'edd_after_download_content', 'edd_show_has_purchased_item_message' );
-add_action( 'shopfront_primary_start', 'edd_show_has_purchased_item_message' );
+// add it to the start of the content <div>
+add_action( 'shopfront_content_start', 'edd_show_has_purchased_item_message' );
+
 
 
 /**
