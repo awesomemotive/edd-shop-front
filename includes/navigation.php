@@ -95,7 +95,7 @@ class Sumobi_Nav_Walker extends Walker_Nav_Menu {
         return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
     }
 
-    function start_el( &$output, $item, $depth, $args ) {
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         if ( $args->has_children ) {
             $item->classes[] = 'has-sub-menu';
         }
