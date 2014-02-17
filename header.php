@@ -51,4 +51,4 @@ wp_head();
 
 	<div id="content">
 
-	<?php do_action( 'shopfront_content_start', $post->ID ); ?>
+	<?php do_action( 'shopfront_content_start', isset( $post->ID ) ? $post->ID : null ); ?>
