@@ -15,7 +15,7 @@ function shopfront_edd_is_active() {
 }
 
 
-/**		
+/**
  * Prevent button colour dropdown from showing when there are no colours in the array
  * @since 1.0.1
 */
@@ -40,12 +40,12 @@ function shopfront_home_featured_downloads() {
 }
 add_action( 'shopfront_index', 'shopfront_home_featured_downloads' );
 
-/**		
+/**
  * Latest downloads on homepage
  * @since 1.0
 */
 
-function shopfront_home_latest() { ?> 
+function shopfront_home_latest() { ?>
 
 <?php
 
@@ -61,7 +61,7 @@ if( $home_latest_downloads ) : ?>
 		<div class="downloads<?php shopfront_get_download_columns(); ?>">
 
 			<?php while ( have_posts() ) : the_post(); $count++; ?>
-				
+
 			<?php get_template_part( '/partials/download', 'grid' ); ?>
 
 			<?php if ( $count %2 == 0 ) echo '<div class="clear-2"></div>'; ?>
@@ -79,7 +79,7 @@ if( $home_latest_downloads ) : ?>
 			<article id="post-0" class="post no-results not-found">
 
 			<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-				
+
 				<header class="entry-header">
 		            <h2><?php printf( __( 'No %s to display', 'shop-front' ), $post_type_obj->labels->name ); ?></h2>
 		        </header>
@@ -103,15 +103,15 @@ if( $home_latest_downloads ) : ?>
 add_action( 'shopfront_index', 'shopfront_home_latest' );
 
 
-/**		
+/**
  * Filter download html from EDD featured downloads plugin
- * @since 1.0 
+ * @since 1.0
 */
 
 if ( ! function_exists( 'shopfront_edd_fd_featured_downloads_html' ) ) :
 function shopfront_edd_fd_featured_downloads_html( $html, $featured_downloads ) {
 	ob_start();
-	
+
 	if( post_type_exists('download') )
 		$post_type_obj = get_post_type_object( 'download' );
 
@@ -124,7 +124,7 @@ function shopfront_edd_fd_featured_downloads_html( $html, $featured_downloads ) 
 			<?php while ( $featured_downloads->have_posts() ) : $featured_downloads->the_post(); $count++; ?>
 
 				<?php get_template_part( '/partials/download', 'grid' ); ?>
-				
+
 				<?php if ( $count %2 == 0 ) echo '<div class="clear-2"></div>'; ?>
 				<?php if ( $count %3 == 0 ) echo '<div class="clear-3"></div>'; ?>
 				<?php if ( $count %4 == 0 ) echo '<div class="clear-4"></div>'; ?>
@@ -133,16 +133,16 @@ function shopfront_edd_fd_featured_downloads_html( $html, $featured_downloads ) 
 		</div>
 		<?php endif; wp_reset_postdata(); ?>
 <?php
-	$html = ob_get_clean(); 
+	$html = ob_get_clean();
 	echo $html;
 }
 endif;
 add_filter( 'edd_fd_featured_downloads_html', 'shopfront_edd_fd_featured_downloads_html', 10, 2 );
 
 
-/**		
+/**
  * Filter the 'EDD Featured Downloads' plugin's wp_query args and pass in the number of downloads from the theme customizer
- * @since 1.0 
+ * @since 1.0
 */
 
 function shopfront_edd_fd_featured_downloads_args( $args ) {
@@ -155,7 +155,7 @@ function shopfront_edd_fd_featured_downloads_args( $args ) {
 add_filter( 'edd_fd_featured_downloads_args', 'shopfront_edd_fd_featured_downloads_args' );
 
 
-/**		
+/**
  * Homepage button
  * Displays the button on the homepage
  * @since 1.0
@@ -163,7 +163,7 @@ add_filter( 'edd_fd_featured_downloads_args', 'shopfront_edd_fd_featured_downloa
 
 function shopfront_home_button() { ?>
 
-	<?php 
+	<?php
 		$post_type_obj = get_post_type_object( 'download' );
 		$home_button_text = get_theme_mod( 'home_button_text', sprintf( __( 'View Our %s', 'shop-front' ), $post_type_obj->labels->name ) );
 
@@ -206,9 +206,9 @@ function shopfront_show_cart_quantity_icon() {
 
 ?>
 	<?php if ( shopfront_edd_is_active() ) : ?>
-	
+
 	<a id="cart" class="<?php echo 'align-'.$icon_alignment; ?> <?php if( $show_icon ) echo 'has-icon'; ?>" href="<?php echo get_permalink( $edd_options['purchase_page'] ); ?>">
-		 
+
 		<?php if( $show_icon ) : // there's an icon ?>
 
 			<?php if( 'left' == $icon_alignment ) : ?>
@@ -238,8 +238,8 @@ function shopfront_show_cart_quantity_icon() {
 function shopfront_modify_edd_get_cart_discounts_html( $html, $discounts, $rate, $remove_url ) {
 
 	foreach( $discounts as $discount ) {
-		$html = '<span class="edd_discount_rate">' . $discount .'&nbsp;&ndash;&nbsp;' . $rate . '</span>';
-		$html .= '<a title="Remove Discount" href="'. $remove_url .'" data-code="' . $discount . '" class="edd_discount_remove">remove</a>';
+		$html = '<span class="edd_discount_rate">' . $discount .'&nbsp;&ndash;&nbsp;' . $rate . '&nbsp;</span>';
+		$html .= '<a title="' . __( 'Remove Discount', 'shop-front' ) . '" href="'. $remove_url .'" data-code="' . $discount . '" class="edd_discount_remove">' . __( 'remove', 'shop-front' ) . '</a>';
 	}
 
 	return $html;
@@ -285,7 +285,7 @@ add_filter( 'edd_show_added_to_cart_messages', 'shopfront_modify_edd_show_added_
 
 
 /**
- * Move edd_show_added_to_cart_messages() 
+ * Move edd_show_added_to_cart_messages()
  *
  * @since 1.0
  */
@@ -397,7 +397,7 @@ function shopfront_get_purchase_link( $args = array() ) {
 ?>
 	<!--dynamic-cached-content-->
 	<form id="edd_purchase_<?php echo $args['download_id']; ?>" class="icon-action edd_download_purchase_form" method="post">
-		
+
 			<?php
 
 			printf(
@@ -447,7 +447,16 @@ function shopfront_get_purchase_link( $args = array() ) {
  * @since 1.0
  */
 function shopfront_edd_empty_cart_message() {
-	return sprintf( __( '<p class="alert notice">Your %1$s is empty</p>', 'shop-front' ), shopfront_get_cart_icon() );
+	$cart_icon = shopfront_get_cart_icon();
+	switch ($cart_icon) {
+		case 'basket':
+			$cart_type = __( 'Basket', 'shop-front' );
+			break;
+		default:
+			$cart_type = __( 'Cart', 'shop-front' );
+	}
+
+	return sprintf( __( '<p class="alert notice">Your %1$s is empty</p>', 'shop-front' ), $cart_type );
 }
 add_action( 'edd_empty_cart_message', 'shopfront_edd_empty_cart_message' );
 
@@ -475,7 +484,7 @@ add_filter( 'edd_error_class', 'shopfront_edd_error_class' );
  * @since       1.0
 */
 function shopfront_single_download_price() {
-	edd_get_template_part( 'shortcode', 'content-price' );	
+	edd_get_template_part( 'shortcode', 'content-price' );
 }
 add_action( 'shopfront_single_download_aside', 'shopfront_single_download_price' );
 
@@ -523,7 +532,7 @@ endif;
 add_action( 'shopfront_single_download_aside', 'shopfront_download_button' );
 
 
-/**		
+/**
  * Output download categories and tags
  * @since 1.0
 */
@@ -533,7 +542,7 @@ function shopfront_download_meta() { ?>
     <?php
     	global $post;
 
-        
+
         $category_list = get_the_term_list( $post->ID, 'download_category', '', ', ');
         $tag_list = get_the_term_list( $post->ID, 'download_tag', '', ', ');
 
@@ -550,10 +559,10 @@ function shopfront_download_meta() { ?>
 
         	$text .= '</div>';
         }
-        
+
         printf( $text, $category_list, $tag_list );
     ?>
-          
+
 <?php }
 endif;
 add_action( 'shopfront_single_download_aside', 'shopfront_download_meta' );
