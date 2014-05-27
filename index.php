@@ -4,10 +4,6 @@
 */
 get_header(); 
 
- // Shows an alert with what download was added to the cart. Only shows when ajax is turned off
-$download_id = isset( $_POST["download_id"] ) ? $_POST["download_id"] : '';
-
-if( function_exists('edd_show_added_to_cart_messages') ) edd_show_added_to_cart_messages( $download_id );
 
 ?>
 
@@ -18,19 +14,19 @@ if( function_exists('edd_show_added_to_cart_messages') ) edd_show_added_to_cart_
 */
 if( post_type_exists( 'download' ) ) : ?>
 
-	<?php 
+			<?php 
 
-		/**
-		 * Hook for:
-		 * homepage button, latest downloads
-		 * @since       1.0
-		*/
-		do_action( 'shopfront_index' );
-	?>
-
+				/**
+				 * Hook for:
+				 * homepage button, latest downloads
+				 * @since       1.0
+				*/
+				do_action( 'shopfront_index' );
+			?>
+			
 <?php else : // load normal posts ?>
 
-	<div id="primary">
+	<section id="primary">
 		<div class="wrapper">
 
 				<?php if ( have_posts() ) : ?>
@@ -74,7 +70,7 @@ if( post_type_exists( 'download' ) ) : ?>
 
 					<?php endif; // end have_posts() check ?>
 		</div>
-	</div>
+	</section>
 	<?php get_sidebar(); ?>
 
 <?php endif; ?>

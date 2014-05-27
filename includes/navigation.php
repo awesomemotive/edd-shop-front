@@ -31,7 +31,7 @@ function shopfront_add_current_menu_item_class( $classes, $item ) {
 
   return $classes;
 }
-add_filter( 'nav_menu_css_class', 'shopfront_add_current_menu_item_class', 10, 2 );
+//add_filter( 'nav_menu_css_class', 'shopfront_add_current_menu_item_class', 10, 2 );
 
 
 /**
@@ -68,7 +68,6 @@ if ( ! function_exists( 'shopfront_do_nav' ) ) :
         'container' => 'nav',
         'container_id' => 'main',
         'fallback_cb' => 'shopfront_primary_menu_fallback',
-        'walker' => new Sumobi_Nav_Walker(),
         'depth' => '3',
       )
     );
@@ -78,32 +77,32 @@ endif;
 add_action( 'shopfront_header_end', 'shopfront_do_nav', 9 );
 
 
-/**    
- * Walker
- * Adds .has-sub-menu css class to list items that contain a menu
- * @since 1.0 
+/**
+ * Filter menu and add 'has-sub-menu' class to parent
+ *
+ * @since       1.0.4
 */
-class Sumobi_Nav_Walker extends Walker_Nav_Menu {
 
-    function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
-        $id_field = $this->db_fields['id'];
-
-        if ( is_object( $args[0] ) ) {
-            $args[0]->has_children = !empty( $children_elements[$element->$id_field] );
-        }
-
-        return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+function shopfront_add_has_sub_menu_parent_class( $items ) {
+  
+  $parents = array();
+  foreach ( $items as $item ) {
+    if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
+      $parents[] = $item->menu_item_parent;
     }
-
-    function start_el( &$output, $item, $depth, $args ) {
-        if ( $args->has_children ) {
-            $item->classes[] = 'has-sub-menu';
-        }
-
-        parent::start_el($output, $item, $depth, $args);
+  }
+  
+  foreach ( $items as $item ) {
+    if ( in_array( $item->ID, $parents ) ) {
+      $item->classes[] = 'has-sub-menu'; 
     }
-
+  }
+  
+  return $items;    
 }
+add_filter( 'wp_nav_menu_objects', 'shopfront_add_has_sub_menu_parent_class' );
+
+
 
 /**
  * Menu Fallback
@@ -166,11 +165,7 @@ function shopfront_do_secondary_nav() {
 
   echo strip_tags( wp_nav_menu( $menuParameters ), '<a>' );
 
-  do_action('shop_front_secondary_navigation');
-  
-  if ( function_exists( 'shopfront_show_cart_quantity_icon' ) ) {
-    echo shopfront_show_cart_quantity_icon();
-  }
+  do_action( 'shop_front_secondary_navigation' );
 
   echo '</nav>';
 
@@ -228,7 +223,7 @@ if ( ! function_exists( 'shopfront_content_nav' ) ) :
     $page = (get_query_var('paged')) ? get_query_var('paged') : 1; query_posts('paged=$page');
 
     if ( $wp_query->max_num_pages > 1 ) : ?>
-      <nav id="<?php echo $nav_id; ?>" class="post-navigation">
+      <nav id="<?php echo $nav_id; ?>" class="navigation">
 
         <h3 class="assistive-text">
           <?php _e( 'Post navigation', 'shop-front' ); ?>

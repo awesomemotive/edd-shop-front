@@ -6,22 +6,11 @@
 
     get_header();
 
-    // get post type object
-    $obj = get_post_type_object('download');
+    $plural = function_exists( 'edd_get_label_plural' ) ? edd_get_label_plural() : '';
+    $singular = function_exists( 'edd_get_label_singular' ) ? edd_get_label_singular() : '';
+   ?>
 
-    // Shows an alert with what download was added to the cart. Only shows when ajax is turned off
-    $download_id = isset( $_POST["download_id"] ) ? $_POST["download_id"] : '';
-
-    if( function_exists('edd_show_added_to_cart_messages') ) edd_show_added_to_cart_messages( $download_id );
-
-    $post_type_archive_title = get_theme_mod( 'post_type_archive_title', $obj->labels->menu_name );
-
-    if( $post_type_archive_title ) : ?>
-
-    <h1 class="page-title">
-        <?php echo $post_type_archive_title; // echos the name of the post type for use as the heading ?>
-    </h1>
-    <?php endif; ?>
+    <?php do_action( 'shopfront_the_title' ); ?>
 
     <?php do_action( 'shopfront_primary_wrapper_before' ); ?>
         
@@ -61,11 +50,11 @@
     <?php if ( current_user_can( 'edit_posts' ) ) : // Show a different message to a logged-in user who can add posts ?>
         
         <header class="entry-header">
-            <h2><?php printf( __( 'No %s to display', 'shop-front' ), $obj->labels->name ); ?></h2>
+            <h2><?php printf( __( 'No %s to display', 'shop-front' ), $plural ); ?></h2>
         </header>
 
         <div class="entry-content">
-            <p><?php printf( __( 'Ready to add your first %s? <a href="%s">Get started here</a>.', 'shop-front' ), $obj->labels->singular_name, admin_url( 'post-new.php?post_type=download' ) ); ?></p>
+            <p><?php printf( __( 'Ready to add your first %s? <a href="%s">Get started here</a>.', 'shop-front' ), $singular, admin_url( 'post-new.php?post_type=download' ) ); ?></p>
         </div>
 
     <?php else : // Show the default message to everyone else ?>

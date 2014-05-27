@@ -23,7 +23,14 @@ function shopfront_style_customize() { ?>
 		.customize-control-extra {
 			color: #999999;
 			display:block;
+		}
+
+		label + .customize-control-extra {	
 			margin-top: 4px;
+		}
+
+		span + .customize-control-extra {
+			margin-bottom: 4px;
 		}
 
 		textarea {
@@ -67,13 +74,14 @@ function shopfront_customize_register( $wp_customize ) {
 	 * Remove controls
 	*/
 	$wp_customize->remove_control( 'blogdescription' );
+	$wp_customize->remove_control( 'background_color' );
 
 
 	/**		
 	 * Custom controls
 	*/
-
-	class Custom_Textarea_Control extends WP_Customize_Control {
+	if ( ! class_exists( 'ShopFront_Custom_Textarea_Control' ) ) :
+	class ShopFront_Custom_Textarea_Control extends WP_Customize_Control {
 		public $type = 'textarea';
 
 		public function render_content() { ?>
@@ -84,9 +92,12 @@ function shopfront_customize_register( $wp_customize ) {
 		</label>
 	<?php }
 	}
+	endif;
 
+
+	if ( ! class_exists( 'ShopFront_Custom_Text_Control' ) ) :
 	// custom text control with 'extra' section
-    class Custom_Text_Control extends WP_Customize_Control {
+    class ShopFront_Custom_Text_Control extends WP_Customize_Control {
         public $type = 'customtext';
         public $extra = ''; // we add this for the extra description
         public function render_content() {
@@ -100,8 +111,11 @@ function shopfront_customize_register( $wp_customize ) {
         <?php
         }
     }
-	 
-	class Custom_Image_Control extends WP_Customize_Image_Control {
+	endif;
+
+
+	if ( ! class_exists( 'ShopFront_Custom_Image_Control' ) ) :
+	class ShopFront_Custom_Image_Control extends WP_Customize_Image_Control {
 		/**
 		* Constructor.
 		*
@@ -143,7 +157,7 @@ function shopfront_customize_register( $wp_customize ) {
 		}
 		
 	}
-	  
+	endif;  	
 
 
 	/**		
@@ -193,12 +207,6 @@ function shopfront_customize_register( $wp_customize ) {
 
 
 
-	// contact
-	$wp_customize->add_section( 'shopfront_section_contact', array(
-		'title'		=> __( 'Contact Page Template', 'shop-front' ),
-		'priority'	=> 50,
-		'description' => 'Contact',
-	));
 
 	// blog
 	$wp_customize->add_section( 'shopfront_section_blog', array(
@@ -230,8 +238,8 @@ function shopfront_customize_register( $wp_customize ) {
 	));
 
 		
-	$wp_customize->add_control( new Custom_Text_Control( $wp_customize, 'copyright', array(
-	    'label' => __( 'Copyright' , 'shop-front' ),
+	$wp_customize->add_control( new ShopFront_Custom_Text_Control( $wp_customize, 'copyright', array(
+	    'label' => __( 'Copyright', 'shop-front' ),
 	    'section' => 'shopfront_section_footer',
 	    'settings' => 'copyright',
 	    ) ) 
@@ -253,10 +261,10 @@ function shopfront_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'shopfront_sanitize_round_to_whole_number',
 			));
 
-			$wp_customize->add_control( new Custom_Text_Control( $wp_customize, 'home_featured_downloads', array(
-			    'label' => __( 'Featured Downloads To Show' , 'shop-front' ),
+			$wp_customize->add_control( new ShopFront_Custom_Text_Control( $wp_customize, 'home_featured_downloads', array(
+			    'label' => __( 'Featured Downloads To Show', 'shop-front' ),
 			    'section' => 'shopfront_section_homepage',
-			    'extra' => __( '-1 shows all downloads. Leave blank to disable.' , 'shop-front' ),
+			    'extra' => __( '-1 shows all downloads. Enter 0 to disable.', 'shop-front' ),
 			    ) ) 
 			);
 		}
@@ -269,10 +277,10 @@ function shopfront_customize_register( $wp_customize ) {
 			'sanitize_callback' => 'shopfront_sanitize_round_to_whole_number',
 		));
 
-		$wp_customize->add_control( new Custom_Text_Control( $wp_customize, 'home_latest_downloads', array(
-		    'label' => __( 'Latest Downloads To Show' , 'shop-front' ),
+		$wp_customize->add_control( new ShopFront_Custom_Text_Control( $wp_customize, 'home_latest_downloads', array(
+		    'label' => __( 'Latest Downloads To Show', 'shop-front' ),
 		    'section' => 'shopfront_section_homepage',
-		    'extra' => __( 'Leave blank to show all. Enter 0 to disable.' , 'shop-front' ),
+		    'extra' => __( 'Leave blank to show all. Enter 0 to disable.', 'shop-front' ),
 		    ) ) 
 		);
 
@@ -285,14 +293,14 @@ function shopfront_customize_register( $wp_customize ) {
 		));
 
 		$wp_customize->add_control( 'home_download_columns', array(
-			'label' => __( 'Download Columns' , 'shop-front' ),
+			'label' => __( 'Download Columns', 'shop-front' ),
 			'section' => 'shopfront_section_homepage',
 			'type'    => 'select',
 			'choices' => array(
-				'1' => '1',
-				'2' => '2',
-				'3' => '3',
-				'4'	=> '4'
+				'1' => __( '1', 'shop-front' ),
+				'2' => __( '2', 'shop-front' ),
+				'3' => __( '3', 'shop-front' ),
+				'4'	=> __( '4', 'shop-front' ),
 			),
 		));
 
@@ -302,14 +310,14 @@ function shopfront_customize_register( $wp_customize ) {
 
 
 		$wp_customize->add_setting( 'home_button_text', array(
-			'default' => __( 'View all' , 'shop-front' ),
+			'default' => __( 'View all', 'shop-front' ),
 			'sanitize_callback' => 'shopfront_sanitize_text_field',
 		));
 
-		$wp_customize->add_control( new Custom_Text_Control( $wp_customize, 'home_button_text', array(
-		    'label' => __( 'Button Text' , 'shop-front' ),
+		$wp_customize->add_control( new ShopFront_Custom_Text_Control( $wp_customize, 'home_button_text', array(
+		    'label' => __( 'Button Text', 'shop-front' ),
 		    'section' => 'shopfront_section_homepage',
-		    'extra' => __( 'Leave blank to disable.' , 'shop-front' ),
+		    'extra' => __( 'Leave blank to disable.', 'shop-front' ),
 		    ) ) 
 		);
 
@@ -317,17 +325,16 @@ function shopfront_customize_register( $wp_customize ) {
 		 * shop title
 		*/
 
-		
 
 		$wp_customize->add_setting( 'post_type_archive_title', array(
-			'default' => get_post_type_object('download')->labels->menu_name,
+			'default' => edd_get_label_plural(),
 			'sanitize_callback' => 'shopfront_sanitize_text_field',
 		));
 
-		$wp_customize->add_control( new Custom_Text_Control( $wp_customize, 'post_type_archive_title', array(
-		    'label' => __( 'Shop Title' , 'shop-front' ),
+		$wp_customize->add_control( new ShopFront_Custom_Text_Control( $wp_customize, 'post_type_archive_title', array(
+		    'label' => __( 'Shop Title', 'shop-front' ),
 		    'section' => 'shopfront_section_shop',
-		    'extra' => __( 'Leave blank to disable' , 'shop-front' ),
+		    'extra' => __( 'Leave blank to disable', 'shop-front' ),
 		    ) ) 
 		);
 
@@ -339,10 +346,10 @@ function shopfront_customize_register( $wp_customize ) {
 			'sanitize_callback' => 'shopfront_sanitize_round_to_whole_number',
 		));
 
-		$wp_customize->add_control( new Custom_Text_Control( $wp_customize, 'post_type_archive_downloads_per_page', array(
-		    'label' => __( 'Downloads Per Page' , 'shop-front' ),
+		$wp_customize->add_control( new ShopFront_Custom_Text_Control( $wp_customize, 'post_type_archive_downloads_per_page', array(
+		    'label' => __( 'Downloads Per Page', 'shop-front' ),
 		    'section' => 'shopfront_section_shop',
-		    'extra' => __( 'Leave blank to show all' , 'shop-front' ),
+		    'extra' => __( 'Leave blank to show all', 'shop-front' ),
 		    ) ) 
 		);
 
@@ -357,14 +364,14 @@ function shopfront_customize_register( $wp_customize ) {
 		
 
 		$wp_customize->add_control( 'download_columns', array(
-			'label' => __( 'Download Columns' , 'shop-front' ),
+			'label' => __( 'Download Columns', 'shop-front' ),
 			'section' => 'shopfront_section_shop',
 			'type'    => 'select',
 			'choices' => array(
-				'1' => '1',
-				'2' => '2',
-				'3' => '3',
-				'4'	=> '4'
+				'1' => __( '1', 'shop-front' ),
+				'2' => __( '2', 'shop-front' ),
+				'3' => __( '3', 'shop-front' ),
+				'4'	=> __( '4', 'shop-front' ),
 			),
 		));
 
@@ -378,12 +385,12 @@ function shopfront_customize_register( $wp_customize ) {
 		));
 
 		$wp_customize->add_control( 'cart_icon', array(
-			'label' => __( 'Display Cart or Basket?' , 'shop-front' ),
+			'label' => __( 'Display Cart or Basket?', 'shop-front' ),
 			'section' => 'shopfront_section_shop',
 			'type'    => 'select',
 			'choices' => array(
-				'cart' => __( 'Cart' , 'shop-front' ),
-				'basket' => __( 'Basket' , 'shop-front' ),
+				'cart' => __( 'Cart', 'shop-front' ),
+				'basket' => __( 'Basket', 'shop-front' ),
 			),
 		));
 		
@@ -393,7 +400,7 @@ function shopfront_customize_register( $wp_customize ) {
 		));
 
 		$wp_customize->add_control( 'cart_show_icon', array(
-			'label' => __( 'Show icon in navigation?' , 'shop-front' ),
+			'label' => __( 'Show icon in navigation?', 'shop-front' ),
 			'section' => 'shopfront_section_shop',
 			'type'    => 'checkbox',
 		));
@@ -405,12 +412,12 @@ function shopfront_customize_register( $wp_customize ) {
 		));
 
 		$wp_customize->add_control( 'cart_icon_alignment', array(
-			'label' => __( 'Icon Alignment' , 'shop-front' ),
+			'label' => __( 'Icon Alignment', 'shop-front' ),
 			'section' => 'shopfront_section_shop',
 			'type'    => 'radio',
 			'choices' => array(
-				'left' => __( 'Left' , 'shop-front' ),
-				'right' => __( 'Right' , 'shop-front' ),
+				'left' => __( 'Left', 'shop-front' ),
+				'right' => __( 'Right', 'shop-front' ),
 			),
 		));
 
@@ -427,10 +434,10 @@ function shopfront_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'shopfront_sanitize_blog_posts_per_page',
 	));
 
-	$wp_customize->add_control( new Custom_Text_Control( $wp_customize, 'blog_posts_per_page', array(
-	    'label' => __( 'Blog Template Posts Per Page' , 'shop-front' ),
+	$wp_customize->add_control( new ShopFront_Custom_Text_Control( $wp_customize, 'blog_posts_per_page', array(
+	    'label' => __( 'Blog Template Posts Per Page', 'shop-front' ),
 	    'section' => 'shopfront_section_blog',
-	    'extra' => __( 'Leave blank to use the "Blog pages show at most" number under Settings &rarr; Reading. Enter -1 to show all blog posts.' , 'shop-front' ),
+	    'extra' => __( 'Leave blank to use the "Blog pages show at most" number under Settings &rarr; Reading. Enter -1 to show all blog posts.', 'shop-front' ),
 	    ) ) 
 	);
 
@@ -442,12 +449,12 @@ function shopfront_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'blog_excerpt_or_content', array(
-	    'label' => __( 'Blog Template Posts Per Page' , 'shop-front' ),
+	    'label' => __( 'Blog Template Posts Per Page', 'shop-front' ),
 	    'section' => 'shopfront_section_blog',
 	    'type'	=> 'radio',
 	    'choices' => array(
-	    	'excerpt' => 'Excerpts',
-	    	'content' => 'Full Content'
+	    	'excerpt' => __( 'Excerpts', 'shop-front' ),
+	    	'content' => __( 'Full Content', 'shop-front' ),
 	    	)
 	    )) 
 	);
@@ -468,45 +475,12 @@ function shopfront_customize_register( $wp_customize ) {
 		));
 
 		$wp_customize->add_control( 'theme_style', array(
-			'label' => __( 'Theme Style' , 'shop-front' ),
+			'label' => __( 'Theme Style', 'shop-front' ),
 			'section' => 'shopfront_section_styling',
 			'type'    => 'select',
 			'choices'    => $styles
 		));
 	}
-
-	
-
-	/**		
-	 * Contact Form Email Address
-	*/
-	$wp_customize->add_setting( 'contact_form_email', array(
-		'default' => '',
-		'sanitize_callback' => 'shopfront_sanitize_email',
-	));
-
-	$wp_customize->add_control( new Custom_Text_Control( $wp_customize, 'contact_form_email', array(
-	    'label' => __( 'Contact Form Email Address' , 'shop-front' ),
-	    'section' => 'shopfront_section_contact',
-	    'extra' => __( 'Leave blank to use admin email' , 'shop-front' ),
-	    ) ) 
-	);
-
-
-	/**		
-	 * Contact Form Message
-	*/
-	$wp_customize->add_setting( 'contact_form_message', array(
-		'default' => __('Thanks for getting in touch!', 'shop-front'),
-		'sanitize_callback' => 'shopfront_sanitize_text_field',
-	));
-
-	// contact form success message
-	$wp_customize->add_control( new Custom_Textarea_Control( $wp_customize, 'contact_form_message', array(
-		'label' => __( 'Contact Form Success Message' , 'shop-front' ),
-		'section'	=> 'shopfront_section_contact',
-		) ) 
-	);
 
 
 	/**		
@@ -516,7 +490,7 @@ function shopfront_customize_register( $wp_customize ) {
 		'default'        => '',
 	) );
 
-	$wp_customize->add_control( new Custom_Image_Control( $wp_customize, 'logo', array(
+	$wp_customize->add_control( new ShopFront_Custom_Image_Control( $wp_customize, 'logo', array(
 		'label'	=> __( 'Logo', 'shop-front' ),
 		'section' => 'title_tagline',
 	)));
@@ -538,7 +512,7 @@ function shopfront_customize_register( $wp_customize ) {
 		$typography = shopfront_get_typography_css_files( get_stylesheet_directory() . '/typography/', 'css', get_stylesheet_directory_uri() . '/typography/' );
 
 		$wp_customize->add_control( 'typography', array(
-			'label' => __( 'Typography Stylesheet' , 'shopfront' ),
+			'label' => __( 'Typography Stylesheet', 'shopfront' ),
 			'section' => 'shopfront_section_typography',
 			'type'    => 'select',
 			'priority' => 50,
@@ -566,10 +540,12 @@ add_action( 'customize_register', 'shopfront_customize_register' );
  * Sanitization text field
  * @since 1.0 
 */
-function shopfront_sanitize_text_field( $input  ) {
-	return sanitize_text_field( $input );
-}
 
+if ( ! function_exists( 'shopfront_sanitize_text_field' ) ) :
+	function shopfront_sanitize_text_field( $input  ) {
+		return sanitize_text_field( $input );
+	}
+endif;
 
 
 
@@ -577,55 +553,52 @@ function shopfront_sanitize_text_field( $input  ) {
  * Sanitize typography
  * @since 1.0 
 */
-function shopfront_typography_sanitize_typography( $input ) {
-    
-   	$valid = shopfront_get_typography_css_files( get_stylesheet_directory() . '/typography/', 'css', get_stylesheet_directory_uri() . '/typography/' );
+if ( ! function_exists( 'shopfront_typography_sanitize_typography' ) ) :
+	function shopfront_typography_sanitize_typography( $input ) {
+	    
+	   	$valid = shopfront_get_typography_css_files( get_stylesheet_directory() . '/typography/', 'css', get_stylesheet_directory_uri() . '/typography/' );
 
-    if ( array_key_exists( $input, $valid ) ) 
-        return $input;
-    else 
-        return '';
+	    if ( array_key_exists( $input, $valid ) ) 
+	        return $input;
+	    else 
+	        return '';
 
-}
+	}
+endif;
 
 /**
  * Sanitize whole number
  *
  * @since 1.0
 */
-function shopfront_sanitize_round_to_whole_number( $input  ) {
-	
-	if( '' == $input ) 
-		return '-1';
-	else 
-		return wp_filter_nohtml_kses( round( $input ) );
+if ( ! function_exists( 'shopfront_sanitize_round_to_whole_number' ) ) :
+	function shopfront_sanitize_round_to_whole_number( $input  ) {
+		
+		if( '' == $input ) 
+			return '-1';
+		else 
+			return wp_filter_nohtml_kses( round( $input ) );
 
-}
+	}
+endif;
 
 /**
  * Sanitize Blog posts
  *
  * @since 1.0
 */
-function shopfront_sanitize_blog_posts_per_page( $input  ) {
+if ( ! function_exists( 'shopfront_sanitize_blog_posts_per_page' ) ) :
+	function shopfront_sanitize_blog_posts_per_page( $input  ) {
 
-	$wp_posts_per_page = get_option('posts_per_page');
+		$wp_posts_per_page = get_option('posts_per_page');
 
-	// if nothing is entered we return the default blog posts per page setting
-	if( !$input)
-		return $wp_posts_per_page;
-	else
-		return wp_filter_nohtml_kses( round( $input ) );
-}
-
-/**
- * Sanitize Email Address
- *
- * @since 1.0
-*/
-function shopfront_sanitize_email( $input ) {
-	return wp_filter_nohtml_kses( sanitize_email( $input ) ); 
-}
+		// if nothing is entered we return the default blog posts per page setting
+		if( !$input)
+			return $wp_posts_per_page;
+		else
+			return wp_filter_nohtml_kses( round( $input ) );
+	}
+endif;
 
 
 
@@ -634,39 +607,41 @@ function shopfront_sanitize_email( $input ) {
  *
  * @since 1.0
 */
-function shopfront_sanitize_download_columns( $input ) {
-    
-    $valid = array(
-        '1' => __( '1', 'shop-front'),
-        '2' => __( '2', 'shop-front'),
-        '3' => __( '3', 'shop-front'),
-        '4' => __( '4', 'shop-front'),
-    );
- 
-    if ( array_key_exists( $input, $valid ) ) 
-        return $input;
-     else 
-        return '';
+if ( ! function_exists( 'shopfront_sanitize_download_columns' ) ) :
+	function shopfront_sanitize_download_columns( $input ) {
+	    
+	    $valid = array(
+	        '1' => __( '1', 'shop-front' ),
+	        '2' => __( '2', 'shop-front' ),
+	        '3' => __( '3', 'shop-front' ),
+	        '4' => __( '4', 'shop-front' ),
+	    );
+	 
+	    if ( array_key_exists( $input, $valid ) ) 
+	        return $input;
+	     else 
+	        return '';
 
-}
-
+	}
+endif;
 
 /**
  * Santize theme styles
  *
  * @since 1.0
 */
-function shopfront_sanitize_theme_style( $input ) {
-    
-   	$valid = shopfront_theme_options_theme_styles();
- 
-    if ( array_key_exists( $input, $valid ) ) 
-        return $input;
-    else 
-        return '';
+if ( ! function_exists( 'shopfront_sanitize_theme_style' ) ) :
+	function shopfront_sanitize_theme_style( $input ) {
+	    
+	   	$valid = shopfront_theme_options_theme_styles();
+	 
+	    if ( array_key_exists( $input, $valid ) ) 
+	        return $input;
+	    else 
+	        return '';
 
-}
-
+	}
+endif;
 
 /**
  * PostMessage JS

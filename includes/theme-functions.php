@@ -11,7 +11,7 @@ if ( ! function_exists( 'shopfront_entry_meta' ) ) :
  *
  * Create your own shopfront_entry_meta() to override in a child theme.
  *
- * @since Twenty Twelve 1.0
+ * @since 1.0
  */
 function shopfront_entry_meta() {
 	// Translators: used between list items, there is a space after the comma.
@@ -52,6 +52,7 @@ function shopfront_entry_meta() {
 }
 endif;
 
+
 /**		
  * Render the_title
  * Uses hooks so title can be removed/repositioned
@@ -65,9 +66,25 @@ function shopfront_render_the_title() { ?>
 			<h1 class="page-title"><?php the_title(); ?></h1>
 		</header>
 
+	<?php elseif( is_post_type_archive( 'download' ) ) : 
+		 $post_type_archive_title = get_theme_mod( 'post_type_archive_title', edd_get_label_plural() );
+	?>
+		
+		<?php if( $post_type_archive_title ) : ?>
+		<h1 class="page-title">
+	        <?php echo $post_type_archive_title; // echos the name of the post type for use as the heading ?>
+	    </h1>
+		<?php endif; ?>
+
 	<?php elseif( is_singular('download') ) : ?>
 	
 		<h1 class="download-title"><?php the_title(); ?></h1>
+
+	<?php elseif( is_tax( 'download_category' ) ) : ?>
+	
+		 <h1 class="page-title">
+            <?php printf( __( '%s', 'shop-front' ), single_term_title( '', false ) ); ?>
+        </h1>
 
 	<?php else : ?>
 
@@ -218,6 +235,7 @@ add_filter( 'excerpt_more', 'shopfront_excerpt_more' );
 */
 function shopfront_read_more() {
 	global $post;
+
 	echo '<a title="' . __( 'Read more', 'shop-front' ) . '" class="more-link" href="'. get_permalink( $post->ID ) . '">' . __( 'Read more', 'shop-front' ) . '</a>';
 }
 
@@ -227,11 +245,11 @@ function shopfront_read_more() {
  * @link http://codex.wordpress.org/Customizing_the_Read_More
  * @since 1.0 
 */
-function remove_more_link_scroll( $link ) {
+function shopfront_remove_more_link_scroll( $link ) {
 	$link = preg_replace( '|#more-[0-9]+|', '', $link );
 	return $link;
 }
-add_filter( 'the_content_more_link', 'remove_more_link_scroll' );
+add_filter( 'the_content_more_link', 'shopfront_remove_more_link_scroll' );
 
 /**
  * Add additional classes to widgets
@@ -300,43 +318,7 @@ add_filter( 'use_default_gallery_style', '__return_false' );
 
 
 
-/**
- * Remove inline width on .wp-comment div and swap <div> for <figure>
- * @since 1.0
- */
-function shopfront_fix_img_caption_shortcode($attr, $content = null) {
 
-	// New-style shortcode with the caption inside the shortcode with the link and image tags.
-	if ( ! isset( $attr['caption'] ) ) {
-		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
-			$content = $matches[1];
-			$attr['caption'] = trim( $matches[2] );
-		}
-	}
-	
-	// Allow plugins/themes to override the default caption template.
-	$output = apply_filters('img_caption_shortcode', '', $attr, $content);
-	if ( $output != '' )
-		return $output;
-
-	
-	extract(shortcode_atts(array(
-		'id'	=> '',
-		'align'	=> 'alignnone',
-		'width'	=> '',
-		'caption' => ''
-	), $attr));
-
-
-	if ( 1 > (int) $width || empty($caption) )
-		return $content;
-
-	if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
-		return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '">' . do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
-}
-
-add_shortcode( 'wp_caption', 'shopfront_fix_img_caption_shortcode' );
-add_shortcode( 'caption', 'shopfront_fix_img_caption_shortcode' );
 
 
 /**
@@ -361,29 +343,6 @@ function shopfront_remove_recent_comments_style() {
 }
 add_action( 'widgets_init', 'shopfront_remove_recent_comments_style' );
 
-
-/**
- * Remove from <head>
- * @since 1.0
- */
-
-// removes meta name="generator" content="WordPress 3.3.1" 
-remove_action('wp_head', 'wp_generator'); 
-
-// removes <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://reiki.treehouse.local/wp-includes/wlwmanifest.xml" /> 
-remove_action('wp_head', 'wlwmanifest_link'); 
-
-// removes rss feed link
-remove_action('wp_head', 'feed_links_extra', 3);
-
-// removes rsd link
-remove_action('wp_head', 'rsd_link');
-
-// removes next post link
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-
-// removes canonical link
-remove_action('wp_head', 'rel_canonical');
 
 
 /**

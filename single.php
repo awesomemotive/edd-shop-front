@@ -6,7 +6,7 @@
 get_header();
 
 ?>
-<div id="primary">
+<section id="primary">
 	<div class="wrapper">
 	<?php do_action( 'shopfront_primary_wrapper_start' ); ?>
 
@@ -20,7 +20,7 @@ get_header();
 
 		<?php do_action( 'shopfront_single_article_end' ); ?>
 
-		<nav id="nav-single">
+		<nav id="nav-single" class="navigation">
 
 		<?php
 			$prev_post = get_adjacent_post( false, '', true );
@@ -38,15 +38,10 @@ get_header();
 
 		</nav>
 
+	<?php do_action( 'shopfront_primary_wrapper_end' ); ?>
+
 	</div>
-</div>
-
-
+</section>
 
 <?php get_sidebar(); ?>
-
-
-
-
-
 <?php get_footer(); ?>

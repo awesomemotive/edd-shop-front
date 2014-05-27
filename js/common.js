@@ -7,8 +7,7 @@ jQuery(document).ready(function() {
 
     // add classes when download is added to cart
     jQuery('body').on('click.eddAddToCart', '.edd-add-to-cart', function (e) {
-        jQuery(this).parent().parent().parent().parent().not('.variable-priced').addClass('in-cart');
-        jQuery(this).next().find('i').addClass('animated');
+        jQuery(this).closest('.type-download').not('.variable-priced').addClass('in-cart');
     });
 
 });

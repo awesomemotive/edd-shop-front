@@ -11,19 +11,10 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 
-<?php
-/* We add some JavaScript to pages with the comment form
-	 * to support sites with threaded comments (when in use).
-	 */
-if ( is_singular() && get_option( 'thread_comments' ) )
-	wp_enqueue_script( 'comment-reply' );
-
-wp_head(); 
-
-?>
+<?php wp_head(); ?>
 
 </head>
 
@@ -42,13 +33,13 @@ wp_head();
 <?php do_action( 'shopfront_container_before' ); ?>
 
 	<div id="container">
-		<?php do_action( 'shopfront_container_start' ); ?>
+	<?php do_action( 'shopfront_container_start' ); ?>
 
 		<div class="wrapper">
-			<?php do_action( 'shopfront_container_wrapper_start' ); ?>
+		<?php do_action( 'shopfront_container_wrapper_start' ); ?>
 
-	<?php do_action( 'shopfront_content_before' ); ?>
+		<?php do_action( 'shopfront_content_before' ); ?>
 
-	<div id="content">
+			<div id="content">
 
-	<?php do_action( 'shopfront_content_start', $post->ID ); ?>
+			<?php do_action( 'shopfront_content_start' ); ?>

@@ -10,21 +10,24 @@
 */
 
 function shopfront_edd_is_active() {
+
 	if ( defined( 'EDD_VERSION' ) )
 		return true;
 }
 
+// return if EDD is not active
+if ( !shopfront_edd_is_active() )
+	return;
 
-/**		
- * Prevent button colour dropdown from showing when there are no colours in the array
- * @since 1.0.1
+
+
+
+/**
+ * Stop EDD coming soon plugin from appending
+ *
+ * @since 1.0.6
 */
-
-function shopfront_edd_get_button_colors( $colors ) {
-	$colors = array();
-	return $colors;
-}
-add_filter( 'edd_button_colors', 'shopfront_edd_get_button_colors' );
+remove_filter( 'the_content', 'edd_coming_soon_single_download' );
 
 
 /**
@@ -34,17 +37,39 @@ add_filter( 'edd_button_colors', 'shopfront_edd_get_button_colors' );
 */
 function shopfront_home_featured_downloads() {
 
+	if( 0 == get_theme_mod( 'home_featured_downloads' ) )
+		return;
+
 	if( function_exists('edd_fd_show_featured_downloads') )
-			edd_fd_show_featured_downloads();
+		edd_fd_show_featured_downloads();
 
 }
 add_action( 'shopfront_index', 'shopfront_home_featured_downloads' );
+
+
+/**
+ * Single Download image
+ *
+ * @since 1.0.4
+*/
+function shopfront_single_download_image() {
+
+	if ( has_post_thumbnail() ) {
+		echo '<div class="download-image">';
+		the_post_thumbnail( 'featured-image' ); 
+		echo '</div>';
+	}
+
+}
+add_action( 'shopfront_single_download_image', 'shopfront_single_download_image' );
+
+
 
 /**		
  * Latest downloads on homepage
  * @since 1.0
 */
-
+if ( ! function_exists( 'shopfront_home_latest' ) ):
 function shopfront_home_latest() { ?> 
 
 <?php
@@ -68,7 +93,7 @@ if( $home_latest_downloads ) : ?>
 			<?php if ( $count %3 == 0 ) echo '<div class="clear-3"></div>'; ?>
 			<?php if ( $count %4 == 0 ) echo '<div class="clear-4"></div>'; ?>
 
-			<?php endwhile; ?>
+			<?php endwhile; wp_reset_postdata(); ?>
 		</div>
 
 	<?php else : ?>
@@ -100,6 +125,7 @@ if( $home_latest_downloads ) : ?>
 <?php endif; ?>
 
 <?php }
+endif;
 add_action( 'shopfront_index', 'shopfront_home_latest' );
 
 
@@ -165,12 +191,16 @@ function shopfront_home_button() { ?>
 
 	<?php 
 		$post_type_obj = get_post_type_object( 'download' );
-		$home_button_text = get_theme_mod( 'home_button_text', sprintf( __( 'View Our %s', 'shop-front' ), $post_type_obj->labels->name ) );
+
+ 		global $wp_rewrite;
+ 		
+ 		$home_button_link = ( ! $wp_rewrite->permalink_structure ) ? site_url() . '/?post-type=download' : site_url() . '/' . trailingslashit( $post_type_obj->rewrite['slug'] );
+		$home_button_text = get_theme_mod( 'home_button_text', __( 'View all', 'shop-front' ) );
 
 		if ( post_type_exists('download') && $home_button_text ) : // show button only if 'download' post type exists ?>
 
 		<section class="home">
-			<a id="home-shop-button" href="<?php echo $post_type_obj->rewrite['slug']; ?>" class="button large primary" title="<?php echo $home_button_text; ?>">
+			<a id="home-shop-button" href="<?php echo $home_button_link; ?>" class="button large primary" title="<?php echo $home_button_text; ?>">
 				<?php echo $home_button_text; ?>
 			</a>
 		</section>
@@ -179,6 +209,7 @@ function shopfront_home_button() { ?>
 
 <?php }
 add_action( 'shopfront_index', 'shopfront_home_button' );
+
 
 /**
  * Get the icon from theme mods
@@ -207,7 +238,7 @@ function shopfront_show_cart_quantity_icon() {
 ?>
 	<?php if ( shopfront_edd_is_active() ) : ?>
 	
-	<a id="cart" class="<?php echo 'align-'.$icon_alignment; ?> <?php if( $show_icon ) echo 'has-icon'; ?>" href="<?php echo get_permalink( $edd_options['purchase_page'] ); ?>">
+	<a id="cart" class="<?php echo 'align-'.$icon_alignment; ?> <?php if( $show_icon ) echo 'has-icon'; ?>" href="<?php echo esc_url( edd_get_checkout_uri() ); ?>">
 		 
 		<?php if( $show_icon ) : // there's an icon ?>
 
@@ -228,6 +259,18 @@ function shopfront_show_cart_quantity_icon() {
 	</a>
 	<?php endif; ?>
 <?php }
+
+
+/**
+ * Hook cart icon 
+ * Allows cart to be removed and repositioned
+ * @since 1.0.4
+*/
+function shopfront_do_cart() {
+	echo shopfront_show_cart_quantity_icon();
+}
+add_action( 'shop_front_secondary_navigation', 'shopfront_do_cart' );
+
 
 
 /**
@@ -256,6 +299,34 @@ remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
 
 
 /**
+ * Remove options from styles tab in EDD settings
+ *
+ * @since 1.0.7
+*/
+function shopfront_remove_settings( $array ) {
+
+	// remove disable styles button
+	unset ( $array['disable_styles'] );
+	unset ( $array['checkout_color'] );
+
+	return $array;
+}
+add_filter( 'edd_settings_styles', 'shopfront_remove_settings' );
+
+
+/**		
+ * Prevent button colour dropdown from showing when there are no colours in the array
+ * @since 1.0.1
+*/
+
+function shopfront_edd_get_button_colors( $colors ) {
+	$colors = array();
+	return $colors;
+}
+add_filter( 'edd_button_colors', 'shopfront_edd_get_button_colors' );
+
+
+/**
  * Removes the automatic purchase link after the main content on each single download
  *
  * @since 1.0
@@ -263,68 +334,43 @@ remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
 
-
 /**
- * Filter message text. Shows when ajax is disabled
- *
- * @since 1.0
- */
-function shopfront_modify_edd_show_added_to_cart_messages() {
-
-	global $download_id;
-
-	$alert = '
-			<p class="alert success">'
-		. sprintf( __( 'You have successfully added %1$s to your %2$s', 'shop-front' ), '<strong>' . get_the_title( $download_id ) . '</strong>', shopfront_get_cart_icon() )
-		. ' <a href="' . edd_get_checkout_uri() . '" class="edd_alert_checkout_link alignright">' . __( 'Checkout', 'shop-front' ) . '</a>'
-		. '</p>';
-
-	return $alert;
-}
-add_filter( 'edd_show_added_to_cart_messages', 'shopfront_modify_edd_show_added_to_cart_messages' );
-
-
-/**
- * Move edd_show_added_to_cart_messages() 
+ * Remove edd_show_added_to_cart_messages() from appearing after the content when ajax is disabled
+ * Shop Front uses it's own shopfront_show_added_to_cart_messages() function so that these messages also show on other pages, not just the single download page
  *
  * @since 1.0
  */
 remove_action( 'edd_after_download_content', 'edd_show_added_to_cart_messages' );
 
-// move add to cart message to the start of the content div. This message appears when ajax is disabled
-add_action( 'shopfront_content_start', 'edd_show_added_to_cart_messages' );
-
 
 /**
- * Filter edd_show_has_purchased_item_message()
+ * Show Added To Cart Messages when ajax is disabled.
+ * Appears on all pages (homepage, custom post type archive, shortcode pages etc) except single download pages
  *
- * @since 1.0
+ * @since 1.0.8
+ * @param int $download_id Download (Post) ID
+ * @return void
  */
+function shopfront_show_added_to_cart_messages( $download_id ) {
 
-function shopfront_modify_edd_show_has_purchased_item_message() {
+	if ( isset( $_POST['edd_action'] ) && $_POST['edd_action'] == 'add_to_cart' ) {
 
-	$alert = '<p class="alert notice">' . __( 'You have already purchased this item, but you may purchase it again.', 'shop-front' ) . '</p>';
-	return $alert;
+		if ( $download_id != absint( $_POST['download_id'] ) )
+			$download_id = absint( $_POST['download_id'] );
 
+		$alert = '<p class="alert success">'
+		. sprintf( __( 'You have successfully added %s to your %2$s', 'edd' ), '<strong>' . get_the_title( $download_id ) . '</strong>', shopfront_get_cart_icon() )
+		. ' <a href="' . edd_get_checkout_uri() . '" class="edd_alert_checkout_link alignright">' . __( 'Checkout', 'shop-front' ) . '</a>'
+		. '</p>';
+
+		echo apply_filters( 'shopfront_show_added_to_cart_messages', $alert );
+
+	}
 }
-add_filter( 'edd_show_has_purchased_item_message', 'shopfront_modify_edd_show_has_purchased_item_message' );
-
-
-/**
- * Message that appears when a download has already been purchased
- *
- * @since       1.0
-*/
-
-// remove from default location
-remove_action( 'edd_after_download_content', 'edd_show_has_purchased_item_message' );
-// add it to the start of the content <div>
-add_action( 'shopfront_content_start', 'edd_show_has_purchased_item_message' );
-
-
+add_action( 'shopfront_content_start', 'shopfront_show_added_to_cart_messages' );
 
 /**
- * Add various body classes
+ * Body classes
  *
  * @since 1.0
  */
@@ -335,6 +381,9 @@ function shopfront_download_body_classes( $classes ) {
 
 	if( is_post_type_archive( 'download' ) )
 		$classes[] = 'shop';
+
+	if( edd_is_checkout() )
+		$classes[] = 'is-checkout';
 
 	return $classes;
 }
@@ -369,6 +418,7 @@ function shopfront_get_purchase_link( $args = array() ) {
 	$defaults = apply_filters( 'edd_purchase_link_defaults', array(
 		'download_id' => $post->ID,
 		'price'       => (bool) true,
+		'direct'      => edd_get_download_button_behavior( $post->ID ) == 'direct' ? true : false,
 		'text'        => ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'shop-front' ),
 		'style'       => isset( $edd_options[ 'button_style' ] ) 	   ? $edd_options[ 'button_style' ]     : 'button',
 		'color'       => isset( $edd_options[ 'checkout_color' ] ) 	   ? $edd_options[ 'checkout_color' ] 	: 'blue',
@@ -377,12 +427,25 @@ function shopfront_get_purchase_link( $args = array() ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
+	if( 'publish' != get_post_field( 'post_status', $args['download_id'] ) && ! current_user_can( 'edit_product', $args['download_id'] ) ) {
+		return false; // Product not published or user doesn't have permission to view drafts
+	}
+
+	// Override color if color == inherit
+	$args['color'] = ( $args['color'] == 'inherit' ) ? '' : $args['color'];
+
 	$variable_pricing = edd_has_variable_prices( $args['download_id'] );
 	$data_variable    = $variable_pricing ? ' data-variable-price=yes' : 'data-variable-price=no';
 	$type             = edd_single_price_option_mode( $args['download_id'] ) ? 'data-price-mode=multi' : 'data-price-mode=single';
-	if ( $args['price'] && $args['price'] != 'no' && ! $variable_pricing ) {
+	
+	if ( $args['price'] && $args['price'] !== 'no' && ! $variable_pricing ) {
 		$price = edd_get_download_price( $args['download_id'] );
-		$args['text'] = edd_currency_filter( edd_format_amount( $price ) ) . '&nbsp;&ndash;&nbsp;' . $args['text'];
+
+		if ( 0 == $price ) {
+			$args['text'] = __( 'Free', 'edd' ) . '&nbsp;&ndash;&nbsp;' . $args['text'];
+		} else {
+			$args['text'] = edd_currency_filter( edd_format_amount( $price ) ) . '&nbsp;&ndash;&nbsp;' . $args['text'];
+		}
 	}
 
 	if ( edd_item_in_cart( $args['download_id'] ) && ! $variable_pricing ) {
@@ -395,13 +458,41 @@ function shopfront_get_purchase_link( $args = array() ) {
 
 	ob_start();
 ?>
-	<!--dynamic-cached-content-->
 	<form id="edd_purchase_<?php echo $args['download_id']; ?>" class="icon-action edd_download_purchase_form" method="post">
-		
+			
+			<?php do_action( 'edd_purchase_link_top', $args['download_id'], $args['price'] ); ?>
+
+			<?php if( function_exists( 'edd_display_tax_rate' ) && edd_display_tax_rate() ) {
+				echo '<div class="edd_purchase_tax_rate">' . sprintf( __( 'Includes %1$s&#37; tax', 'edd' ), $edd_options['tax_rate'] ) . '</div>';
+			} ?>
+
+			<div class="edd_purchase_submit_wrapper">
 			<?php
 
+			 if ( edd_is_ajax_enabled() ) {
+				printf(
+					'<a href="#" class="button edd-add-to-cart %1$s" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s>
+						<span class="edd-add-to-cart-label">
+							<i class="icon-%7$s-add"></i>
+							<span class="visuallyhidden">%2$s</span>
+						</span>
+						<span class="edd-loading">
+							<i class="edd-icon-spinner edd-icon-spin"></i>
+						</span>
+					</a>',
+					'',
+					esc_attr( $args['text'] ),
+					esc_attr( $args['download_id'] ),
+					esc_attr( $data_variable ),
+					esc_attr( $type ),
+					$button_display,
+					shopfront_get_cart_icon()
+				);
+			}	
+
+			
 			printf(
-				'<button type="submit" class="button edd-add-to-cart %1$s" name="edd_purchase_download" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s>
+				'<button type="submit" class="button edd-no-js edd-add-to-cart %1$s" name="edd_purchase_download" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s>
 					<i class="icon-%7$s-add"></i><span class="visuallyhidden">%2$s</span>
 				</button>',
 				'',
@@ -412,33 +503,35 @@ function shopfront_get_purchase_link( $args = array() ) {
 				$button_display,
 				shopfront_get_cart_icon()
 			);
+			
+
+			printf(
+				'<a title="' . __( 'Go to Checkout', 'shop-front' ) . '" href="%1$s" class="%2$s %3$s" %4$s><i class="edd-icon-ok"></i><span class="visuallyhidden">' . __( 'Checkout', 'shop-front' ) . '</span></a>',
+				esc_url( edd_get_checkout_uri() ),
+				esc_attr( 'edd_go_to_checkout' ),
+				implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) ),
+				$checkout_display
+			);
 
 
-				printf(
-					'<a title="' . __( 'Go to Checkout', 'shop-front' ) . '" href="%1$s" class="%2$s %3$s" %4$s><i class="icon-%5$s"></i><span class="visuallyhidden">' . __( 'Checkout', 'shop-front' ) . '</span></a>',
-					esc_url( edd_get_checkout_uri() ),
-					esc_attr( 'edd_go_to_checkout' ),
-					implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) ),
-					$checkout_display,
-					shopfront_get_cart_icon()
-				);
 			?>
-
+		</div>
+		
 		<input type="hidden" name="download_id" value="<?php echo esc_attr( $args['download_id'] ); ?>">
-		<input type="hidden" name="edd_action" value="add_to_cart">
+		<?php if( ! empty( $args['direct'] ) ) { ?>
+			<input type="hidden" name="edd_action" class="edd_action_input" value="straight_to_gateway">
+		<?php } else { ?>
+			<input type="hidden" name="edd_action" class="edd_action_input" value="add_to_cart">
+		<?php } ?>
 
 		<?php do_action( 'edd_purchase_link_end', $args['download_id'] ); ?>
 
-	</form><!--end #edd_purchase_<?php echo esc_attr( $args['download_id'] ); ?>-->
-	<!--/dynamic-cached-content-->
+	</form>
 <?php
 	$purchase_form = ob_get_clean();
 
-	return apply_filters( 'edd_purchase_download_form', $purchase_form, $args );
+	return apply_filters( 'shopfront_purchase_download_form', $purchase_form, $args );
 }
-
-
-
 
 
 /**
@@ -477,7 +570,7 @@ add_filter( 'edd_error_class', 'shopfront_edd_error_class' );
 function shopfront_single_download_price() {
 	edd_get_template_part( 'shortcode', 'content-price' );	
 }
-add_action( 'shopfront_single_download_aside', 'shopfront_single_download_price' );
+add_action( 'shopfront_single_download_aside', 'shopfront_single_download_price', 5 );
 
 
 /**
@@ -493,19 +586,9 @@ if ( ! function_exists( 'shopfront_download_button' ) ):
 	<?php
 		global $post;
 
-		$download_information = get_post_meta( $post->ID, 'edd_extra_download_options', true );
-
-		$download_url = isset( $download_information['download_url'] ) ? $download_information['download_url'] : '';
-
-		$download_url_target = isset( $download_information['download_url_target'] ) ? 'target="_blank"' : '';
-
-		// overrides any variable/ multi priced options
-		if( $download_url )
-			echo '<a title="Download" href="' . $download_url . '" class="button large primary" '. $download_url_target .'>' . __( 'Download', 'shop-front' ) . '</a>';
-
 		// it's a free download ($0.00) so we don't want the button to say 'buy' or 'purchase'
-		elseif( '0' == edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) {
-			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => 'Add to ' . shopfront_get_cart_icon() ) );
+		if( '0' == edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) {
+			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => __( 'Add to', 'shop-front' ) . ' ' . shopfront_get_cart_icon() ) );
 		}
 		// variable priced downloads
 		elseif( edd_has_variable_prices( get_the_ID() ) ) {
@@ -517,10 +600,9 @@ if ( ! function_exists( 'shopfront_download_button' ) ):
 		}
 
 ?>
-
-		<?php }
+	<?php }
 endif;
-add_action( 'shopfront_single_download_aside', 'shopfront_download_button' );
+add_action( 'shopfront_single_download_aside', 'shopfront_download_button', 5 );
 
 
 /**		
@@ -556,4 +638,4 @@ function shopfront_download_meta() { ?>
           
 <?php }
 endif;
-add_action( 'shopfront_single_download_aside', 'shopfront_download_meta' );
+add_action( 'shopfront_single_download_aside', 'shopfront_download_meta', 20 );

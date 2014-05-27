@@ -1,29 +1,33 @@
 <?php
-/**		
+/**
  * Constants
  * @since 1.0 
 */
 
-define( 'INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
 
-/**		
+if ( !defined( 'SHOPFRONT_THEME_VERSION' ) )
+	define( 'SHOPFRONT_THEME_VERSION', '1.1.3' );
+
+if ( !defined( 'SHOPFRONT_INCLUDES_DIR' ) )
+	define( 'SHOPFRONT_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
+
+/**
  * Includes
- * @since 1.0 
+ * @since 1.0
 */
 
-require_once( trailingslashit( INCLUDES_DIR ) . 'edd-functions.php' );
-require_once( trailingslashit( INCLUDES_DIR ) . 'edd-shortcodes.php' );
-require_once( trailingslashit( INCLUDES_DIR ) . 'theme-functions.php' );    // theme functions
-require_once( trailingslashit( INCLUDES_DIR ) . 'gallery.php' ); 			  // gallery
-require_once( trailingslashit( INCLUDES_DIR ) . 'header.php' ); 			  // Header
-require_once( trailingslashit( INCLUDES_DIR ) . 'theme-options.php' );      // Options related to the theme options
-require_once( trailingslashit( INCLUDES_DIR ) . 'navigation.php' ); 	      // Navigation
-require_once( trailingslashit( INCLUDES_DIR ) . 'scripts.php' ); 			  // Theme Scripts
-require_once( trailingslashit( INCLUDES_DIR ) . 'sidebars.php' ); 	      // sidebars
-require_once( trailingslashit( INCLUDES_DIR ) . 'comments.php' ); 	      // comments
-require_once( trailingslashit( INCLUDES_DIR ) . 'ie.php' ); 			      // ie
-require_once( trailingslashit( INCLUDES_DIR ) . 'wp-customize.php' );       // WP Customizer
-require_once( trailingslashit( INCLUDES_DIR ) . 'updater.php' );       // EDD theme updater
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'edd-functions.php' );
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'edd-shortcodes.php' );
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'theme-functions.php' );    // theme functions
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'gallery.php' ); 			  // gallery
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'header.php' ); 			  // Header
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'theme-options.php' );      // Options related to the theme options
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'navigation.php' ); 	      // Navigation
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'scripts.php' ); 			  // Theme Scripts
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'sidebars.php' ); 	      // sidebars
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'comments.php' ); 	      // comments
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'ie.php' ); 			      // ie
+require_once( trailingslashit( SHOPFRONT_INCLUDES_DIR ) . 'wp-customize.php' );       // WP Customizer
 
 
 /**
@@ -49,9 +53,6 @@ if ( ! function_exists( 'shopfront_setup' ) ):
 		// This theme styles the visual editor with editor-style.css to match the theme style. Will also look for the file in the child theme folder
 		add_editor_style( 'css/editor-style.css' );
 
-		// featured images on the homepage
-		add_image_size( 'home-featured', '1083', '9999' );
-
 		// featured image size for blog posts etc
 		add_image_size( 'featured-image', '632', '9999' );
 
@@ -60,9 +61,6 @@ if ( ! function_exists( 'shopfront_setup' ) ):
 
 		// download images that appear in either 1 or 2 column layouts
 		add_image_size( 'download-medium', '494', '309', true ); 
-
-		// large download image
-		add_image_size( 'download-large', '664', '9999' ); // main product image
 
 		// full width image
 		add_image_size( 'download-full-width', '1019', '9999' ); // main product image
@@ -73,7 +71,7 @@ if ( ! function_exists( 'shopfront_setup' ) ):
 		// Add default posts and comments RSS feed links to <head>.
 		add_theme_support( 'automatic-feed-links' );
 
-		// Add support to pages for specific features
+		// Add excerpt support to pages
 		add_post_type_support( 'page', 'excerpt' );
 
 	}
@@ -113,12 +111,28 @@ add_filter( 'wp_title', 'shopfront_wp_title', 10, 2 );
 
 
 /**
+ * Adjusts content_width value for full-width and single image attachment
+ * templates, and when there are no active widgets in the sidebar.
+ *
+ * @since 1.0.8
+ */
+function shopfront_content_width() {
+
+	if ( is_page_template( 'page-templates/full-width.php' ) ) {
+		global $content_width;
+		$content_width = 1019;
+	}
+
+}
+add_action( 'template_redirect', 'shopfront_content_width' );
+
+/**
  * Add custom image sizes to media chooser
  * @since 1.0
  */
 function shopfront_image_size_names_choose( $sizes ) {
 
-	$sizes['download-large'] = 'Large Download';
+	$sizes[ 'featured-image' ] = __( 'Featured Image', 'shop-front' );
 
 	// return the array of sizes.
 	return $sizes;

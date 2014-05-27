@@ -5,18 +5,11 @@
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		
-					
+						
 		<header class="entry-header">
-				<div class="entry-meta">
-					 <?php	
-					 	shopfront_posted_on();
-					 ?>
-				</div>
-				<h2 class="entry-title">
-					<a href="<?php the_permalink(); ?>" title="<?php echo the_title_attribute( 'echo=0' ); ?>" rel="bookmark"><?php the_title(); ?></a>
-				</h2>
-
+			<h2 class="entry-title">
+				<a href="<?php the_permalink(); ?>" title="<?php echo the_title_attribute( 'echo=0' ); ?>" rel="bookmark"><?php the_title(); ?></a>
+			</h2>
 		</header><!-- .entry-header -->
 
 
@@ -28,7 +21,7 @@
 		
 		<?php else : ?>
 				
-				<?php if ( 'content' == get_theme_mod( 'blog_excerpt_or_content' ) ) : ?>
+				<?php if ( 'content' == get_theme_mod( 'blog_excerpt_or_content', 'excerpt' ) ) : ?>
 					
 					<?php if( has_excerpt() ) : ?>
 
@@ -49,7 +42,7 @@
 
 					<?php endif; ?>
 
-				<?php elseif( 'excerpt' == get_theme_mod( 'blog_excerpt_or_content' ) ) : ?>
+				<?php elseif( 'excerpt' == get_theme_mod( 'blog_excerpt_or_content', 'excerpt' ) ) : ?>
 
 					<div class="entry-summary">
 				    	<?php the_excerpt(); ?>
@@ -60,13 +53,11 @@
 
 		<?php endif; ?>
 
+		<footer class="entry-meta">
+			<?php shopfront_entry_meta(); ?>
+			<?php edit_post_link( __( 'Edit', 'shop-front' ), '<span class="edit-link">', '</span>' ); ?>
+		</footer><!-- .entry-meta -->
 
-		<?php 
-			/**
-			 * Footer meta
-			 */
-			do_action( 'shopfront_page_article_end' );
-		?>
-	
+		<?php do_action( 'shopfront_page_article_end' ); ?>
 
 	</article><!-- #post-<?php the_ID(); ?> -->

@@ -5,12 +5,23 @@
 */
 
 $coming_soon = isset( $post->ID ) ? get_post_meta( $post->ID, 'edd_coming_soon', true ) : '';
+$coming_soon_text = isset( $post->ID ) ? get_post_meta( $post->ID, 'edd_coming_soon_text', true ) : '';
 
 if ( $coming_soon ) : ?>
+	
+	<?php if ( $coming_soon_text ) : ?>
 
 	<div itemprop="price" class="edd_price">
-		<?php _e( 'Coming soon', 'shop-front' ); ?>
+		<?php echo $coming_soon_text; ?>
 	</div>
+
+	<?php else : ?>
+
+		<div itemprop="price" class="edd_price">
+			<?php _e( 'Coming soon', 'shop-front' ); ?>
+		</div>
+
+	<?php endif; ?>
 
 <?php
 /**		

@@ -92,8 +92,9 @@ function shopfront_gallery( $output, $attr ) {
     $gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'>";
     $output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
 
-    $i = 0;
+    $count = 0;
     foreach ( $attachments as $id => $attachment ) {
+        $count++;
         $link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
 
         $output .= "<{$itemtag} class='gallery-item'>";
@@ -109,14 +110,17 @@ function shopfront_gallery( $output, $attr ) {
         }
         $output .= "</{$itemtag}>";
 
-        if ( ++$i % 2 == 0 )
+        if ( $count %2 == 0 )
             $output .= '<div class="clear-2"></div>';
 
-        if ( ++$i % 3 == 0 )
+        if ( $count %3 == 0 )
             $output .= '<div class="clear-3"></div>';
 
-        if ( ++$i % 4 == 0 )
+        if ( $count %4 == 0 )
             $output .= '<div class="clear-4"></div>';
+
+        if ( $count %5 == 0 )
+            $output .= '<div class="clear-5"></div>';
     }
 
     $output .= "
@@ -125,4 +129,6 @@ function shopfront_gallery( $output, $attr ) {
 
     return $output;
 }
-add_filter('post_gallery', 'shopfront_gallery', 10, 2 );
+
+if ( apply_filters( 'shopfront_galery_enabled', true ) )
+    add_filter( 'post_gallery', 'shopfront_gallery', 10, 2 );

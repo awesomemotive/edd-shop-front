@@ -3,18 +3,12 @@
  * Download Category Taxonomy page
 */
 
-    get_header();
-
-    // get post type object
-    $obj = get_post_type_object('download');
-
-?>
+get_header(); ?>
 
     <header class="page-header">
-        <h1 class="page-title">
-            <?php printf( __( '%s', 'shop-front' ), single_term_title( '', false ) ); ?>
-        </h1>
         
+        <?php do_action( 'shopfront_the_title' ); ?>
+
         <?php
             $category_description = category_description();
             if ( ! empty( $category_description ) ) 
@@ -58,11 +52,11 @@
     <?php if ( current_user_can( 'edit_posts' ) ) : // Show a different message to a logged-in user who can add posts ?>
         
         <header class="entry-header">
-            <h2><?php printf( __( 'No %s to display', 'shop-front' ), $obj->labels->name ); ?></h2>
+            <h2><?php printf( __( 'No %s to display', 'shop-front' ), edd_get_label_plural() ); ?></h2>
         </header>
 
         <div class="entry-content">
-            <p><?php printf( __( 'Ready to add your first %s? <a href="%s">Get started here</a>.', 'shop-front' ), $obj->labels->singular_name, admin_url( 'post-new.php?post_type=download' ) ); ?></p>
+            <p><?php printf( __( 'Ready to add your first %s? <a href="%s">Get started here</a>.', 'shop-front' ), edd_get_label_singular(), admin_url( 'post-new.php?post_type=download' ) ); ?></p>
         </div>
 
     <?php else : // Show the default message to everyone else ?>
@@ -84,6 +78,6 @@
 
             
     </div>
-</div>
+</section>
 
 <?php get_footer(); ?>

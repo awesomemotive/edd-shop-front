@@ -2,11 +2,9 @@
 /**		
  * Archive page
 */
-get_header(); 
+get_header(); ?>
 
-?>
-
-	<div id="primary">
+	<section id="primary">
 		<div class="wrapper">
 
 				<?php if ( have_posts() ) : ?>
@@ -50,9 +48,7 @@ get_header();
 
 					<?php endif; // end have_posts() check ?>
 		</div>
-	</div>
+	</section>
 	<?php get_sidebar(); ?>
-
-
 
 <?php get_footer(); ?>

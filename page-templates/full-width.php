@@ -5,7 +5,7 @@ Template Name: Full Width
 
 get_header(); ?>
 
-		<div id="primary">
+		<section id="primary">
 			<div class="wrapper">
 				<?php do_action( 'shopfront_primary_wrapper_start' ); ?>
 
@@ -20,7 +20,6 @@ get_header(); ?>
 				<?php do_action( 'shopfront_primary_wrapper_end' ); ?>
 
 			</div>
-		</div><!-- #primary -->
-
+		</section><!-- #primary -->
 
 <?php get_footer(); ?>

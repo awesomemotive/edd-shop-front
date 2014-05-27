@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-	<div id="primary">
+	<section id="primary">
 		<div class="wrapper">
 
 			<article id="post-0" class="post error404 not-found">
@@ -22,6 +22,6 @@ get_header(); ?>
 			</article><!-- #post-0 -->
 
 		</div>
-	</div><!-- #primary -->
+	</section><!-- #primary -->
 
 <?php get_footer(); ?>

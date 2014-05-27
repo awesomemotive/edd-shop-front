@@ -23,6 +23,7 @@ switch( intval( $columns ) ) :
 
 	
 	<div class="downloads <?php echo $column_number; ?>">
+		
 			<?php while ( $downloads->have_posts() ) : $downloads->the_post(); $count++; 
 
 				$in_cart = ( edd_item_in_cart( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) ? 'in-cart' : ''; 
@@ -30,14 +31,14 @@ switch( intval( $columns ) ) :
 				?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( array( $in_cart, $variable_priced ) ); ?>>
-       				
+       				<div class="edd_download_inner">
 					 	<?php 
 					 	/**		
 					 	 * Show thumbnails
 					 	*/
 					 	if( 'false' != $thumbnails ) : ?>
 				        <div class="download-image">
-				        	 <a title="<?php _e( 'View ', 'shop-front' ) . the_title(); ?>" href="<?php the_permalink(); ?>">
+				        	 <a title="<?php _e( 'View ', 'shop-front' ) . the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
 				             
 				             <?php if ( has_post_thumbnail() ) : ?>
 				            
@@ -54,15 +55,14 @@ switch( intval( $columns ) ) :
 				            <?php else: ?>
 
 				            	<img src="<?php echo get_template_directory_uri(); ?>/images/blank.png" alt="" />
-				            	<i class="icon icon-product"></i>
-
+				            	 <?php echo apply_filters( 'shopfront_download_icon', '<i class="icon icon-product"></i>'); ?>
 				             <?php endif; ?>
 				        </a>
 
 				       <?php if ( $buy_button != 'yes' ) : ?> 	
 		               <div class="overlay">
       	
-			                <a title="<?php _e('View ','shop-front') . the_title(); ?>" class="icon-action button <?php if( edd_has_variable_prices( get_the_ID() ) ) echo 'single'; ?>" href="<?php the_permalink(); ?>">
+			                <a title="<?php _e('View ','shop-front') . the_title_attribute(); ?>" class="icon-action button <?php if( edd_has_variable_prices( get_the_ID() ) ) echo 'single'; ?>" href="<?php the_permalink(); ?>">
 			                    <i class="icon-view"></i>
 			                </a>
 
@@ -79,10 +79,11 @@ switch( intval( $columns ) ) :
 
 
 				        <div class="download-info">
-				        	<a title="<?php _e('View ','shop-front') . the_title(); ?>" href="<?php the_permalink(); ?>">
-				        		<h2><?php the_title(); ?></h2>
-				        	</a>
-				         	<?php edd_get_template_part( 'shortcode', 'content-price' ); ?>
+
+				         	<?php 
+				         		edd_get_template_part( 'shortcode', 'content-title' );
+				         		edd_get_template_part( 'shortcode', 'content-price' ); 
+				         	?>
 
 				         	 <?php
 					        /**		
@@ -101,22 +102,17 @@ switch( intval( $columns ) ) :
 							?>
 
 							<?php
-				        /**		
-				         * Buy button
-				        */
-				        if ( $buy_button == 'yes' ) : ?>
-				    	<div class="edd_download_buy_button">
-							<?php echo edd_get_purchase_link( array( 'id' => get_the_ID(), 'price' => false ) ); ?>
-						</div>
+					        /**		
+					         * Buy button
+					        */
+					        if ( $buy_button == 'yes' ) : ?>
+					    	<div class="edd_download_buy_button">
+								<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );  ?>
+							</div>
+
 						<?php endif; ?>
 				        </div>
-
-				         
-	
-				       
-
-				   	  
-
+				    </div>
 				</article>
 			
 			<?php if ( $count %2 == 0 ) echo '<div class="clear-2"></div>'; ?>
@@ -130,8 +126,8 @@ switch( intval( $columns ) ) :
 			<?php wp_reset_postdata(); ?>
 
 			
+			
 		</div>
-
 		<nav id="downloads-shortcode" class="download-navigation">
 			<?php
 			$big = 999999;
@@ -150,5 +146,5 @@ switch( intval( $columns ) ) :
 
 $display = ob_get_clean();
 return $display; }
-	
-add_filter( 'downloads_shortcode','shopfront_modify_edd_download_shortcode', 10, 11);
+
+add_filter( 'downloads_shortcode', 'shopfront_modify_edd_download_shortcode', 10, 11);

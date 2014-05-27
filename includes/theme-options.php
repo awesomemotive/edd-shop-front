@@ -1,5 +1,55 @@
 <?php
 
+/**
+ * Theme Options
+ */
+function shopfront_theme_options() {
+
+	// if there's a compatible shop front plugin installed, it will show this theme license page
+	if( has_filter( 'shopfront_theme_options' ) ) {
+		add_theme_page( __( 'Theme Options', 'shop-front' ), __( 'Theme Options', 'shop-front' ), 'manage_options', 'theme-options', 'shopfront_options_page' );
+	}
+	
+}
+add_action( 'admin_menu', 'shopfront_theme_options' );
+
+/**
+ * Shop Front Options Page
+ */
+function shopfront_options_page() { ?>
+	<div class="wrap">
+		<h2><?php _e( 'Shop Front Theme Options', 'shop-front' ); ?></h2>
+		<form method="post" action="options.php">
+			<?php settings_fields( 'shopfront_settings' ); ?>
+			<table class="form-table">
+				<tbody>
+					<?php do_action( 'shopfront_theme_options' ); ?>
+				</tbody>
+			</table>
+
+		</form>
+
+	<?php
+}
+
+/**
+ * Register setting
+ */
+function shopfront_register_option() {
+	register_setting( 'shopfront_settings', 'shopfront_settings', 'shopfront_settings_sanitize' );
+}
+add_action( 'admin_init', 'shopfront_register_option' );
+
+
+/**
+ * Settings Sanitization
+ */
+
+function shopfront_settings_sanitize( $input ) {
+	return $input;
+}
+
+
 /**		
  * Download columns
  * @since 1.0 
@@ -159,11 +209,11 @@ function shopfront_load_typography_style() {
 
 		// check for existance of stylesheet in child theme's directory and load if found
 		if ( file_exists( get_stylesheet_directory() . '/typography/' . $style ) )
-			wp_enqueue_style( 'typography', get_stylesheet_directory_uri() . '/typography/' . $style, '', SUMOBI_THEME_VERSION, 'screen' );
+			wp_enqueue_style( 'typography', get_stylesheet_directory_uri() . '/typography/' . $style, '', SHOPFRONT_THEME_VERSION, 'screen' );
 		
 		// check for existance of stylesheet in parent theme's directory and load if found
 		if ( file_exists( get_template_directory() . '/typography/' . $style ) )
-			wp_enqueue_style( 'typography', get_template_directory_uri() . '/typography/' . $style, '', SUMOBI_THEME_VERSION, 'screen' );
+			wp_enqueue_style( 'typography', get_template_directory_uri() . '/typography/' . $style, '', SHOPFRONT_THEME_VERSION, 'screen' );
 	
 	}
 }

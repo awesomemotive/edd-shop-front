@@ -26,12 +26,6 @@
 			<?php the_excerpt(); ?>
 		</div>
 	
-
-	<?php 
-		/**
-		 * Footer meta
-		 */
-		do_action( 'shopfront_page_article_end' );
-	?>
+	<?php do_action( 'shopfront_page_article_end' ); ?>
 
 </article>

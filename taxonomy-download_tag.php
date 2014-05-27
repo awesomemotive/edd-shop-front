@@ -3,17 +3,11 @@
  * Download Tag Taxonomy page
 */
 
-get_header();
-
-// get post type object
-$obj = get_post_type_object('download');
-
-?>
+get_header(); ?>
 
     <header class="page-header">
-        <h1 class="page-title">
-            <?php printf( __( '%s', 'shop-front' ), single_term_title( '', false ) ); ?>
-        </h1>
+
+        <?php do_action( 'shopfront_the_title' ); ?>
         
         <?php
             $category_description = category_description();
@@ -21,7 +15,9 @@ $obj = get_post_type_object('download');
             echo apply_filters( 'category_archive_meta', '<div class="intro-meta">' . $category_description . '</div>' );
         ?>
     </header>
-                    
+        
+        <?php do_action( 'shopfront_primary_wrapper_before' ); ?>
+
         <section id="primary" class="full-width">
             <div class="wrapper">
       
@@ -31,7 +27,7 @@ $obj = get_post_type_object('download');
 
         <?php while ( have_posts() ) : the_post(); $count++; ?>
             
-        <?php get_template_part( 'download-grid' ); ?>
+        <?php get_template_part( 'partials/download','grid' ); ?>
 
         <?php if ( $count %2 == 0 ) echo '<div class="clear-2"></div>'; ?>
         <?php if ( $count %3 == 0 ) echo '<div class="clear-3"></div>'; ?>
@@ -56,11 +52,11 @@ $obj = get_post_type_object('download');
     <?php if ( current_user_can( 'edit_posts' ) ) : // Show a different message to a logged-in user who can add posts ?>
         
         <header class="entry-header">
-            <h2><?php printf( __( 'No %s to display', 'shop-front' ), $obj->labels->name ); ?></h2>
+            <h2><?php printf( __( 'No %s to display', 'shop-front' ), edd_get_label_plural() ); ?></h2>
         </header>
 
         <div class="entry-content">
-            <p><?php printf( __( 'Ready to add your first %s? <a href="%s">Get started here</a>.', 'shop-front' ), $obj->labels->singular_name, admin_url( 'post-new.php?post_type=download' ) ); ?></p>
+            <p><?php printf( __( 'Ready to add your first %s? <a href="%s">Get started here</a>.', 'shop-front' ), edd_get_label_singular(), admin_url( 'post-new.php?post_type=download' ) ); ?></p>
         </div>
 
     <?php else : // Show the default message to everyone else ?>
@@ -82,6 +78,6 @@ $obj = get_post_type_object('download');
 
             
     </div>
-</div>
+</section>
 
 <?php get_footer(); ?>

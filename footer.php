@@ -7,6 +7,7 @@
 	</div> <!-- / .wrapper -->
 
 </div>
+<?php do_action( 'shopfront_container_after' ); ?>
 
 <?php do_action( 'shopfront_footer_before' ); ?>
 

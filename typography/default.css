@@ -27,6 +27,10 @@ h1.entry-title,
   font-size: 24px;
   font-size: 1.5rem;
 }
+.single-download .edd_download_inner .edd_price {
+  font-size: 16px;
+  font-size: 1rem;
+}
 #intro h1 {
   margin-bottom: 0;
 }
@@ -85,26 +89,26 @@ code,
   line-height: 1.62;
 }
 h2.entry-title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 h1 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 h2 {
-  font-size: 1.25em;
+  font-size: 1.375rem;
 }
 h3,
 #edd_checkout_form_wrap legend {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 h4 {
-  font-size: 1.25em;
+  font-size: 1.125rem;
 }
 h5 {
-  font-size: 1em;
+  font-size: 1rem;
 }
 h6 {
-  font-size: 0.75em;
+  font-size: 0.875rem;
 }
 #site-description {
   font-size: 24px;
@@ -129,11 +133,12 @@ blockquote {
   font-style: italic;
 }
 blockquote cite {
-  font-size: 0.5em;
+  font-size: 1rem;
   margin-top: 0.5em;
 }
 p {
-  margin-bottom: 1.5em;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 #site-title {
   font-size: 32px;

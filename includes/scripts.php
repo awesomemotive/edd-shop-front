@@ -21,7 +21,7 @@ if ( !function_exists( 'shopfront_enqueue_scripts' ) ) :
 		$custom_css = get_stylesheet_directory() . '/css/custom.css';
 
 		if ( file_exists( $custom_css ) )
-			wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/css/custom.css', '', SUMOBI_THEME_VERSION, 'screen' );
+			wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/css/custom.css', '', SHOPFRONT_THEME_VERSION, 'screen' );
 
 		/**
 		 * Custom js file. Only added to theme if it exists at /js/custom.js
@@ -30,28 +30,28 @@ if ( !function_exists( 'shopfront_enqueue_scripts' ) ) :
 		$custom_js = get_stylesheet_directory() . '/js/custom.js';
 
 		if ( file_exists( $custom_js ) )
-			wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js',  array( 'jquery' ), SUMOBI_THEME_VERSION, true );
+			wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js',  array( 'jquery' ), SHOPFRONT_THEME_VERSION, true );
 
 		/**
 		 * Modernizr (includes html5 shim)
 		 * This can be overrided on a child theme basis by including the same file in the child theme's /js folder
 		 * Needs to be loaded in the header or IE 8 will freak out
 		 */
-		wp_register_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.min.js', array( 'jquery' ), SUMOBI_THEME_VERSION, false );
+		wp_register_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.min.js', array( 'jquery' ), SHOPFRONT_THEME_VERSION, false );
 		wp_enqueue_script( 'modernizr' );
 
 		/**
 		 * Respond.js
 		 * This makes media queries work in IE 8
 		 */
-		wp_register_script( 'respondjs', get_template_directory_uri() . '/js/respond.min.js', array( 'jquery' ), SUMOBI_THEME_VERSION, false );
+		wp_register_script( 'respondjs', get_template_directory_uri() . '/js/respond.min.js', array( 'jquery' ), SHOPFRONT_THEME_VERSION, false );
 		wp_enqueue_script( 'respondjs' );
 
 
 		/**
 		 * jQuery validation
 		 */
-		wp_register_script( 'validate', get_template_directory_uri() . '/js/jquery.validate.min.js ', array( 'jquery' ), SUMOBI_THEME_VERSION, true );
+		wp_register_script( 'validate', get_template_directory_uri() . '/js/jquery.validate.min.js ', array( 'jquery' ), SHOPFRONT_THEME_VERSION, true );
 
 		// load validate script for comment pages
 		if ( is_singular() && comments_open() )
@@ -60,7 +60,7 @@ if ( !function_exists( 'shopfront_enqueue_scripts' ) ) :
 		/**
 		 * Common JS
 		 */
-		wp_register_script( 'common-js', get_template_directory_uri() . '/js/common.js', array( 'jquery' ), SUMOBI_THEME_VERSION, true );
+		wp_register_script( 'common-js', get_template_directory_uri() . '/js/common.js', array( 'jquery' ), SHOPFRONT_THEME_VERSION, true );
 		wp_enqueue_script( 'common-js' );
 
 		/**

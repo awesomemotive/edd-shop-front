@@ -4,14 +4,14 @@
  */
 ?>
 
-<form method="get" id="search-form" class="" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+<form method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
 
-	<label for="s" class="assistive-text">
+	<label for="s" class="visuallyhidden">
 		<?php _e( 'Search', 'shop-front' ); ?>
 	</label>
 
 	<div class="search-wrapper">
-		<input class="text" type="text" name="s" id="search-input" placeholder="<?php esc_attr_e( 'Search', 'shop-front' ); ?>" />
+		<input class="text search-input" type="text" id="s" name="s" placeholder="<?php esc_attr_e( 'Search', 'shop-front' ); ?>" />
 
 		<button class="submit">
 			<i class="icon-search"></i>

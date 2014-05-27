@@ -5,7 +5,7 @@ Template Name: Archives
 
 get_header(); ?>
 
-		<div id="primary">
+		<section id="primary">
 			<div class="wrapper">
 				<?php do_action( 'shopfront_primary_wrapper_start' ); ?>
 
@@ -15,11 +15,10 @@ get_header(); ?>
 					
 				<?php endwhile; // end of the loop. ?>
 
-					
 					<div class="entry-content">
 						<?php get_search_form(); ?>
 						
-						<h2>Last 10 Posts:</h2>
+						<h2><?php _e( 'Last 10 Posts:', 'shop-front' ); ?></h2>
 
 						<?php 
 
@@ -50,12 +49,12 @@ get_header(); ?>
 
        					<?php endif; wp_reset_postdata(); ?>
 
-						<h2>Archives by Month:</h2>
+						<h2><?php _e( 'Archives by Month:', 'shop-front' ); ?></h2>
 						<ul>
 							<?php wp_get_archives('type=monthly'); ?>
 						</ul>
 						
-						<h2>Archives by Subject:</h2>
+						<h2><?php _e( 'Archives by Subject:', 'shop-front' ); ?></h2>
 						<ul>
 							 <?php wp_list_categories(); ?>
 						</ul>
@@ -64,7 +63,7 @@ get_header(); ?>
 				<?php do_action( 'shopfront_primary_wrapper_end' ); ?>
 
 			</div>
-		</div>
+		</section>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
