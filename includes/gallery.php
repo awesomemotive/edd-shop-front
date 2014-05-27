@@ -130,5 +130,5 @@ function shopfront_gallery( $output, $attr ) {
     return $output;
 }
 
-if ( apply_filters( 'shopfront_galery_enabled', true ) )
+if ( apply_filters( 'shopfront_gallery_enabled', true ) )
     add_filter( 'post_gallery', 'shopfront_gallery', 10, 2 );
