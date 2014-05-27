@@ -80,7 +80,7 @@ function shopfront_render_the_title() { ?>
 	
 		<h1 class="download-title"><?php the_title(); ?></h1>
 
-	<?php elseif( is_tax( 'download_category' ) ) : ?>
+	<?php elseif( is_tax( 'download_category' ) || is_tax( 'download_tag' ) ) : ?>
 	
 		 <h1 class="page-title">
             <?php printf( __( '%s', 'shop-front' ), single_term_title( '', false ) ); ?>

@@ -11,6 +11,7 @@ get_header(); ?>
         
         <?php
             $category_description = category_description();
+
             if ( ! empty( $category_description ) ) 
             echo apply_filters( 'category_archive_meta', '<div class="intro-meta">' . $category_description . '</div>' );
         ?>

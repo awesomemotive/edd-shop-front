@@ -21,6 +21,9 @@ http://sumobi.com/docs/shop-front-theme/
 
 == Changelog ==
 
+= 1.1.4 =
+* Fix: tag name not displaying properly on tag archive pages
+
 = 1.1.3: January 30th, 2014 =
 
 * Tweak: shopfront_modify_edd_show_has_purchased_item_message() function removed.

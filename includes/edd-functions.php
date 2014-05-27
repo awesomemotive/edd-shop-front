@@ -585,10 +585,12 @@ if ( ! function_exists( 'shopfront_download_button' ) ):
 
 	<?php
 		global $post;
+		
+		$text = 'cart' == shopfront_get_cart_icon() ? __( 'cart', 'shop-front' ) : __( 'basket', 'shop-front' );
 
 		// it's a free download ($0.00) so we don't want the button to say 'buy' or 'purchase'
 		if( '0' == edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) {
-			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => __( 'Add to', 'shop-front' ) . ' ' . shopfront_get_cart_icon() ) );
+			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => __( 'Add to', 'shop-front' ) . ' ' . $text ) );
 		}
 		// variable priced downloads
 		elseif( edd_has_variable_prices( get_the_ID() ) ) {
