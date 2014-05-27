@@ -23,8 +23,10 @@ http://sumobi.com/docs/shop-front-theme/
 
 = 1.1.4: May 27, 2014 =
 * Fix: tag name not displaying properly on tag archive pages
+* Fix: Removed second instance of "Customize" from the appearance menu
 * New: Added next/previous page navigation to search page
 * Tweak: better translation of shopfront_download_button() function
+* Tweak: added conditional to shortcode filter to check for price before including EDD price template
 * Tweak: removed redundant shopfront_show_added_to_cart_messages() function
 
 
