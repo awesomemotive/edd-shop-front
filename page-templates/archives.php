@@ -51,7 +51,7 @@ get_header(); ?>
 
 						<h2><?php _e( 'Archives by Month:', 'shop-front' ); ?></h2>
 						<ul>
-							<?php wp_get_archives('type=monthly'); ?>
+							<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 						</ul>
 						
 						<h2><?php _e( 'Archives by Subject:', 'shop-front' ); ?></h2>

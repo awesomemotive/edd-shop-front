@@ -34,6 +34,23 @@ get_header(); ?>
 
 			<?php endif; ?>
 
+			<nav id="nav-below" class="navigation">
+				<h3 class="assistive-text"><?php _e( 'Post navigation', 'shop-front' ); ?></h3>
+
+				<?php
+					$previous = apply_filters( 'shopfront_content_nav_previous', __( '<i class="icon icon-arrow-left"></i><span class="text">Previous Page</span>', 'shop-front' ) );
+					$next = apply_filters( 'shopfront_content_nav_next', __( '<i class="icon icon-arrow-right"></i><span class="text">Next Page</span>', 'shop-front' ) );
+				?>
+
+				<span class="nav-next">
+					<?php next_posts_link( $next ); ?>
+				</span>
+
+				<span class="nav-previous">
+					<?php previous_posts_link( $previous ); ?>
+				</span>
+			</nav>
+
 			</div>
 		</section><!-- #primary -->
 
