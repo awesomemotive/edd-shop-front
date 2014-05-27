@@ -21,8 +21,9 @@ http://sumobi.com/docs/shop-front-theme/
 
 == Changelog ==
 
-= 1.1.4 =
+= 1.1.4: May 27, 2014 =
 * Fix: tag name not displaying properly on tag archive pages
+* Tweak: better translation of shopfront_download_button() function
 
 = 1.1.3: January 30th, 2014 =
 
