@@ -3,17 +3,6 @@
  * Add support for Theme Options in the Customizer
  */
 
-
-/**		
- * Add 'Customize' link to admin menu under 'Appearance'
- * @since 1.0  
-*/
-
-function shopfront_add_customize() {
-	add_theme_page( 'Customize', 'Customize', 'edit_theme_options', 'customize.php' );
-}
-add_action ('admin_menu', 'shopfront_add_customize');
-
 /**		
  * Add some basic styling for extra field descriptions
  * @since 1.0 
