@@ -281,14 +281,13 @@ add_action( 'shop_front_secondary_navigation', 'shopfront_do_cart' );
 function shopfront_modify_edd_get_cart_discounts_html( $html, $discounts, $rate, $remove_url ) {
 
 	foreach( $discounts as $discount ) {
-		$html = '<span class="edd_discount_rate">' . $discount .'&nbsp;&ndash;&nbsp;' . $rate . '</span>';
-		$html .= '<a title="Remove Discount" href="'. $remove_url .'" data-code="' . $discount . '" class="edd_discount_remove">remove</a>';
+		$html = '<span class="edd_discount_rate">' . $discount .'&nbsp;&ndash;&nbsp;' . $rate . '&nbsp;</span>';
+		$html .= '<a title="' . __( 'Remove Discount', 'shop-front' ) . '" href="'. $remove_url .'" data-code="' . $discount . '" class="edd_discount_remove">' . __( 'remove', 'shop-front' ) . '</a>';
 	}
 
 	return $html;
 }
 add_filter( 'edd_get_cart_discounts_html', 'shopfront_modify_edd_get_cart_discounts_html', 10, 4 );
-
 
 /**
  * Remove and deactivate all styling included with EDD. Theme uses unique styling
@@ -513,7 +512,17 @@ function shopfront_get_purchase_link( $args = array() ) {
  * @since 1.0
  */
 function shopfront_edd_empty_cart_message() {
-	return sprintf( __( '<p class="alert notice">Your %1$s is empty</p>', 'shop-front' ), shopfront_get_cart_icon() );
+	$cart_icon = shopfront_get_cart_icon();
+
+	switch ( $cart_icon ) {
+		case 'basket':
+			$cart_type = __( 'Basket', 'shop-front' );
+			break;
+		default:
+			$cart_type = __( 'Cart', 'shop-front' );
+	}
+
+	return sprintf( __( '<p class="alert notice">Your %1$s is empty</p>', 'shop-front' ), $cart_type );
 }
 add_action( 'edd_empty_cart_message', 'shopfront_edd_empty_cart_message' );
 
