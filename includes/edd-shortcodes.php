@@ -82,7 +82,11 @@ switch( intval( $columns ) ) :
 
 				         	<?php 
 				         		edd_get_template_part( 'shortcode', 'content-title' );
-				         		edd_get_template_part( 'shortcode', 'content-price' ); 
+
+				         		if ( $price == 'yes' ) {
+				         			edd_get_template_part( 'shortcode', 'content-price' );
+				         		}
+				         		
 				         	?>
 
 				         	 <?php
