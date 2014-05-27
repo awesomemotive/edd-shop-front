@@ -342,33 +342,6 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
  */
 remove_action( 'edd_after_download_content', 'edd_show_added_to_cart_messages' );
 
-
-/**
- * Show Added To Cart Messages when ajax is disabled.
- * Appears on all pages (homepage, custom post type archive, shortcode pages etc) except single download pages
- *
- * @since 1.0.8
- * @param int $download_id Download (Post) ID
- * @return void
- */
-function shopfront_show_added_to_cart_messages( $download_id ) {
-
-	if ( isset( $_POST['edd_action'] ) && $_POST['edd_action'] == 'add_to_cart' ) {
-
-		if ( $download_id != absint( $_POST['download_id'] ) )
-			$download_id = absint( $_POST['download_id'] );
-
-		$alert = '<p class="alert success">'
-		. sprintf( __( 'You have successfully added %s to your %2$s', 'edd' ), '<strong>' . get_the_title( $download_id ) . '</strong>', shopfront_get_cart_icon() )
-		. ' <a href="' . edd_get_checkout_uri() . '" class="edd_alert_checkout_link alignright">' . __( 'Checkout', 'shop-front' ) . '</a>'
-		. '</p>';
-
-		echo apply_filters( 'shopfront_show_added_to_cart_messages', $alert );
-
-	}
-}
-add_action( 'shopfront_content_start', 'shopfront_show_added_to_cart_messages' );
-
 /**
  * Body classes
  *
