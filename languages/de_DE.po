@@ -1,0 +1,955 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Shop Front v1.1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-27 09:48+0100\n"
+"PO-Revision-Date: 2014-05-27 09:56+0100\n"
+"Last-Translator: Carsten Scheuer <scheuer@inveris.de>\n"
+"Language-Team: Carsten Scheuer <scheuer@inveris.de>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ shop-front
+#: 404.php:13
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr "Das ist ein bisschen peinlich, oder?"
+
+# @ shop-front
+#: 404.php:17
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
+msgstr "Sieht so aus als konnte nicht gefunden, wonach du gesucht hast."
+
+# @ shop-front
+#: archive-download.php:53 includes/edd-functions.php:109
+#: taxonomy-download_category.php:55 taxonomy-download_tag.php:56
+#, php-format
+msgid "No %s to display"
+msgstr "Keine %s zum Anzeigen"
+
+# @ shop-front
+#: archive-download.php:57 includes/edd-functions.php:113
+#: taxonomy-download_category.php:59 taxonomy-download_tag.php:60
+#, php-format
+msgid "Ready to add your first %s? <a href=\"%s\">Get started here</a>."
+msgstr "Bereit für deinen ersten %s? <a href=\"%s\">Hier geht&rsquo;s los</a>."
+
+# @ shop-front
+#: archive-download.php:63 archive.php:38 category.php:49 index.php:60
+#: search.php:25 taxonomy-download_category.php:65
+#: taxonomy-download_tag.php:66
+msgid "Nothing Found"
+msgstr "Nichts gefunden"
+
+# @ shop-front
+#: archive-download.php:67 taxonomy-download_category.php:69
+#: taxonomy-download_tag.php:70
+msgid "Sorry, there's nothing here just yet."
+msgstr "Entschuldigung, hier ist momentan noch nichts."
+
+# @ shop-front
+#: archive.php:27 index.php:49
+msgid "No posts to display"
+msgstr "Keine Beiträge zum Anzeigen"
+
+# @ shop-front
+#: archive.php:31 index.php:53
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+"Bereits deinen ersten Beitrag zu veröffentlichen? <a href=\"%s\">Hier "
+"geht&rsquo;s los</a>."
+
+# @ shop-front
+#: archive.php:42 index.php:64
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+"Entschuldigung, aber es wurden keine Ergebnisse gefunden. Vielleicht hilft "
+"die Suche dabei, einen ähnlichen Artikel zu finden."
+
+# @ shop-front
+#: author.php:30
+#, php-format
+msgid "Author Archives: %s"
+msgstr "Autorenarchiv: %s"
+
+# @ shop-front
+#: author.php:49 content-single.php:32
+#, php-format
+msgid "About %s"
+msgstr "Über %s"
+
+# @ shop-front
+#: category.php:53
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr ""
+"Entschuldigung, aber es wurden keine Ergebnisse im betreffenden Archiv "
+"gefunden. Vielleicht hilft die Suche dabei, einen ähnlichen Artikel zu "
+"finden."
+
+# @ shop-front
+#: comments.php:11
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Dieser Beitrag ist kennwortgeschützt. Bitte zum Anzeigen der Kommentare das "
+"Kennwort eingeben."
+
+# @ shop-front
+#: comments.php:29
+#, php-format
+msgid "One comment"
+msgid_plural "%1$s comments"
+msgstr[0] "Ein Kommentar"
+msgstr[1] "%1$s Kommentare"
+
+# @ shop-front
+#: comments.php:36 comments.php:55
+msgid "Comment navigation"
+msgstr "Kommentarnavigation"
+
+# @ shop-front
+#: comments.php:37 comments.php:56
+msgid "&larr; Older Comments"
+msgstr "&larr; Ältere Kommentare"
+
+# @ shop-front
+#: comments.php:38 comments.php:57
+msgid "Newer Comments &rarr;"
+msgstr "Neuere Kommentare &rarr;"
+
+# @ shop-front
+#: content-page.php:17 content-single.php:18 content.php:40 image.php:93
+msgid "Pages:"
+msgstr "Seiten:"
+
+# @ shop-front
+#: content-single.php:25 content.php:58 image.php:35 includes/comments.php:119
+msgid "Edit"
+msgstr "Bearbeiten"
+
+# @ shop-front
+#: content-single.php:36
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Alle Beiträge von %s anzeigen <span class=\"meta-nav\">&rarr;</span>"
+
+# @ shop-front
+#: content.php:19
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Weiterlesen <span class=\"meta-nav\">&rarr;</span>"
+
+# @ shop-front
+#: edd_templates/shortcode-content-price.php:21
+msgid "Coming soon"
+msgstr "Demnächst verfügbar"
+
+# @ shop-front
+# @ edd
+#: edd_templates/shortcode-content-price.php:32 includes/edd-functions.php:417
+msgid "Free"
+msgstr "Kostenlos"
+
+# @ shop-front
+#: edd_templates/shortcode-content-price.php:43
+msgid "From"
+msgstr "Von"
+
+# @ shop-front
+#: functions.php:106
+#, php-format
+msgid "Page %s"
+msgstr "Seite %s"
+
+# @ shop-front
+#: functions.php:135
+msgid "Featured Image"
+msgstr "Bild"
+
+# @ shop-front
+#: image.php:24
+#, php-format
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+"<span class=\"meta-prep meta-prep-entry-date\">Veröffentlicht </span> <span "
+"class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</"
+"time></span> als <a href=\"%3$s\" title=\"Link zum Originalbild\">%4$s "
+"&times; %5$s</a> in <a href=\"%6$s\" title=\"Zurück zu %7$s\" rel=\"gallery"
+"\">%8$s</a>."
+
+# @ shop-front
+#: image.php:39
+msgid ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Previous</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Vorherige</span>"
+
+# @ shop-front
+#: image.php:40
+msgid "<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Next</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Nächste</span>"
+
+#: includes/EDD_SL_Theme_Updater.php:53
+msgid ""
+"Updating this theme will lose any customizations you have made. 'Cancel' to "
+"stop, 'OK' to update."
+msgstr ""
+"Durch die Aktualisierung dieses Themes gehen alle individuellen Anpassungen "
+"verloren. 'Abbrechen' oder 'OK' zum Aktualisieren."
+
+# @ shop-front
+#: includes/comments.php:21 page-templates/contact.php:119
+msgid "Name"
+msgstr "Name"
+
+# @ shop-front
+#: includes/comments.php:22
+msgid "Please enter your Name"
+msgstr "Bitte den Namen eingeben"
+
+# @ shop-front
+#: includes/comments.php:23 page-templates/contact.php:130
+msgid "Email"
+msgstr "E-Mail-Adresse"
+
+# @ shop-front
+#: includes/comments.php:24
+msgid "Please enter your Email"
+msgstr "Bitte die E-Mail-Adresse eingeben"
+
+# @ shop-front
+#: includes/comments.php:25
+msgid "Website"
+msgstr "Website"
+
+# @ shop-front
+#: includes/comments.php:31
+msgid "Comment"
+msgstr "Kommentar"
+
+# @ default
+#: includes/comments.php:32
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+"Zum Verfassen eines Kommentars musst du <a href=\"%s\">angemeldet</a> sein."
+
+# @ default
+#: includes/comments.php:33
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+"Angemeldet als <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"von "
+"diesem Benutzerkonto abmelden\">Abmelden?</a>"
+
+# @ shop-front
+#: includes/comments.php:34
+msgid "Your email address will <strong>not</strong> be published."
+msgstr "Die E-Mail-Adresse wird <strong>nicht</strong> veröffentlicht."
+
+# @ shop-front
+#: includes/comments.php:37
+msgid "Leave a Reply"
+msgstr "Hinterlasse einen Kommentar"
+
+# @ shop-front
+#: includes/comments.php:38
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Hinterlasse einen Kommentar zu %s"
+
+# @ shop-front
+#: includes/comments.php:39
+msgid "Cancel"
+msgstr "Abbrechen"
+
+# @ shop-front
+#: includes/comments.php:40
+msgid "Post Comment"
+msgstr "Kommentar absenden"
+
+# @ shop-front
+#: includes/comments.php:119
+msgid "Pingback:"
+msgstr "Pingback:"
+
+# @ shop-front
+#: includes/comments.php:140 includes/comments.php:143
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+# @ shop-front
+#: includes/comments.php:149
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s um %2$s"
+
+# @ shop-front
+#: includes/comments.php:166
+msgid "Reply"
+msgstr "Antwort"
+
+# @ shop-front
+#: includes/comments.php:182
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Freischaltung."
+
+# @ shop-front
+#: includes/edd-functions.php:84
+#, php-format
+msgid "Latest %s"
+msgstr "Letzte %s"
+
+# @ shop-front
+#: includes/edd-functions.php:146
+#, php-format
+msgid "Featured %s"
+msgstr "Empfohlene %s"
+
+# @ shop-front
+#: includes/edd-functions.php:198 includes/wp-customize.php:302
+msgid "View all"
+msgstr "Alle anzeigen"
+
+# @ shop-front
+#: includes/edd-functions.php:236 includes/edd-functions.php:522
+#: includes/wp-customize.php:381
+msgid "Cart"
+msgstr "Einkaufswagen"
+
+# @ shop-front
+#: includes/edd-functions.php:236 includes/edd-functions.php:519
+#: includes/wp-customize.php:382
+msgid "Basket"
+msgstr "Warenkorb"
+
+#: includes/edd-functions.php:285
+msgid "Remove Discount"
+msgstr "Gutschein/Rabattcode entfernen"
+
+#: includes/edd-functions.php:285
+msgid "remove"
+msgstr "entfernen"
+
+# @ shop-front
+#: includes/edd-functions.php:385
+#, php-format
+msgid ""
+"No checkout page has been configured. Visit <a href=\"%s\">Settings</a> to "
+"set one."
+msgstr ""
+"Es wurde keine Kassenseite eingerichtet. Wähle diese in den <a href=\"%s"
+"\">Einstellungen</a> aus."
+
+# @ shop-front
+#: includes/edd-functions.php:394
+msgid "Purchase"
+msgstr "Kaufen"
+
+# @ edd
+#: includes/edd-functions.php:438
+#, php-format
+msgid "Includes %1$s&#37; tax"
+msgstr "Enthält %1$s&#37; Steuern"
+
+# @ shop-front
+#: includes/edd-functions.php:481
+msgid "Go to Checkout"
+msgstr "Zur Kasse gehen"
+
+# @ shop-front
+#: includes/edd-functions.php:481
+msgid "Checkout"
+msgstr "Kasse"
+
+# @ shop-front
+#: includes/edd-functions.php:525
+#, php-format
+msgid "<p class=\"alert notice\">Your %1$s is empty</p>"
+msgstr "<p class=\"alert notice\">Dein %1$s ist leer</p>"
+
+#: includes/edd-functions.php:571
+msgid "cart"
+msgstr "Einkaufswagen"
+
+# @ shop-front
+#: includes/edd-functions.php:571
+msgid "basket"
+msgstr "Warenkorb"
+
+# @ shop-front
+#: includes/edd-functions.php:575
+msgid "Add to"
+msgstr "Hinzufügen zum"
+
+# @ shop-front
+#: includes/edd-functions.php:612
+#, php-format
+msgid "Categories: %1$s"
+msgstr "Kategorien: %1$s"
+
+# @ shop-front
+#: includes/edd-functions.php:615
+#, php-format
+msgid "Tags: %2$s"
+msgstr "Schlagworte: %2$s"
+
+# @ shop-front
+#: includes/edd-shortcodes.php:41 includes/edd-shortcodes.php:65
+#: partials/download-grid.php:13 partials/download-grid.php:40
+msgid "View "
+msgstr "Anzeigen: "
+
+# @ shop-front
+#: includes/navigation.php:124
+msgid "Primary Menu"
+msgstr "Primäre Navigation"
+
+# @ shop-front
+#: includes/navigation.php:125
+msgid "Secondary Menu"
+msgstr "Sekundäre Navigation"
+
+# @ shop-front
+#: includes/navigation.php:136
+msgid "Menu"
+msgstr "Menü"
+
+# @ shop-front
+#: includes/navigation.php:190
+msgid "Download navigation"
+msgstr "Download-Navigation"
+
+# @ shop-front
+#: includes/navigation.php:194
+msgid "<i class=\"icon icon-arrow-left\"></i>"
+msgstr "<i class=\"icon icon-arrow-left\"></i>"
+
+# @ shop-front
+#: includes/navigation.php:195
+msgid "<i class=\"icon icon-arrow-right\"></i>"
+msgstr "<i class=\"icon icon-arrow-right\"></i>"
+
+# @ shop-front
+#: includes/navigation.php:229 page-templates/blog.php:60 search.php:38
+msgid "Post navigation"
+msgstr "Beitrags-Navigation"
+
+# @ shop-front
+#: includes/navigation.php:233 page-templates/blog.php:64
+msgid ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Newer</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Neuere</span>"
+
+# @ shop-front
+#: includes/navigation.php:234 page-templates/blog.php:65
+msgid ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Older</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Ältere</span>"
+
+# @ shop-front
+#: includes/sidebars.php:15
+msgid "Primary"
+msgstr "Primär"
+
+# @ shop-front
+#: includes/sidebars.php:16
+msgid "The main (primary) widget area."
+msgstr "Der primäre Widget-Bereich."
+
+# @ shop-front
+#: includes/sidebars.php:25
+msgid "Single Download"
+msgstr "Einzelner Download"
+
+# @ shop-front
+#: includes/sidebars.php:26
+msgid "Shown on each single download page"
+msgstr "Angezeigt auf jeder einzelnen Download-Seite"
+
+# @ shop-front
+#: includes/sidebars.php:35
+msgid "Footer 1"
+msgstr "Footer 1"
+
+# @ shop-front
+#: includes/sidebars.php:36
+msgid "The first footer widget area."
+msgstr "Der erste Footer-Widget-Bereich."
+
+# @ shop-front
+#: includes/sidebars.php:45
+msgid "Footer 2"
+msgstr "Footer 2"
+
+# @ shop-front
+#: includes/sidebars.php:46
+msgid "The second footer widget area."
+msgstr "Der zweite Footer-Widget-Bereich."
+
+# @ shop-front
+#: includes/sidebars.php:55
+msgid "Footer 3"
+msgstr "Footer 3"
+
+# @ shop-front
+#: includes/sidebars.php:56
+msgid "The third footer widget area."
+msgstr "Der dritter Footer-Widget-Bereich."
+
+# @ shop-front
+#: includes/sidebars.php:65
+msgid "Footer 4"
+msgstr "Footer 4"
+
+# @ shop-front
+#: includes/sidebars.php:66
+msgid "The fourth footer widget area."
+msgstr "Der vierte Footer-Widget-Bereich."
+
+# @ shopfront
+#: includes/theme-functions.php:18 includes/theme-functions.php:21
+msgid ", "
+msgstr ","
+
+# @ shopfront
+#: includes/theme-functions.php:32
+#, php-format
+msgid "View all posts by %s"
+msgstr "Alle Beiträge nach %s anzeigen"
+
+# @ shopfront
+#: includes/theme-functions.php:38
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+"Dieser Beitrag wurde veröffentlicht in %1$s und markiert mit %2$s am "
+"%3$s<span class=\"by-author\"> von %4$s</span>."
+
+# @ shopfront
+#: includes/theme-functions.php:40
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+"Dieser Beitrag wurde veröffentlicht in %1$s am %3$s<span class=\"by-author"
+"\"> von %4$s</span>."
+
+# @ shopfront
+#: includes/theme-functions.php:42
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+"Dieser Beitrag wurde veröffentlicht am %3$s<span class=\"by-author\"> von "
+"%4$s</span>."
+
+# @ shop-front
+#: includes/theme-functions.php:86
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+# @ shop-front
+#: includes/theme-functions.php:239
+msgid "Read more"
+msgstr "Weiterlesen"
+
+# @ shop-front
+#: includes/theme-functions.php:362
+#, php-format
+msgid ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\">%2$s %3$s %4$s</time>"
+msgstr ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\">%2$s %3$s %4$s</time>"
+
+# @ shop-front
+#: includes/theme-functions.php:371
+#, php-format
+msgid ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\"><span class=\"full-date\">"
+"%2$s</span></time>"
+msgstr ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\"><span class=\"full-date\">"
+"%2$s</span></time>"
+
+# @ shop-front
+#: includes/theme-options.php:10
+msgid "Theme Options"
+msgstr "Theme-Optionen"
+
+# @ shop-front
+#: includes/theme-options.php:21
+msgid "Shop Front Theme Options"
+msgstr "Shop-Front-Theme-Optionen"
+
+# @ shop-front
+#: includes/theme-options.php:193
+msgid "Copyright &copy;"
+msgstr "Copyright &copy;"
+
+# @ shop-front
+#: includes/updater.php:45
+msgid "Theme License Options"
+msgstr "Theme-Lizenz-Optionen"
+
+#: includes/updater.php:46
+msgid "Enter your license key to receive Automatic Theme Updates."
+msgstr ""
+"Hinterlege den Lizenzschlüssel um automatische Theme-Updates zu erhalten."
+
+# @ shop-front
+#: includes/updater.php:55
+msgid "Shop Front License Key"
+msgstr "Shop-Front-Lizenzschlüssel"
+
+#: includes/updater.php:59
+msgid "Enter Your License Key"
+msgstr "Gib deinen Lizenzschlüssel ein."
+
+#: includes/updater.php:65
+msgid "Active"
+msgstr "Aktiv"
+
+#: includes/updater.php:67
+msgid "Deactivate License"
+msgstr "Lizenz deaktivieren"
+
+#: includes/updater.php:74
+msgid "Deactivated"
+msgstr "Deaktiviert"
+
+#: includes/updater.php:77
+msgid "Activate License"
+msgstr "Lizenz aktivieren"
+
+# @ shop-front
+#: includes/wp-customize.php:158
+msgid "Homepage"
+msgstr "Startseite"
+
+# @ shop-front
+#: includes/wp-customize.php:167
+msgid "Shop"
+msgstr "Shop"
+
+# @ shop-front
+#: includes/wp-customize.php:176
+msgid "General"
+msgstr "Allgemein"
+
+# @ shop-front
+#: includes/wp-customize.php:183
+msgid "Styling"
+msgstr "Gestaltung"
+
+# @ shop-front
+#: includes/wp-customize.php:192
+msgid "Footer"
+msgstr "Footer"
+
+# @ shop-front
+#: includes/wp-customize.php:202
+msgid "Blog Page Template"
+msgstr "Blog-Seiten-Template"
+
+# @ shop-front
+#: includes/wp-customize.php:209
+msgid "Typography"
+msgstr "Typographie"
+
+# @ shop-front
+#: includes/wp-customize.php:231
+msgid "Copyright"
+msgstr "Copyright"
+
+# @ shop-front
+#: includes/wp-customize.php:254
+msgid "Featured Downloads To Show"
+msgstr "Empfohlene Downloads zum Anzeigen"
+
+# @ shop-front
+#: includes/wp-customize.php:256
+msgid "-1 shows all downloads. Enter 0 to disable."
+msgstr "-1 zum Anzeigen aller Downloads, 0 zum Deaktivieren."
+
+# @ shop-front
+#: includes/wp-customize.php:270
+msgid "Latest Downloads To Show"
+msgstr "Neuste Downloads zum Anzeigen"
+
+# @ shop-front
+#: includes/wp-customize.php:272
+msgid "Leave blank to show all. Enter 0 to disable."
+msgstr "Leer lassen um alle anzuzeigen, 0 zum Deaktivieren."
+
+# @ shop-front
+#: includes/wp-customize.php:285 includes/wp-customize.php:356
+msgid "Download Columns"
+msgstr "Download-Spalten"
+
+# @ shop-front
+#: includes/wp-customize.php:289 includes/wp-customize.php:360
+#: includes/wp-customize.php:603
+msgid "1"
+msgstr "1"
+
+# @ shop-front
+#: includes/wp-customize.php:290 includes/wp-customize.php:361
+#: includes/wp-customize.php:604
+msgid "2"
+msgstr "2"
+
+# @ shop-front
+#: includes/wp-customize.php:291 includes/wp-customize.php:362
+#: includes/wp-customize.php:605
+msgid "3"
+msgstr "3"
+
+# @ shop-front
+#: includes/wp-customize.php:292 includes/wp-customize.php:363
+#: includes/wp-customize.php:606
+msgid "4"
+msgstr "4"
+
+# @ shop-front
+#: includes/wp-customize.php:307
+msgid "Button Text"
+msgstr "Button-Text"
+
+# @ shop-front
+#: includes/wp-customize.php:309
+msgid "Leave blank to disable."
+msgstr "Leer lassen zum Deaktivieren"
+
+# @ shop-front
+#: includes/wp-customize.php:324
+msgid "Shop Title"
+msgstr "Shop-Titel"
+
+# @ shop-front
+#: includes/wp-customize.php:326
+msgid "Leave blank to disable"
+msgstr "Leer lassen zum Deaktivieren"
+
+# @ shop-front
+#: includes/wp-customize.php:339
+msgid "Downloads Per Page"
+msgstr "Downloads pro Seite"
+
+# @ shop-front
+#: includes/wp-customize.php:341
+msgid "Leave blank to show all"
+msgstr "Leer lassen um alle anzuzeigen"
+
+# @ shop-front
+#: includes/wp-customize.php:377
+msgid "Display Cart or Basket?"
+msgstr "Einkaufswagen oder Warenkorb anzeigen?"
+
+# @ shop-front
+#: includes/wp-customize.php:392
+msgid "Show icon in navigation?"
+msgstr "Icons in der Navigation anzeigen?"
+
+# @ shop-front
+#: includes/wp-customize.php:404
+msgid "Icon Alignment"
+msgstr "Icon-Ausrichtung"
+
+# @ shop-front
+#: includes/wp-customize.php:408
+msgid "Left"
+msgstr "Links"
+
+# @ shop-front
+#: includes/wp-customize.php:409
+msgid "Right"
+msgstr "Rechts"
+
+# @ shop-front
+#: includes/wp-customize.php:427 includes/wp-customize.php:441
+msgid "Blog Template Posts Per Page"
+msgstr "Blog-Template Beiträge pro Seite"
+
+# @ shop-front
+#: includes/wp-customize.php:429
+msgid ""
+"Leave blank to use the \"Blog pages show at most\" number under Settings "
+"&rarr; Reading. Enter -1 to show all blog posts."
+msgstr ""
+"Leer lassen um die Anzahl \"Blogseiten zeigen maximal\"  unter Einstellungen "
+"&rarr; Lesen zu verwenden. -1 eingeben um alle Blog-Beiträge anzuzeigen."
+
+# @ shop-front
+#: includes/wp-customize.php:445
+msgid "Excerpts"
+msgstr "Auszüge"
+
+# @ shop-front
+#: includes/wp-customize.php:446
+msgid "Full Content"
+msgstr "Gesamter Inhalt"
+
+# @ shop-front
+#: includes/wp-customize.php:467
+msgid "Theme Style"
+msgstr "Theme-Stil"
+
+# @ shop-front
+#: includes/wp-customize.php:483
+msgid "Logo"
+msgstr "Logo"
+
+# @ shopfront
+#: includes/wp-customize.php:504
+msgid "Typography Stylesheet"
+msgstr "Typographie-Stylesheet"
+
+# @ shop-front
+#: page-templates/archives.php:21
+msgid "Last 10 Posts:"
+msgstr "Letzte 10 Beiträge:"
+
+# @ shop-front
+#: page-templates/archives.php:48
+msgid "No posts found"
+msgstr "Keine Beiträge gefunden"
+
+# @ shop-front
+#: page-templates/archives.php:52
+msgid "Archives by Month:"
+msgstr "Archive nach Monat:"
+
+# @ shop-front
+#: page-templates/archives.php:57
+msgid "Archives by Subject:"
+msgstr "Archive nach Thema:"
+
+# @ shop-front
+#: page-templates/blog.php:81
+msgid "Not Found"
+msgstr "Nicht gefunden"
+
+# @ shop-front
+#: page-templates/blog.php:82
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr ""
+"Entschuldigung, aber du hast nach etwas gesucht, das hier nicht zu finden "
+"ist."
+
+#: page-templates/contact.php:32
+msgid "Thanks for getting in touch!"
+msgstr "Danke für die Kontaktaufnahme!"
+
+# @ shop-front
+#: page-templates/contact.php:37
+msgid "Please enter your name."
+msgstr "Bitte den Namen eingeben."
+
+# @ shop-front
+#: page-templates/contact.php:38
+msgid "Please enter your email address."
+msgstr "Bitte die E-Mail-Adresse eingeben."
+
+#: page-templates/contact.php:39
+msgid "You entered an invalid email address."
+msgstr "Du hast eine ungültige E-Mail-Adresse eingegeben."
+
+# @ shop-front
+#: page-templates/contact.php:40
+msgid "Please enter a message."
+msgstr "Bitte eine Nachricht eingeben."
+
+#: page-templates/contact.php:111
+msgid "Oops, there seems to be a problem."
+msgstr "Hoppla, es scheint ein Problem zu geben."
+
+# @ shop-front
+#: page-templates/contact.php:121
+msgid "Please enter your name"
+msgstr "Bitte den Namen eingeben."
+
+# @ shop-front
+#: page-templates/contact.php:132
+msgid "Please enter a valid email address"
+msgstr "Bitte eine gültige E-Mail-Adresse eingeben."
+
+# @ shop-front
+#: page-templates/contact.php:132
+msgid "Please enter your email address"
+msgstr "Bitte die E-Mail-Adresse eingeben."
+
+#: page-templates/contact.php:143
+msgid "Message"
+msgstr "Nachricht"
+
+# @ shop-front
+#: page-templates/contact.php:145
+msgid "Please enter a message"
+msgstr "Bitte eine Nachricht eingeben."
+
+#: page-templates/contact.php:155
+msgid "Send"
+msgstr "Absenden"
+
+# @ shop-front
+#: search.php:29
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+"Entschuldigung, aber nichts trifft auf deine Suchkriterien zu. Bitte "
+"versuche es noch einmal mit anderen Suchbegriffen."
+
+# @ shop-front
+#: search.php:41
+msgid ""
+"<i class=\"icon icon-arrow-left\"></i><span class=\"text\">Previous Page</"
+"span>"
+msgstr ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Vorherige Seite</"
+"span>"
+
+# @ shop-front
+#: search.php:42
+msgid ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Next Page</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Nächste Seite</"
+"span>"
+
+# @ shop-front
+#: searchform.php:10
+msgid "Search"
+msgstr "Suche"
