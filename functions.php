@@ -6,7 +6,7 @@
 
 
 if ( !defined( 'SHOPFRONT_THEME_VERSION' ) )
-	define( 'SHOPFRONT_THEME_VERSION', '1.1.3' );
+	define( 'SHOPFRONT_THEME_VERSION', '1.1.4' );
 
 if ( !defined( 'SHOPFRONT_INCLUDES_DIR' ) )
 	define( 'SHOPFRONT_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
