@@ -15,10 +15,10 @@ if ( ! function_exists( 'shopfront_entry_meta' ) ) :
  */
 function shopfront_entry_meta() {
 	// Translators: used between list items, there is a space after the comma.
-	$categories_list = get_the_category_list( __( ', ', 'shopfront' ) );
+	$categories_list = get_the_category_list( __( ', ', 'shop-front' ) );
 
 	// Translators: used between list items, there is a space after the comma.
-	$tag_list = get_the_tag_list( '', __( ', ', 'shopfront' ) );
+	$tag_list = get_the_tag_list( '', __( ', ', 'shop-front' ) );
 
 	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
 		esc_url( get_permalink() ),
@@ -29,17 +29,17 @@ function shopfront_entry_meta() {
 
 	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'shopfront' ), get_the_author() ) ),
+		esc_attr( sprintf( __( 'View all posts by %s', 'shop-front' ), get_the_author() ) ),
 		get_the_author()
 	);
 
 	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
 	if ( $tag_list ) {
-		$utility_text = __( 'This entry was posted in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'shopfront' );
+		$utility_text = __( 'This entry was posted in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'shop-front' );
 	} elseif ( $categories_list ) {
-		$utility_text = __( 'This entry was posted in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'shopfront' );
+		$utility_text = __( 'This entry was posted in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'shop-front' );
 	} else {
-		$utility_text = __( 'This entry was posted on %3$s<span class="by-author"> by %4$s</span>.', 'shopfront' );
+		$utility_text = __( 'This entry was posted on %3$s<span class="by-author"> by %4$s</span>.', 'shop-front' );
 	}
 
 	printf(

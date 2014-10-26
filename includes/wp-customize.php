@@ -501,7 +501,7 @@ function shopfront_customize_register( $wp_customize ) {
 		$typography = shopfront_get_typography_css_files( get_stylesheet_directory() . '/typography/', 'css', get_stylesheet_directory_uri() . '/typography/' );
 
 		$wp_customize->add_control( 'typography', array(
-			'label' => __( 'Typography Stylesheet', 'shopfront' ),
+			'label' => __( 'Typography Stylesheet', 'shop-front' ),
 			'section' => 'shopfront_section_typography',
 			'type'    => 'select',
 			'priority' => 50,
