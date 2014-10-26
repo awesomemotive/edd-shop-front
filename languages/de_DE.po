@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Shop Front v1.1.3\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 09:48+0100\n"
-"PO-Revision-Date: 2014-05-27 09:56+0100\n"
+"Project-Id-Version: Shop Front v1.1.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/shop-front\n"
+"POT-Creation-Date: 2014-10-26 13:26:04+00:00\n"
+"PO-Revision-Date: 2014-10-26 14:34+0100\n"
 "Last-Translator: Carsten Scheuer <scheuer@inveris.de>\n"
 "Language-Team: Carsten Scheuer <scheuer@inveris.de>\n"
 "Language: de_DE\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
@@ -32,14 +32,12 @@ msgstr "Sieht so aus als konnte nicht gefunden, wonach du gesucht hast."
 # @ shop-front
 #: archive-download.php:53 includes/edd-functions.php:109
 #: taxonomy-download_category.php:55 taxonomy-download_tag.php:56
-#, php-format
 msgid "No %s to display"
 msgstr "Keine %s zum Anzeigen"
 
 # @ shop-front
 #: archive-download.php:57 includes/edd-functions.php:113
 #: taxonomy-download_category.php:59 taxonomy-download_tag.php:60
-#, php-format
 msgid "Ready to add your first %s? <a href=\"%s\">Get started here</a>."
 msgstr "Bereit für deinen ersten %s? <a href=\"%s\">Hier geht&rsquo;s los</a>."
 
@@ -63,7 +61,6 @@ msgstr "Keine Beiträge zum Anzeigen"
 
 # @ shop-front
 #: archive.php:31 index.php:53
-#, php-format
 msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
 msgstr ""
 "Bereits deinen ersten Beitrag zu veröffentlichen? <a href=\"%s\">Hier "
@@ -80,13 +77,11 @@ msgstr ""
 
 # @ shop-front
 #: author.php:30
-#, php-format
 msgid "Author Archives: %s"
 msgstr "Autorenarchiv: %s"
 
 # @ shop-front
 #: author.php:49 content-single.php:32
-#, php-format
 msgid "About %s"
 msgstr "Über %s"
 
@@ -110,7 +105,6 @@ msgstr ""
 
 # @ shop-front
 #: comments.php:29
-#, php-format
 msgid "One comment"
 msgid_plural "%1$s comments"
 msgstr[0] "Ein Kommentar"
@@ -143,7 +137,6 @@ msgstr "Bearbeiten"
 
 # @ shop-front
 #: content-single.php:36
-#, php-format
 msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Alle Beiträge von %s anzeigen <span class=\"meta-nav\">&rarr;</span>"
 
@@ -170,7 +163,6 @@ msgstr "Von"
 
 # @ shop-front
 #: functions.php:106
-#, php-format
 msgid "Page %s"
 msgstr "Seite %s"
 
@@ -181,7 +173,6 @@ msgstr "Bild"
 
 # @ shop-front
 #: image.php:24
-#, php-format
 msgid ""
 "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
 "\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
@@ -248,14 +239,12 @@ msgstr "Kommentar"
 
 # @ default
 #: includes/comments.php:32
-#, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 "Zum Verfassen eines Kommentars musst du <a href=\"%s\">angemeldet</a> sein."
 
 # @ default
 #: includes/comments.php:33
-#, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
@@ -275,7 +264,6 @@ msgstr "Hinterlasse einen Kommentar"
 
 # @ shop-front
 #: includes/comments.php:38
-#, php-format
 msgid "Leave a Reply to %s"
 msgstr "Hinterlasse einen Kommentar zu %s"
 
@@ -296,13 +284,11 @@ msgstr "Pingback:"
 
 # @ shop-front
 #: includes/comments.php:140 includes/comments.php:143
-#, php-format
 msgid "%1$s"
 msgstr "%1$s"
 
 # @ shop-front
 #: includes/comments.php:149
-#, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s um %2$s"
 
@@ -318,13 +304,11 @@ msgstr "Dein Kommentar wartet auf Freischaltung."
 
 # @ shop-front
 #: includes/edd-functions.php:84
-#, php-format
 msgid "Latest %s"
 msgstr "Letzte %s"
 
 # @ shop-front
 #: includes/edd-functions.php:146
-#, php-format
 msgid "Featured %s"
 msgstr "Empfohlene %s"
 
@@ -355,7 +339,6 @@ msgstr "entfernen"
 
 # @ shop-front
 #: includes/edd-functions.php:385
-#, php-format
 msgid ""
 "No checkout page has been configured. Visit <a href=\"%s\">Settings</a> to "
 "set one."
@@ -370,7 +353,6 @@ msgstr "Kaufen"
 
 # @ edd
 #: includes/edd-functions.php:438
-#, php-format
 msgid "Includes %1$s&#37; tax"
 msgstr "Enthält %1$s&#37; Steuern"
 
@@ -386,7 +368,6 @@ msgstr "Kasse"
 
 # @ shop-front
 #: includes/edd-functions.php:525
-#, php-format
 msgid "<p class=\"alert notice\">Your %1$s is empty</p>"
 msgstr "<p class=\"alert notice\">Dein %1$s ist leer</p>"
 
@@ -406,13 +387,11 @@ msgstr "Hinzufügen zum"
 
 # @ shop-front
 #: includes/edd-functions.php:612
-#, php-format
 msgid "Categories: %1$s"
 msgstr "Kategorien: %1$s"
 
 # @ shop-front
 #: includes/edd-functions.php:615
-#, php-format
 msgid "Tags: %2$s"
 msgstr "Schlagworte: %2$s"
 
@@ -532,19 +511,20 @@ msgid "The fourth footer widget area."
 msgstr "Der vierte Footer-Widget-Bereich."
 
 # @ shopfront
+#. Translators: used between list items, there is a space after the comma.
 #: includes/theme-functions.php:18 includes/theme-functions.php:21
 msgid ", "
 msgstr ","
 
 # @ shopfront
 #: includes/theme-functions.php:32
-#, php-format
 msgid "View all posts by %s"
 msgstr "Alle Beiträge nach %s anzeigen"
 
 # @ shopfront
+#. Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's
+#. name.
 #: includes/theme-functions.php:38
-#, php-format
 msgid ""
 "This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
 "\"> by %4$s</span>."
@@ -554,7 +534,6 @@ msgstr ""
 
 # @ shopfront
 #: includes/theme-functions.php:40
-#, php-format
 msgid ""
 "This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
 "span>."
@@ -564,7 +543,6 @@ msgstr ""
 
 # @ shopfront
 #: includes/theme-functions.php:42
-#, php-format
 msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
 msgstr ""
 "Dieser Beitrag wurde veröffentlicht am %3$s<span class=\"by-author\"> von "
@@ -572,7 +550,6 @@ msgstr ""
 
 # @ shop-front
 #: includes/theme-functions.php:86
-#, php-format
 msgid "%s"
 msgstr "%s"
 
@@ -583,7 +560,6 @@ msgstr "Weiterlesen"
 
 # @ shop-front
 #: includes/theme-functions.php:362
-#, php-format
 msgid ""
 "\n"
 "\t\t\t<time class=\"entry-date\" datetime=\"%1$s\">%2$s %3$s %4$s</time>"
@@ -593,7 +569,6 @@ msgstr ""
 
 # @ shop-front
 #: includes/theme-functions.php:371
-#, php-format
 msgid ""
 "\n"
 "\t\t\t<time class=\"entry-date\" datetime=\"%1$s\"><span class=\"full-date\">"
@@ -841,6 +816,10 @@ msgstr "Typographie-Stylesheet"
 msgid "Last 10 Posts:"
 msgstr "Letzte 10 Beiträge:"
 
+#: page-templates/archives.php:39
+msgid "Permalink to %s"
+msgstr "Permalink zu %s"
+
 # @ shop-front
 #: page-templates/archives.php:48
 msgid "No posts found"
@@ -950,6 +929,71 @@ msgstr ""
 "span>"
 
 # @ shop-front
-#: searchform.php:10
+#: searchform.php:10 searchform.php:14
 msgid "Search"
 msgstr "Suche"
+
+# @ shop-front
+#. Theme Name of the plugin/theme
+msgid "Shop Front"
+msgstr "Shop Front"
+
+#. Theme URI of the plugin/theme
+msgid "http://sumobi.com/shop/shop-front/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A Simple, responsive & easily extensible theme for the Easy Digital "
+"Downloads plugin. It also functions perfectly without the plugin as a "
+"standard WordPress blog. A free child theme for modifications can be "
+"downloaded from sumobi.com as well as other free and paid add-ons to enhance "
+"the functionality and styling."
+msgstr ""
+"Ein schlichtes und einfach erweiterbares Theme für das Easy-Digital-"
+"Downloads-Plugin. Es kann auch hervorragend ohne das Plugin als Standard-"
+"WordPress-Blog eingesetzt werden. Ein kostenloses Child-Theme für "
+"Anpassungen kann von sumobi.com heruntergeladen werden. Das gilt ebenso für "
+"weitere kostenlose und kostenpflichtige Add-ons, mit denen die "
+"Funktionalitäten und die Gestaltung erweitert werden können."
+
+#. Author of the plugin/theme
+msgid "Andrew Munro, Sumobi"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://sumobi.com"
+msgstr ""
+
+# @ shop-front
+#. Template Name of the plugin/theme
+msgid "Archives"
+msgstr "Archive"
+
+#. Template Name of the plugin/theme
+msgid "Blog"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Contact"
+msgstr "Kontakt"
+
+#. Template Name of the plugin/theme
+msgid "Default, No Sidebar"
+msgstr "Standard, keine Sidebar"
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr "Volle Breite"
+
+#~ msgid "You have successfully added %s to your %2$s"
+#~ msgstr "Sie haben %s erfolgreich zu Ihrem %2$s hinzugefügt."
+
+#~ msgid "You have already purchased this item, but you may purchase it again."
+#~ msgstr ""
+#~ "Sie haben diesen Artikel bereits gekauft, aber Sie können ihn erneut "
+#~ "erwerben."
+
+# @ shop-front
+#~ msgid "Download"
+#~ msgstr "Herunterladen"
