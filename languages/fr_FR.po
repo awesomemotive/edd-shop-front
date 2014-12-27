@@ -1,0 +1,746 @@
+# Copyright (C) 2014 Andrew Munro, Sumobi
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Shop Front 1.1.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/shop-front\n"
+"POT-Creation-Date: 2014-12-27 10:39:28+00:00\n"
+"PO-Revision-Date: 2014-12-27 11:43+0100\n"
+"Last-Translator: fxbenard | FxB <fx@fxbenard.com>\n"
+"Language-Team: fxbenard <fx@fxbenard.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: 404.php:13
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr "C&rsquo;est plutôt gênant, vous ne trouvez pas&nbsp;?"
+
+#: 404.php:17
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
+msgstr "Il semblerait que ce que vous recherchez est introuvable."
+
+#: archive-download.php:53 includes/edd-functions.php:109
+#: taxonomy-download_category.php:55 taxonomy-download_tag.php:56
+msgid "No %s to display"
+msgstr "Aucun %s à afficher"
+
+#: archive-download.php:57 includes/edd-functions.php:113
+#: taxonomy-download_category.php:59 taxonomy-download_tag.php:60
+msgid "Ready to add your first %s? <a href=\"%s\">Get started here</a>."
+msgstr ""
+"Prêt à publier votre premier %s&nbsp;? <a href=\"%s\">Lancez-vous</a>&nbsp;!"
+
+#: archive-download.php:63 archive.php:38 category.php:49 index.php:60
+#: search.php:25 taxonomy-download_category.php:65
+#: taxonomy-download_tag.php:66
+msgid "Nothing Found"
+msgstr "Rien n'a été trouvé"
+
+#: archive-download.php:67 taxonomy-download_category.php:69
+#: taxonomy-download_tag.php:70
+msgid "Sorry, there's nothing here just yet."
+msgstr "Désolé, il n&#39;y a rien ici pour l&#39;instant."
+
+#: archive.php:27 index.php:49
+msgid "No posts to display"
+msgstr "Aucun article à afficher"
+
+#: archive.php:31 index.php:53
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+"Prêt à publier votre premier article&nbsp;? <a href=\"%s\">Lancez-vous</"
+"a>&nbsp;!"
+
+#: archive.php:42 index.php:64
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+"Toutes nos excuses, mais votre requête n&rsquo;a donné aucun résultat. Peut-"
+"être qu&rsquo;une recherche peut vous indiquer un article lié."
+
+#: author.php:30
+msgid "Author Archives: %s"
+msgstr "Archives de l&rsquo;auteur&nbsp;: %s"
+
+#: author.php:49 content-single.php:32
+msgid "About %s"
+msgstr "À propos de %s"
+
+#: category.php:53
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr ""
+"Toutes nos excuses, mais votre requête pour cette archive n&rsquo;a donné "
+"aucun résultat. Peut-être aurez-vous plus de chance en lançant une "
+"recherche..."
+
+#: comments.php:11
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Cet article est protégé par un mot de passe. Veuillez le saisir pour pouvoir "
+"lire ses commentaires."
+
+#: comments.php:29
+msgid "One comment"
+msgid_plural "%1$s comments"
+msgstr[0] "Un commentaire"
+msgstr[1] "%1$s commentaires"
+
+#: comments.php:36 comments.php:55
+msgid "Comment navigation"
+msgstr "Navigation des commentaires"
+
+#: comments.php:37 comments.php:56
+msgid "&larr; Older Comments"
+msgstr "&larr; Commentaires plus anciens"
+
+#: comments.php:38 comments.php:57
+msgid "Newer Comments &rarr;"
+msgstr "Commentaires plus récents &rarr;"
+
+#: content-page.php:17 content-single.php:18 content.php:40 image.php:93
+msgid "Pages:"
+msgstr "Pages :"
+
+#: content-single.php:25 content.php:58 image.php:35 includes/comments.php:119
+msgid "Edit"
+msgstr "Modifier..."
+
+#: content-single.php:36
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Voir tous les articles de %s <span class=\"meta-nav\">&rarr;</span>"
+
+#: content.php:19
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Continue la lecture <span class=\"meta-nav\">&rarr;</span>"
+
+#: edd_templates/shortcode-content-price.php:21
+msgid "Coming soon"
+msgstr "Prochainement"
+
+#: edd_templates/shortcode-content-price.php:32 includes/edd-functions.php:417
+msgid "Free"
+msgstr "Gratuit"
+
+#: edd_templates/shortcode-content-price.php:43
+msgid "From"
+msgstr "À partir de"
+
+#: functions.php:106
+msgid "Page %s"
+msgstr "Page %s"
+
+#: functions.php:135
+msgid "Featured Image"
+msgstr "Image à la Une"
+
+#: image.php:24
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+"<span class=\"meta-prep meta-prep-entry-date\">Publié le </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> à <a href=\"%3$s\" title=\"Lien vers l'image en taille originale\">"
+"%4$s &times; %5$s</a> dans <a href=\"%6$s\" title=\"Revenir à %7$s\" rel="
+"\"gallery\">%8$s</a>."
+
+#: image.php:39
+msgid ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Previous</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Précédent</span>"
+
+#: image.php:40
+msgid "<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Next</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Suivant</span>"
+
+#: includes/comments.php:21
+msgid "Name"
+msgstr "Nom"
+
+#: includes/comments.php:22
+msgid "Please enter your Name"
+msgstr "Veuillez entrer votre nom"
+
+#: includes/comments.php:23
+msgid "Email"
+msgstr "E-Mail"
+
+#: includes/comments.php:24
+msgid "Please enter your Email"
+msgstr "Veuillez entrer votre e-mail"
+
+#: includes/comments.php:25
+msgid "Website"
+msgstr "Site Web"
+
+#: includes/comments.php:31
+msgid "Comment"
+msgstr "Commentaire"
+
+#: includes/comments.php:32
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+"Vous devez <a href=\"%s\">être connecté</a> pour rédiger un commentaire."
+
+#: includes/comments.php:33
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+"Connecté en tant que <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Se "
+"déconnecter de ce compte\">Se déconnecter&nbsp;?</a>"
+
+#: includes/comments.php:34
+msgid "Your email address will <strong>not</strong> be published."
+msgstr "Votre adresse e-mail ne sera <strong>pas</strong> publiée."
+
+#: includes/comments.php:37
+msgid "Leave a Reply"
+msgstr "Répondre"
+
+#: includes/comments.php:38
+msgid "Leave a Reply to %s"
+msgstr "Répondre à %s"
+
+#: includes/comments.php:39
+msgid "Cancel"
+msgstr "Annuler"
+
+#: includes/comments.php:40
+msgid "Post Comment"
+msgstr "Laisser un commentaire"
+
+#: includes/comments.php:119
+msgid "Pingback:"
+msgstr "Ping&nbsp;:"
+
+#: includes/comments.php:140 includes/comments.php:143
+msgid "%1$s"
+msgstr "%1$s"
+
+#: includes/comments.php:149
+msgid "%1$s at %2$s"
+msgstr "%1$s à %2$s"
+
+#: includes/comments.php:166
+msgid "Reply"
+msgstr "Répondre"
+
+#: includes/comments.php:182
+msgid "Your comment is awaiting moderation."
+msgstr "Votre commentaire est en attente de modération."
+
+#: includes/edd-functions.php:84
+msgid "Latest %s"
+msgstr "Dernier %s"
+
+#: includes/edd-functions.php:146
+msgid "Featured %s"
+msgstr "%s en avant"
+
+#: includes/edd-functions.php:198 includes/wp-customize.php:302
+msgid "View all"
+msgstr "Tout afficher"
+
+#: includes/edd-functions.php:236 includes/edd-functions.php:522
+#: includes/wp-customize.php:381
+msgid "Cart"
+msgstr "Chariot"
+
+#: includes/edd-functions.php:236 includes/edd-functions.php:519
+#: includes/wp-customize.php:382
+msgid "Basket"
+msgstr "Panier"
+
+#: includes/edd-functions.php:285
+msgid "Remove Discount"
+msgstr "Retirer la remise"
+
+#: includes/edd-functions.php:285
+msgid "remove"
+msgstr "retirer"
+
+#: includes/edd-functions.php:385
+msgid ""
+"No checkout page has been configured. Visit <a href=\"%s\">Settings</a> to "
+"set one."
+msgstr ""
+"Aucune page de commande n'a été configurée. Se rendre dans les <a href=\"%s"
+"\">Réglages</a> pour en configurer une."
+
+#: includes/edd-functions.php:394
+msgid "Purchase"
+msgstr "Achat"
+
+#: includes/edd-functions.php:438
+msgid "Includes %1$s&#37; tax"
+msgstr "TVA Incluse de %1$s&#37;"
+
+#: includes/edd-functions.php:481
+msgid "Go to Checkout"
+msgstr "Allez à la page des commandes"
+
+#: includes/edd-functions.php:481
+msgid "Checkout"
+msgstr "Commande"
+
+#: includes/edd-functions.php:525
+msgid "<p class=\"alert notice\">Your %1$s is empty</p>"
+msgstr "<p class=\"alert notice\">Votre %1$s est vide</p>"
+
+#: includes/edd-functions.php:571
+msgid "cart"
+msgstr "chariot"
+
+#: includes/edd-functions.php:571
+msgid "basket"
+msgstr "panier"
+
+#: includes/edd-functions.php:575
+msgid "Add to"
+msgstr "Ajouter à"
+
+#: includes/edd-functions.php:612
+msgid "Categories: %1$s"
+msgstr "Catégories&nbsp;: %1$s"
+
+#: includes/edd-functions.php:615
+msgid "Tags: %2$s"
+msgstr "Mots-clés&nbsp;: %2$s"
+
+#: includes/edd-shortcodes.php:41 includes/edd-shortcodes.php:65
+#: partials/download-grid.php:13 partials/download-grid.php:40
+msgid "View "
+msgstr "Afficher "
+
+#: includes/navigation.php:124
+msgid "Primary Menu"
+msgstr "Menu Principal"
+
+#: includes/navigation.php:125
+msgid "Secondary Menu"
+msgstr "Menu secondaire"
+
+#: includes/navigation.php:136
+msgid "Menu"
+msgstr "Menu"
+
+#: includes/navigation.php:190
+msgid "Download navigation"
+msgstr "Navigation du téléchargement"
+
+#: includes/navigation.php:194
+msgid "<i class=\"icon icon-arrow-left\"></i>"
+msgstr "<i class=\"icon icon-arrow-left\"></i>"
+
+#: includes/navigation.php:195
+msgid "<i class=\"icon icon-arrow-right\"></i>"
+msgstr "<i class=\"icon icon-arrow-right\"></i>"
+
+#: includes/navigation.php:229 page-templates/blog.php:60 search.php:38
+msgid "Post navigation"
+msgstr "Navigation de l'article"
+
+#: includes/navigation.php:233 page-templates/blog.php:64
+msgid ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Newer</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Plus récents</"
+"span>"
+
+#: includes/navigation.php:234 page-templates/blog.php:65
+msgid ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Older</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-left\"></i> <span class=\"text\">Plus anciens</"
+"span>"
+
+#: includes/sidebars.php:15
+msgid "Primary"
+msgstr "Primaire"
+
+#: includes/sidebars.php:16
+msgid "The main (primary) widget area."
+msgstr "La principale (primaire) zone de widget."
+
+#: includes/sidebars.php:25
+msgid "Single Download"
+msgstr "Téléchargement unique"
+
+#: includes/sidebars.php:26
+msgid "Shown on each single download page"
+msgstr "Affiché sur chaque page de téléchargement unique"
+
+#: includes/sidebars.php:35
+msgid "Footer 1"
+msgstr "Pied de page 1"
+
+#: includes/sidebars.php:36
+msgid "The first footer widget area."
+msgstr "La première zone de widgets du pied de page."
+
+#: includes/sidebars.php:45
+msgid "Footer 2"
+msgstr "Pied de page 2"
+
+#: includes/sidebars.php:46
+msgid "The second footer widget area."
+msgstr "La seconde zone de widget."
+
+#: includes/sidebars.php:55
+msgid "Footer 3"
+msgstr "Pied de page 3"
+
+#: includes/sidebars.php:56
+msgid "The third footer widget area."
+msgstr "La troisième zone de widget."
+
+#: includes/sidebars.php:65
+msgid "Footer 4"
+msgstr "Pied de page 4"
+
+#: includes/sidebars.php:66
+msgid "The fourth footer widget area."
+msgstr "La quatrième zone de widgets du pied de page."
+
+#. Translators: used between list items, there is a space after the comma.
+#: includes/theme-functions.php:18 includes/theme-functions.php:21
+msgid ", "
+msgstr ", "
+
+#: includes/theme-functions.php:32
+msgid "View all posts by %s"
+msgstr "Afficher tous les articles de %s"
+
+#. Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's
+#. name.
+#: includes/theme-functions.php:38
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+"Cette entrée a été publiée dans %1$s, et étiquetée avec %2$s, le %3$s <span "
+"class=\"by-author\">par %4$s</span>."
+
+#: includes/theme-functions.php:40
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+"Cette entrée a été publiée dans %1$s le %3$s <span class=\"by-author\">par "
+"%4$s</span>."
+
+#: includes/theme-functions.php:42
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+"Cette entrée a été publiée le %3$s <span class=\"by-author\">par %4$s</span>."
+
+#: includes/theme-functions.php:86
+msgid "%s"
+msgstr "%s"
+
+#: includes/theme-functions.php:239
+msgid "Read more"
+msgstr "En savoir plus"
+
+#: includes/theme-functions.php:362
+msgid ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\">%2$s %3$s %4$s</time>"
+msgstr ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\">%2$s %3$s %4$s</time>"
+
+#: includes/theme-functions.php:371
+msgid ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\"><span class=\"full-date\">"
+"%2$s</span></time>"
+msgstr ""
+"\n"
+"\t\t\t<time class=\"entry-date\" datetime=\"%1$s\"><span class=\"full-date\">"
+"%2$s</span></time>"
+
+#: includes/theme-options.php:10
+msgid "Theme Options"
+msgstr "Options du thème"
+
+#: includes/theme-options.php:21
+msgid "Shop Front Theme Options"
+msgstr "Options du thème Shop Front"
+
+#: includes/theme-options.php:193
+msgid "Copyright &copy;"
+msgstr "Droit d'auteur &copy;"
+
+#: includes/wp-customize.php:158
+msgid "Homepage"
+msgstr "Page d'accueil"
+
+#: includes/wp-customize.php:167
+msgid "Shop"
+msgstr "Boutique"
+
+#: includes/wp-customize.php:176
+msgid "General"
+msgstr "Général"
+
+#: includes/wp-customize.php:183
+msgid "Styling"
+msgstr "Style"
+
+#: includes/wp-customize.php:192
+msgid "Footer"
+msgstr "Pied de page"
+
+#: includes/wp-customize.php:202
+msgid "Blog Page Template"
+msgstr "Modèle de Page du Blog"
+
+#: includes/wp-customize.php:209
+msgid "Typography"
+msgstr "Typographie"
+
+#: includes/wp-customize.php:231
+msgid "Copyright"
+msgstr "Droit d'auteur"
+
+#: includes/wp-customize.php:254
+msgid "Featured Downloads To Show"
+msgstr "Téléchargements en avant à afficher"
+
+#: includes/wp-customize.php:256
+msgid "-1 shows all downloads. Enter 0 to disable."
+msgstr "-1 pour afficher tous les téléchargements. Entrez 0 pour désactiver."
+
+#: includes/wp-customize.php:270
+msgid "Latest Downloads To Show"
+msgstr "Les derniers téléchargements à afficher"
+
+#: includes/wp-customize.php:272
+msgid "Leave blank to show all. Enter 0 to disable."
+msgstr "Laissez vide pour tout afficher. Entrez 0 pour désactiver."
+
+#: includes/wp-customize.php:285 includes/wp-customize.php:356
+msgid "Download Columns"
+msgstr "Colonnes de Téléchargement"
+
+#: includes/wp-customize.php:289 includes/wp-customize.php:360
+#: includes/wp-customize.php:603
+msgid "1"
+msgstr "1"
+
+#: includes/wp-customize.php:290 includes/wp-customize.php:361
+#: includes/wp-customize.php:604
+msgid "2"
+msgstr "2"
+
+#: includes/wp-customize.php:291 includes/wp-customize.php:362
+#: includes/wp-customize.php:605
+msgid "3"
+msgstr "3"
+
+#: includes/wp-customize.php:292 includes/wp-customize.php:363
+#: includes/wp-customize.php:606
+msgid "4"
+msgstr "4"
+
+#: includes/wp-customize.php:307
+msgid "Button Text"
+msgstr "Libellé du bouton"
+
+#: includes/wp-customize.php:309
+msgid "Leave blank to disable."
+msgstr "Laissez vide pour désactiver."
+
+#: includes/wp-customize.php:324
+msgid "Shop Title"
+msgstr "Titre de la boutique"
+
+#: includes/wp-customize.php:326
+msgid "Leave blank to disable"
+msgstr "Laissez vide pour désactiver."
+
+#: includes/wp-customize.php:339
+msgid "Downloads Per Page"
+msgstr "Téléchargements par page"
+
+#: includes/wp-customize.php:341
+msgid "Leave blank to show all"
+msgstr "Laissez vide pour tout afficher"
+
+#: includes/wp-customize.php:377
+msgid "Display Cart or Basket?"
+msgstr "Afficher un chariot ou un panier ?"
+
+#: includes/wp-customize.php:392
+msgid "Show icon in navigation?"
+msgstr "Afficher l&#39;icône dans la navigation ?"
+
+#: includes/wp-customize.php:404
+msgid "Icon Alignment"
+msgstr "Alignement de l'icône"
+
+#: includes/wp-customize.php:408
+msgid "Left"
+msgstr "À gauche"
+
+#: includes/wp-customize.php:409
+msgid "Right"
+msgstr "À droite"
+
+#: includes/wp-customize.php:427 includes/wp-customize.php:441
+msgid "Blog Template Posts Per Page"
+msgstr "Nombre et affichage des articles"
+
+#: includes/wp-customize.php:429
+msgid ""
+"Leave blank to use the \"Blog pages show at most\" number under Settings "
+"&rarr; Reading. Enter -1 to show all blog posts."
+msgstr ""
+"Laissez vide pour utiliser le nombre d'articles configuré dans Réglages -> "
+"Lecture. Entrez -1 pour afficher tous les articles."
+
+#: includes/wp-customize.php:445
+msgid "Excerpts"
+msgstr "L'extrait"
+
+#: includes/wp-customize.php:446
+msgid "Full Content"
+msgstr "Le contenu"
+
+#: includes/wp-customize.php:467
+msgid "Theme Style"
+msgstr "Style du thème"
+
+#: includes/wp-customize.php:483
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/wp-customize.php:504
+msgid "Typography Stylesheet"
+msgstr "Feuille de style typographique"
+
+#: page-templates/archives.php:21
+msgid "Last 10 Posts:"
+msgstr "Les 10 derniers articles :"
+
+#: page-templates/archives.php:39
+msgid "Permalink to %s"
+msgstr "Permalien vers %s"
+
+#: page-templates/archives.php:48
+msgid "No posts found"
+msgstr "Aucun article trouvé."
+
+#: page-templates/archives.php:52
+msgid "Archives by Month:"
+msgstr "Archives par mois :"
+
+#: page-templates/archives.php:57
+msgid "Archives by Subject:"
+msgstr "Archives par sujet :"
+
+#: page-templates/blog.php:81
+msgid "Not Found"
+msgstr "Introuvable."
+
+#: page-templates/blog.php:82
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr ""
+"Oops ! On dirait que vous cherchez quelque chose qui n'existe pas du tout "
+"par ici !"
+
+#: search.php:29
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+"Désolé, mais rien ne correspond à votre critères de recherche. Veuillez "
+"réessayer avec d&rsquo;autres mots-clefs."
+
+#: search.php:41
+msgid ""
+"<i class=\"icon icon-arrow-left\"></i><span class=\"text\">Previous Page</"
+"span>"
+msgstr ""
+"<i class=\"icon icon-arrow-left\"></i><span class=\"text\">Page précédente</"
+"span>"
+
+#: search.php:42
+msgid ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Next Page</span>"
+msgstr ""
+"<i class=\"icon icon-arrow-right\"></i><span class=\"text\">Page suivante</"
+"span>"
+
+#: searchform.php:10 searchform.php:14
+msgid "Search"
+msgstr "Rechercher..."
+
+#. Theme Name of the plugin/theme
+msgid "Shop Front"
+msgstr "Shop Front"
+
+#. Theme URI of the plugin/theme
+msgid "http://sumobi.com/shop/shop-front/"
+msgstr "http://sumobi.com/shop/shop-front/"
+
+#. Description of the plugin/theme
+msgid ""
+"A Simple, responsive & easily extensible theme for the Easy Digital "
+"Downloads plugin. It also functions perfectly without the plugin as a "
+"standard WordPress blog. A free child theme for modifications can be "
+"downloaded from sumobi.com as well as other free and paid add-ons to enhance "
+"the functionality and styling."
+msgstr ""
+"Un thème simple, responsive et facilement extensible pour l'extension Easy "
+"Digital Downloads. Il fonctionne parfaitement aussi sans l'extension comme "
+"un blog WordPress classique. Un thème enfant gratuit pour les modifications "
+"peut être téléchargé à partir sumobi.com ainsi que d&#39;autres add-ons "
+"gratuits et payants pour améliorer ses fonctionnalités et son style."
+
+#. Author of the plugin/theme
+msgid "Andrew Munro, Sumobi"
+msgstr "Andrew Munro, Sumobi"
+
+#. Author URI of the plugin/theme
+msgid "http://sumobi.com"
+msgstr "http://sumobi.com"
+
+#. Template Name of the plugin/theme
+msgid "Archives"
+msgstr "Archives"
+
+#. Template Name of the plugin/theme
+msgid "Blog"
+msgstr "Blog"
+
+#. Template Name of the plugin/theme
+msgid "Default, No Sidebar"
+msgstr "Par défaut, sans barre latérale."
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr "En pleine largeur"
+
+#~ msgid "You have successfully added %s to your %2$s"
+#~ msgstr "Vous venez d'ajouter avec succès %s à votre %2$s."
+
+#~ msgid "You have already purchased this item, but you may purchase it again."
+#~ msgstr ""
+#~ "Vous avez déjà acheté cet article, mais vous pouvez l'acheter à nouveau."
